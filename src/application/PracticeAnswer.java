@@ -37,7 +37,7 @@ public class PracticeAnswer extends Application {
 			label3.setTranslateY(100);
 			
 			label4 = new Label();
-	        label4.setText("Attemps: 1/3");
+	        label4.setText("Attempts: 1/3");
 			label4.setTranslateX(-250);
 			label4.setTranslateY(150);
 			
