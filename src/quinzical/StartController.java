@@ -8,6 +8,10 @@ public class StartController {
     public void onPlayClick(ActionEvent event) throws IOException {
         new SceneSwitcher().switchScene(event, "PlayQuestionBoard.fxml");
     }
+    public void onPracticeClick(ActionEvent event) throws IOException {
+        new SceneSwitcher().switchScene(event, "PracticeCategory.fxml");
+
+    }
 
 
 }
