@@ -1,5 +1,8 @@
 package model;
-
+/*
+ Class to represent a question in the game
+ Contains its point worth, question string, answer string, and whether it is answered or not
+ */
 public class Question {
     private Integer points;
     private String question;
