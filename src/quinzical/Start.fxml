@@ -6,15 +6,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quinzical.StartController">
    <children>
       <Label layoutX="184.0" layoutY="115.0" text="Welcome">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Button layoutX="269.0" layoutY="206.0" mnemonicParsing="false" text="Play" />
+      <Button layoutX="269.0" layoutY="206.0" mnemonicParsing="false" onAction="#onPlayClick" text="Play" />
       <Button layoutX="256.0" layoutY="251.0" mnemonicParsing="false" text="Practice" />
       <Slider layoutX="252.0" layoutY="337.0" prefHeight="15.0" prefWidth="211.0" />
       <Label layoutX="142.0" layoutY="337.0" text="Voice speed:" />
