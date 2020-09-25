@@ -18,7 +18,14 @@ public class Question {
         //this.points = Integer.parseInt(points);
         this.question = question;
         this.answerPrefix = answerPrefix;
-        this.answers = answer.strip().toLowerCase().split("/");
+        // Replacing Maori long vowels with double letter equivalents (may change)
+        this.answers = answer.strip().toLowerCase()
+                .replace("ā", "aa")
+                .replace("ē", "ee")
+                .replace("ī", "ii")
+                .replace("ō", "oo")
+                .replace("ū", "uu")
+                .split("/");
         System.out.println("CLUE: " + this.question);
         System.out.println("PREFIX: " + this.getPrefix());
         System.out.println("ANSWERS: " + this.getAnswers());
