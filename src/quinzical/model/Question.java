@@ -6,13 +6,19 @@ package quinzical.model;
 public class Question {
     private Integer points;
     private String question;
+    private String answerPrefix;
     private String answer;
+    private String[] answers;
     private boolean answered = false;
 
-    public Question(String points, String question, String answer) {
-        this.points = Integer.parseInt(points);
+    public Question(String question, String answerPrefix, String answer) {
+        //this.points = Integer.parseInt(points);
         this.question = question;
-        this.answer = answer.strip();
+        this.answerPrefix = answerPrefix;
+        this.answers = answer.strip().toLowerCase().split("/");
+        System.out.println("CLUE: " + this.question);
+        System.out.println("PREFIX: " + this.answerPrefix);
+        System.out.println("ANSWERS: " + answers.toString());
     }
 
     public boolean checkAnswer(String userAnswer) {

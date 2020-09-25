@@ -1,4 +1,4 @@
-package jeopardy;
+package quinzical.model;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -20,8 +20,10 @@ public class GameManager {
                 List questions = new ArrayList<Question>();
                 // thru all lines in category file
                 while (scanner.hasNextLine()) {
-                    String[] data = scanner.nextLine().split(",");
+                    String[] data = scanner.nextLine().split("\\|");
                     questions.add(new Question(data[0], data[1], data[2]));
+
+
                 }
                 this.categories.add(new Category(file, questions));
                 scanner.close();
