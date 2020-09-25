@@ -8,27 +8,29 @@ import java.util.Arrays;
  */
 public class Question {
     private Integer points;
-    private String question;
+    private String clue;
     private String answerPrefix;
-    private String answer;
+
     private String[] answers;
     private boolean answered = false;
 
-    public Question(String question, String answerPrefix, String answer) {
+    public Question(String clue, String answerPrefix, String answer) {
         //this.points = Integer.parseInt(points);
-        this.question = question;
+        this.clue = macronSubstitute(clue);
         this.answerPrefix = answerPrefix;
         // Replacing Maori long vowels with double letter equivalents (may change)
-        this.answers = answer.strip().toLowerCase()
-                .replace("ā", "aa")
+        this.answers = macronSubstitute(answer.strip().toLowerCase())
+                .split("/");
+        System.out.println("CLUE: " + this.clue);
+        System.out.println("PREFIX: " + this.getPrefix());
+        System.out.println("ANSWERS: " + this.getAnswers());
+    }
+    public String macronSubstitute(String oString) {
+        return oString.replace("ā", "aa")
                 .replace("ē", "ee")
                 .replace("ī", "ii")
                 .replace("ō", "oo")
-                .replace("ū", "uu")
-                .split("/");
-        System.out.println("CLUE: " + this.question);
-        System.out.println("PREFIX: " + this.getPrefix());
-        System.out.println("ANSWERS: " + this.getAnswers());
+                .replace("ū", "uu");
     }
 
     public boolean checkAnswer(String userAnswer) {
@@ -43,8 +45,8 @@ public class Question {
     public Integer getPoints() {
         return this.points;
     }
-    public String getQuestion() {
-        return this.question;
+    public String getClue() {
+        return this.clue;
     }
     public String getPrefix() {
         return this.answerPrefix.substring(0,1).toUpperCase() + this.answerPrefix.substring(1);
