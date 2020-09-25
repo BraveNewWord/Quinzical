@@ -1,4 +1,7 @@
 package quinzical.model;
+
+import java.util.Arrays;
+
 /*
  Class to represent a question in the game
  Contains its point worth, question string, answer string, and whether it is answered or not
@@ -17,14 +20,15 @@ public class Question {
         this.answerPrefix = answerPrefix;
         this.answers = answer.strip().toLowerCase().split("/");
         System.out.println("CLUE: " + this.question);
-        System.out.println("PREFIX: " + this.answerPrefix);
-        System.out.println("ANSWERS: " + answers.toString());
+        System.out.println("PREFIX: " + this.getPrefix());
+        System.out.println("ANSWERS: " + this.getAnswers());
     }
 
     public boolean checkAnswer(String userAnswer) {
-        if (userAnswer.equals(this.answer.toLowerCase())) {
-            return true;
-            //return points;
+        for (String answer : this.answers) {
+            if (userAnswer.toLowerCase().equals(answer)) {
+                return true;
+            }
         }
         return false;
     }
@@ -35,8 +39,11 @@ public class Question {
     public String getQuestion() {
         return this.question;
     }
-    public String getAnswer() {
-        return this.answer;
+    public String getPrefix() {
+        return this.answerPrefix.substring(0,1).toUpperCase() + this.answerPrefix.substring(1);
+    }
+    public String getAnswers() {
+        return Arrays.toString(answers).replaceAll("\\[|\\]", "");
     }
     public boolean isAnswered() {
         return this.answered;
