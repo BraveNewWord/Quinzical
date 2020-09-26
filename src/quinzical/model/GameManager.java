@@ -8,7 +8,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GameManager {
-    private List<Category> categories = new ArrayList<Category>();
+    private List<Category> categories = new ArrayList<>();
+    private List<Category> chosenCategories = new ArrayList<>();
     private Integer points = 0;
     private Question currentQuestion;
 
@@ -41,8 +42,15 @@ public class GameManager {
     public Category getRandomCategory() {
         Random rand = new Random();
         Category randCat = this.categories.get(rand.nextInt(this.categories.size()));
+        while (chosenCategories.contains(randCat)) {
+            randCat = this.categories.get(rand.nextInt(this.categories.size()));
+        }
+        chosenCategories.add(randCat);
         return randCat;
-        //System.out.println(randCat.getName());
+    }
+
+    public void clearChosenCategories() {
+        chosenCategories.clear();
     }
 
     public boolean questionsExist() {

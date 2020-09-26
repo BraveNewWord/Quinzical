@@ -60,4 +60,7 @@ public class Question {
     public void setAnswered(boolean value) {
         this.answered = value;
     }
+    public void setPoints(Integer points) {
+        this.points = points;
+    }
 }
