@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class GameManager {
@@ -36,6 +37,14 @@ public class GameManager {
     public List<Category> categories() {
         return this.categories;
     }
+
+    public Category getRandomCategory() {
+        Random rand = new Random();
+        Category randCat = this.categories.get(rand.nextInt(this.categories.size()));
+        return randCat;
+        //System.out.println(randCat.getName());
+    }
+
     public boolean questionsExist() {
         for (Category category : categories){
             if (category.hasQuestions()) {

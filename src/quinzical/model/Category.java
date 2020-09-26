@@ -2,6 +2,7 @@ package quinzical.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Category {
     private String name;
@@ -17,6 +18,13 @@ public class Category {
 
     public List<Question> getQuestions() {
         return questions;
+    }
+
+    public Question getRandomQuestion() {
+        Random rand = new Random();
+        Question randQuestion = this.questions.get(rand.nextInt(this.questions.size()));
+        return randQuestion;
+        //System.out.println(randCat.getName());
     }
 
     public boolean hasQuestions() {
