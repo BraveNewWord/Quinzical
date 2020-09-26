@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Category {
     private String name;
-    private List<Question> questions;
-    private List<Question> chosenQuestions;
+    private List<Question> questions = new ArrayList<>();
+    private List<Question> chosenQuestions = new ArrayList<>();
 
     public Category(String name, List questions) {
         this.name = name;
