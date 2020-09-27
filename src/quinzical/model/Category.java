@@ -35,6 +35,10 @@ public class Category {
         chosenQuestions.clear();
     }
 
+    public List<Question> getChosenQuestions() {
+        return this.chosenQuestions;
+    }
+
     public boolean hasQuestions() {
         for (Question question : questions) {
             if (question.isAnswered() == false) {

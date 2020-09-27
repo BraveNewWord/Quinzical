@@ -53,6 +53,10 @@ public class GameManager {
         chosenCategories.clear();
     }
 
+    public List<Category> getChosenCategories() {
+        return this.chosenCategories;
+    }
+
     public boolean questionsExist() {
         for (Category category : categories){
             if (category.hasQuestions()) {

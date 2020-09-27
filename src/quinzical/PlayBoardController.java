@@ -46,17 +46,25 @@ public class PlayBoardController {
         Category randCat;
         for (int i = 0; i < 5; i++) {
             randCat = game.getRandomCategory();
-            labels.get(i).setText(randCat.getName());
-            /*
             for (int j = 0; j < 5; j++) {
                 Question randQuestion = randCat.getRandomQuestion();
-                randQuestion.setPoints(j*100+100);
-                System.out.println("CLUE: " + randQuestion.getClue());
-                System.out.println("PREFIX: " + randQuestion.getPrefix());
-                System.out.println("ANSWERS: " + randQuestion.getAnswers());
-                System.out.println("POINTS: " + randQuestion.getPoints());
+                randQuestion.setPoints(j * 100 + 100);
             }
-             */
+        }
+
+        for (int i = 0; i < 5; i++) {
+            Category chosenCat = game.getChosenCategories().get(i);
+            labels.get(i).setText(chosenCat.getName());
+            for (int j = 0; j < 5; j++) {
+                Question chosenQuestion = chosenCat.getChosenQuestions().get(j);
+                colButtons.get(i).get(j).setText(Integer.toString(chosenQuestion.getPoints()));
+
+                //System.out.println("CLUE: " + randQuestion.getClue());
+                //System.out.println("PREFIX: " + randQuestion.getPrefix());
+                //System.out.println("ANSWERS: " + randQuestion.getAnswers());
+                //System.out.println("POINTS: " + randQuestion.getPoints());
+            }
+
         }
     }
 
