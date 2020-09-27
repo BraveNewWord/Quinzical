@@ -74,6 +74,6 @@ public class PlayBoardController {
     }
 
     public void onButtonClick(ActionEvent event) throws IOException {
-        new SceneSwitcher().switchScene(event, "GameAnswer.fxml");
+        new SceneSwitcher().switchScene(event, "PlayAnswer.fxml");
     }
 }
