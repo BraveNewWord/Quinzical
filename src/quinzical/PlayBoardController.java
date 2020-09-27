@@ -1,5 +1,6 @@
 package quinzical;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,6 +9,7 @@ import quinzical.model.Category;
 import quinzical.model.GameManager;
 import quinzical.model.Question;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -58,7 +60,10 @@ public class PlayBoardController {
             for (int j = 0; j < 5; j++) {
                 Question chosenQuestion = chosenCat.getChosenQuestions().get(j);
                 colButtons.get(i).get(j).setText(Integer.toString(chosenQuestion.getPoints()));
-
+                if ((j == 0 || chosenCat.getChosenQuestions().get(j - 1).isAnswered())
+                    && (!chosenQuestion.isAnswered())) {
+                        colButtons.get(i).get(j).setDisable(false);
+                }
                 //System.out.println("CLUE: " + randQuestion.getClue());
                 //System.out.println("PREFIX: " + randQuestion.getPrefix());
                 //System.out.println("ANSWERS: " + randQuestion.getAnswers());
@@ -68,7 +73,7 @@ public class PlayBoardController {
         }
     }
 
-    public void onButtonClick() {
-
+    public void onButtonClick(ActionEvent event) throws IOException {
+        new SceneSwitcher().switchScene(event, "GameAnswer.fxml");
     }
 }
