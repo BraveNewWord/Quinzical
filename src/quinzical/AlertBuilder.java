@@ -7,7 +7,8 @@ public class AlertBuilder {
         CORRECT,
         PLAY_INCORRECT,
         PRAC_INCORRECT,
-        FINAL_ATTEMPT
+        FINAL_ATTEMPT,
+        INVALID_INPUT
     }
     private Alert alert;
     private AnswerType answerType;
@@ -61,7 +62,7 @@ public class AlertBuilder {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Incorrect");
                 alert.setHeaderText(userAnswer + " was incorrect");
-                alert.setContentText("The correct answer was: " + trueAnswer);
+                alert.setContentText("The correct answer(s) were:\n" + trueAnswer);
                 break;
             case PRAC_INCORRECT:
                 alert = new Alert(Alert.AlertType.ERROR);
@@ -75,6 +76,12 @@ public class AlertBuilder {
                 alert.setHeaderText(userAnswer + " was incorrect");
                 alert.setContentText("You have one more attempt" +
                         "\nHere is the first letter of the correct answer: " + hint);
+                break;
+            case INVALID_INPUT:
+                alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Invalid input");
+                alert.setHeaderText("You did not enter an answer");
+                alert.setContentText("Please enter an answer in the text field");
                 break;
         }
         return alert;
