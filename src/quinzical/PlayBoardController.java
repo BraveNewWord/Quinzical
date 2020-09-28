@@ -20,6 +20,7 @@ public class PlayBoardController {
     @FXML private Label label3;
     @FXML private Label label4;
     @FXML private Label label5;
+    @FXML private Label scoreLabel;
 
     @FXML private Button button01; @FXML private Button button02;
     @FXML private Button button03; @FXML private Button button04; @FXML private Button button05;
@@ -62,18 +63,18 @@ public class PlayBoardController {
                 colButtons.get(i).get(j).setText(Integer.toString(chosenQuestion.getPoints()));
                 if ((j == 0 || chosenCat.getChosenQuestions().get(j - 1).isAnswered())
                     && (!chosenQuestion.isAnswered())) {
+                        game.setCurrentQuestion(chosenQuestion);
                         colButtons.get(i).get(j).setDisable(false);
                 }
-                //System.out.println("CLUE: " + randQuestion.getClue());
-                //System.out.println("PREFIX: " + randQuestion.getPrefix());
-                //System.out.println("ANSWERS: " + randQuestion.getAnswers());
-                //System.out.println("POINTS: " + randQuestion.getPoints());
             }
-
         }
+        scoreLabel.setText(game.dispPoints());
     }
 
     public void onButtonClick(ActionEvent event) throws IOException {
-        new SceneSwitcher().switchScene(event, "PlayAnswer.fxml");
+        PlayAnswerController controller = new SceneSwitcher().switchScene(event, "PlayAnswer.fxml").
+                getController();
+        controller.initData(this.game);
+
     }
 }

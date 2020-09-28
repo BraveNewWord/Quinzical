@@ -3,20 +3,40 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quinzical.PlayAnswerController">
    <children>
-      <Label layoutX="185.0" layoutY="113.0" text="Enter your answer">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <TextField layoutX="215.0" layoutY="187.0" />
-      <Button layoutX="215.0" layoutY="241.0" mnemonicParsing="false" text="Submit" />
-      <Button layoutX="300.0" layoutY="241.0" mnemonicParsing="false" text="Don't know" />
-      <Button layoutX="269.0" layoutY="333.0" mnemonicParsing="false" text="Replay" />
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="185.0" layoutY="116.0" text="Enter your answer">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="tempQuestionLabel" layoutX="42.0" layoutY="144.0" prefHeight="56.0" prefWidth="516.0" text="This is longest word in the world that is for that you would have know what of" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="249.0" layoutY="200.0" />
+            <Button layoutX="239.0" layoutY="316.0" mnemonicParsing="false" text="Replay Clue" />
+            <Button layoutX="324.0" layoutY="258.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="96.0" text="Don't know" />
+            <Button layoutX="169.0" layoutY="258.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="96.0" text="Submit" />
+            <Label fx:id="prefixLabel" layoutX="172.0" layoutY="203.0" prefHeight="20.0" prefWidth="76.0" text="What is">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="426.0" layoutY="203.0" text="?">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
-</Pane>
+</AnchorPane>
