@@ -33,17 +33,19 @@ public class PlayBoardController {
     @FXML private Button button41; @FXML private Button button42;
     @FXML private Button button43; @FXML private Button button44; @FXML private Button button45;
     @FXML private Button resetButton;
-
+    private List<Label> labels;
+    private List<List<Button>> colButtons;
     private GameManager game;
 
     public void initData(GameManager game) throws Exception {
-        List<Label> labels = Arrays.asList(label1,label2,label3,label4,label5);
-        List<List<Button>> colButtons = Arrays.asList(Arrays.asList(button01,button02,button03,button04,button05),
+        this.labels = Arrays.asList(label1,label2,label3,label4,label5);
+        this.colButtons = Arrays.asList(Arrays.asList(button01,button02,button03,button04,button05),
                 Arrays.asList(button11,button12,button13,button14,button15),
                 Arrays.asList(button21,button22,button23,button24,button25),
                 Arrays.asList(button31,button32,button33,button34,button35),
                 Arrays.asList(button41,button42,button43,button44,button45)
         );
+
         this.game = game;
         this.game.getCategories();
         Category randCat;
@@ -63,7 +65,7 @@ public class PlayBoardController {
                 colButtons.get(i).get(j).setText(Integer.toString(chosenQuestion.getPoints()));
                 if ((j == 0 || chosenCat.getChosenQuestions().get(j - 1).isAnswered())
                     && (!chosenQuestion.isAnswered())) {
-                        game.setCurrentQuestion(chosenQuestion);
+
                         colButtons.get(i).get(j).setDisable(false);
                 }
             }
@@ -72,6 +74,11 @@ public class PlayBoardController {
     }
 
     public void onButtonClick(ActionEvent event) throws IOException {
+        Button chosenButton = (Button)event.getSource();
+        int catInd = Character.getNumericValue(chosenButton.getId().charAt(6));
+        int questionInd = Character.getNumericValue(chosenButton.getId().charAt(7))-1;
+        Question chosenQuestion = game.getChosenCategories().get(catInd).getChosenQuestions().get(questionInd);
+        game.setCurrentQuestion(chosenQuestion);
         PlayAnswerController controller = new SceneSwitcher().switchScene(event, "PlayAnswer.fxml").
                 getController();
         controller.initData(this.game);
