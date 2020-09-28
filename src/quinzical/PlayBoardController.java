@@ -47,13 +47,15 @@ public class PlayBoardController {
         );
 
         this.game = game;
-        this.game.getCategories();
-        Category randCat;
-        for (int i = 0; i < 5; i++) {
-            randCat = game.getRandomCategory();
-            for (int j = 0; j < 5; j++) {
-                Question randQuestion = randCat.getRandomQuestion();
-                randQuestion.setPoints(j * 100 + 100);
+        if (!this.game.gameStarted()) {
+            this.game.getCategories();
+            Category randCat;
+            for (int i = 0; i < 5; i++) {
+                randCat = game.getRandomCategory();
+                for (int j = 0; j < 5; j++) {
+                    Question randQuestion = randCat.getRandomQuestion();
+                    randQuestion.setPoints(j * 100 + 100);
+                }
             }
         }
 

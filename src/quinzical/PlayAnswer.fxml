@@ -12,15 +12,15 @@
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <Label layoutX="185.0" layoutY="116.0" text="Enter your answer">
+            <Label layoutX="184.0" layoutY="125.0" text="Enter your answer">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
             <TextField layoutX="249.0" layoutY="200.0" />
-            <Button layoutX="239.0" layoutY="316.0" mnemonicParsing="false" text="Replay Clue" />
-            <Button layoutX="324.0" layoutY="258.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="96.0" text="Don't know" />
-            <Button layoutX="169.0" layoutY="258.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="96.0" text="Submit" />
+            <Button layoutX="239.0" layoutY="316.0" mnemonicParsing="false" onAction="#onReplayClueClick" text="Replay Clue" />
+            <Button layoutX="324.0" layoutY="258.0" mnemonicParsing="false" onAction="#onDontKnowClick" prefHeight="26.0" prefWidth="96.0" text="Don't know" />
+            <Button layoutX="169.0" layoutY="258.0" mnemonicParsing="false" onAction="#onSubmitClick" prefHeight="26.0" prefWidth="96.0" text="Submit" />
             <Label fx:id="prefixLabel" layoutX="172.0" layoutY="203.0" prefHeight="20.0" prefWidth="76.0" text="What is">
                <font>
                   <Font name="System Bold" size="16.0" />
@@ -31,9 +31,9 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="tempQuestionLabel" layoutX="76.0" layoutY="145.0" prefHeight="56.0" prefWidth="460.0" text="This is longest word in the world that is for that you would have know what of" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="tempQuestionLabel" alignment="TOP_CENTER" layoutX="19.0" layoutY="155.0" prefHeight="46.0" prefWidth="560.0" text="This is a question clue" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font size="14.0" />
+                  <Font size="15.0" />
                </font>
             </Label>
          </children>

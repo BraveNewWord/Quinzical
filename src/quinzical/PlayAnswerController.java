@@ -1,8 +1,11 @@
 package quinzical;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import quinzical.model.GameManager;
+
+import java.io.IOException;
 
 public class PlayAnswerController {
     private GameManager game;
@@ -13,5 +16,19 @@ public class PlayAnswerController {
         this.game = game;
         tempQuestionLabel.setText(this.game.getCurrentQuestion().getClue());
         prefixLabel.setText(this.game.getCurrentQuestion().getPrefix());
+    }
+    public void onSubmitClick(ActionEvent event) throws Exception {
+        this.game.getCurrentQuestion().setAnswered(true);
+        PlayBoardController controller = new SceneSwitcher().
+                switchScene(event, "PlayQuestionBoard.fxml").getController();
+        controller.initData(this.game);
+    }
+
+    public void onDontKnowClick() {
+
+    }
+
+    public void onReplayClueClick() {
+
     }
 }

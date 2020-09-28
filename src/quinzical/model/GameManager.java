@@ -12,6 +12,7 @@ public class GameManager {
     private List<Category> chosenCategories = new ArrayList<>();
     private Integer points = 0;
     private Question currentQuestion;
+    private boolean gameStarted = false;
 
     public boolean getCategories() throws Exception{
         File categoryFolder = new File("categories");
@@ -30,6 +31,7 @@ public class GameManager {
                 this.categories.add(new Category(file, questions));
                 scanner.close();
             }
+            this.gameStarted = true;
             return true;
         }
         return false;
@@ -94,6 +96,11 @@ public class GameManager {
             category.resetCategory();
         }
     }
+
+    public boolean gameStarted() {
+        return this.gameStarted;
+    }
+
     public String buildSaveString() {
         StringBuilder saveString = new StringBuilder("" + this.points);
         for (Category category : categories) {
