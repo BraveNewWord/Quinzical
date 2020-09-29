@@ -48,7 +48,7 @@ public class PlayAnswerController {
                     .trueAnswer(currentQuestion.getAnswers()).build();
         }
         this.game.getCurrentQuestion().setAnswered(true);
-
+        this.game.saveGame();
         alert.showAndWait();
 
         if (!this.game.questionsExist()) {

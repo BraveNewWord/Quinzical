@@ -75,6 +75,7 @@ public class PlayBoardController {
             }
         }
         scoreLabel.setText(game.dispPoints());
+        this.game.saveGame();
     }
 
     public void onButtonClick(ActionEvent event) throws Exception {

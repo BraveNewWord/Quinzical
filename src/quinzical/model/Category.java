@@ -1,10 +1,11 @@
 package quinzical.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Category {
+public class Category implements Serializable {
     private String name;
     private List<Question> questions = new ArrayList<>();
     private List<Question> chosenQuestions = new ArrayList<>();

@@ -1,18 +1,33 @@
 package quinzical.model;
 
-import java.io.File;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class GameManager {
+public class GameManager implements Serializable {
     private List<Category> categories = new ArrayList<>();
     private List<Category> chosenCategories = new ArrayList<>();
     private Integer points = 0;
     private Question currentQuestion;
     private boolean gameStarted = false;
+
+    public GameManager() throws Exception {
+
+        try {
+            ObjectInputStream is  = new ObjectInputStream(new FileInputStream("game-data"));
+            GameManager game = (GameManager) is.readObject();
+            this.categories = game.categories;
+            this.chosenCategories = game.chosenCategories;
+            this.points = game.points;
+            this.gameStarted = game.gameStarted;
+            is.close();
+        } catch (IOException | ClassNotFoundException e) {
+            //e.printStackTrace();
+        }
+
+    }
 
     public boolean getCategories() throws Exception{
         File categoryFolder = new File("categories");
@@ -32,6 +47,7 @@ public class GameManager {
                 scanner.close();
             }
             this.gameStarted = true;
+
             return true;
         }
         return false;
@@ -41,13 +57,14 @@ public class GameManager {
         return this.categories;
     }
 
-    public Category getRandomCategory() {
+    public Category getRandomCategory() throws Exception {
         Random rand = new Random();
         Category randCat = this.categories.get(rand.nextInt(this.categories.size()));
         while (chosenCategories.contains(randCat)) {
             randCat = this.categories.get(rand.nextInt(this.categories.size()));
         }
         chosenCategories.add(randCat);
+
         return randCat;
     }
 
@@ -113,32 +130,11 @@ public class GameManager {
         return saveString.toString();
     }
     public void saveGame() throws Exception {
-        String saveString = buildSaveString();
-        File gameData = new File("game-data");
-        gameData.createNewFile();
-        FileWriter myWriter = new FileWriter("game-data");
-        myWriter.write(saveString);
-        myWriter.close();
+        ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("game-data"));
+        os.writeObject(this);
+        os.close();
     }
 
-    public void loadGame() throws Exception {
-        File gameData = new File("game-data");
-        if (gameData.exists()) {
-            Scanner myReader = new Scanner(gameData);
-            String data[] = myReader.nextLine().split(",");
-            this.points = Integer.parseInt(data[0]);
-            for (String savedQuestion : data) {
-                for (Category category : categories) {
-                    if (savedQuestion.startsWith(category.getName())) {
-                        for (Question question : category.getQuestions()) {
-                            if (savedQuestion.endsWith(question.getPoints().toString())) {
-                                question.setAnswered(true);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+
 
 }

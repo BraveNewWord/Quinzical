@@ -1,12 +1,13 @@
 package quinzical.model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /*
  Class to represent a question in the game
  Contains its point worth, question string, answer string, and whether it is answered or not
  */
-public class Question {
+public class Question implements Serializable {
     private Integer points;
     private String clue;
     private String answerPrefix;
