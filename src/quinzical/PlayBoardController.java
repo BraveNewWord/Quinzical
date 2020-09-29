@@ -38,6 +38,7 @@ public class PlayBoardController {
     private GameManager game;
 
     public void initData(GameManager game) throws Exception {
+
         this.labels = Arrays.asList(label1,label2,label3,label4,label5);
         this.colButtons = Arrays.asList(Arrays.asList(button01,button02,button03,button04,button05),
                 Arrays.asList(button11,button12,button13,button14,button15),
@@ -58,6 +59,7 @@ public class PlayBoardController {
                 }
             }
         }
+
 
         for (int i = 0; i < 5; i++) {
             Category chosenCat = game.getChosenCategories().get(i);

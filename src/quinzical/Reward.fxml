@@ -5,19 +5,23 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="141.0" layoutY="120.0" text="Congratulations">
+      <Label layoutX="110.0" layoutY="117.0" text="Congratulations!">
          <font>
-            <Font size="40.0" />
+            <Font name="System Bold" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="222.0" layoutY="183.0" text="Score: 100">
+      <Label layoutX="215.0" layoutY="166.0" text="Final Score:">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <Button layoutX="257.0" layoutY="295.0" mnemonicParsing="false" text="Play again" />
+      <Button layoutX="249.0" layoutY="289.0" mnemonicParsing="false" text="Play again" />
+      <Label fx:id="scoreLabel" alignment="CENTER" layoutX="195.0" layoutY="201.0" prefHeight="35.0" prefWidth="194.0" text="9999" textAlignment="CENTER">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

@@ -51,9 +51,16 @@ public class PlayAnswerController {
 
         alert.showAndWait();
 
-        PlayBoardController controller = new SceneSwitcher().
-                switchScene(event, "PlayQuestionBoard.fxml").getController();
-        controller.initData(this.game);
+        if (!this.game.questionsExist()) {
+            RewardController controller = new SceneSwitcher().switchScene(event, "Reward.fxml").
+                    getController();
+
+        } else {
+            PlayBoardController controller = new SceneSwitcher().
+                    switchScene(event, "PlayQuestionBoard.fxml").getController();
+            controller.initData(this.game);
+        }
+
 
     }
 

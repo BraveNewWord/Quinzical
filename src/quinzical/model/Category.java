@@ -40,8 +40,8 @@ public class Category {
     }
 
     public boolean hasQuestions() {
-        for (Question question : questions) {
-            if (question.isAnswered() == false) {
+        for (Question question : this.chosenQuestions) {
+            if (!question.isAnswered()) {
                 return true;
             }
         }

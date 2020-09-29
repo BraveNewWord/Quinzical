@@ -60,7 +60,7 @@ public class GameManager {
     }
 
     public boolean questionsExist() {
-        for (Category category : categories){
+        for (Category category : this.chosenCategories){
             if (category.hasQuestions()) {
                 return true;
             }
