@@ -50,17 +50,7 @@ public class PlayAnswerController {
         this.game.getCurrentQuestion().setAnswered(true);
         this.game.saveGame();
         alert.showAndWait();
-
-        if (!this.game.questionsExist()) {
-            RewardController controller = new SceneSwitcher().switchScene(event, "Reward.fxml").
-                    getController();
-
-        } else {
-            PlayBoardController controller = new SceneSwitcher().
-                    switchScene(event, "PlayQuestionBoard.fxml").getController();
-            controller.initData(this.game);
-        }
-
+        this.returnOrFinish(event);
 
     }
 
@@ -75,9 +65,21 @@ public class PlayAnswerController {
         alert.showAndWait();
 
         this.game.getCurrentQuestion().setAnswered(true);
-        PlayBoardController controller = new SceneSwitcher().
-                switchScene(event, "PlayQuestionBoard.fxml").getController();
-        controller.initData(this.game);
+
+        this.returnOrFinish(event);
+    }
+
+    public void returnOrFinish(Event event) throws Exception {
+        if (!this.game.questionsExist()) {
+            RewardController controller = new SceneSwitcher().switchScene(event, "Reward.fxml").
+                    getController();
+            controller.initData(this.game);
+
+        } else {
+            PlayBoardController controller = new SceneSwitcher().
+                    switchScene(event, "PlayQuestionBoard.fxml").getController();
+            controller.initData(this.game);
+        }
     }
 
     public void onReplayClueClick() throws Exception {
