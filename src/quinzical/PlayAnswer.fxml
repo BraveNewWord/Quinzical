@@ -16,11 +16,11 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="answerTextBox" layoutX="249.0" layoutY="200.0" />
+            <TextField fx:id="answerTextBox" layoutX="249.0" layoutY="200.0" onKeyPressed="#checkAnswerOnEnterKey" />
             <Button layoutX="239.0" layoutY="316.0" mnemonicParsing="false" onAction="#onReplayClueClick" text="Replay Clue" />
             <Button layoutX="324.0" layoutY="258.0" mnemonicParsing="false" onAction="#onDontKnowClick" prefHeight="26.0" prefWidth="96.0" text="Don't know" />
             <Button layoutX="169.0" layoutY="258.0" mnemonicParsing="false" onAction="#onSubmitClick" prefHeight="26.0" prefWidth="96.0" text="Submit" />
-            <Label fx:id="prefixLabel" alignment="CENTER_RIGHT" layoutX="155.0" layoutY="203.0" prefHeight="20.0" prefWidth="89.0" text="What are" textAlignment="RIGHT">
+            <Label fx:id="prefixLabel" alignment="CENTER_RIGHT" layoutX="155.0" layoutY="203.0" prefHeight="20.0" prefWidth="89.0" text="Who is" textAlignment="RIGHT">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

@@ -1,6 +1,7 @@
 package quinzical;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -10,7 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SceneSwitcher {
-    public FXMLLoader switchScene(ActionEvent event, String pageName) throws IOException {
+    public FXMLLoader switchScene(Event event, String pageName) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(pageName));
         Parent root = loader.load();

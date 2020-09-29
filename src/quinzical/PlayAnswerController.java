@@ -1,10 +1,13 @@
 package quinzical;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import quinzical.model.GameManager;
 import quinzical.model.Question;
 
@@ -21,7 +24,7 @@ public class PlayAnswerController {
         tempQuestionLabel.setText(this.game.getCurrentQuestion().getClue());
         prefixLabel.setText(this.game.getCurrentQuestion().getPrefix());
     }
-    public void onSubmitClick(ActionEvent event) throws Exception {
+    public void onSubmitClick(Event event) throws Exception {
         String userAnswer =answerTextBox.getText().trim();
         Question currentQuestion = this.game.getCurrentQuestion();
         Alert alert;
@@ -72,4 +75,11 @@ public class PlayAnswerController {
     public void onReplayClueClick() {
 
     }
+
+    public void checkAnswerOnEnterKey(KeyEvent keyEvent) throws Exception {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            onSubmitClick(keyEvent);
+        }
+    }
+    
 }
