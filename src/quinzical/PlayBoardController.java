@@ -75,7 +75,7 @@ public class PlayBoardController {
         scoreLabel.setText(game.dispPoints());
     }
 
-    public void onButtonClick(ActionEvent event) throws IOException {
+    public void onButtonClick(ActionEvent event) throws Exception {
         Button chosenButton = (Button)event.getSource();
         int catInd = Character.getNumericValue(chosenButton.getId().charAt(6));
         int questionInd = Character.getNumericValue(chosenButton.getId().charAt(7))-1;
