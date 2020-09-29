@@ -53,13 +53,20 @@ public class PlayAnswerController {
 
     }
 
-    public void onDontKnowClick() {
+    public void onDontKnowClick(ActionEvent event) throws Exception {
         Question currentQuestion = this.game.getCurrentQuestion();
         Alert alert = new AlertBuilder()
                 .answerType(AlertBuilder.AnswerType.PLAY_INCORRECT)
-                .userAnswer("Don't know")
                 .trueAnswer(currentQuestion.getAnswers()).build();
+        alert.setTitle("Don't know");
+        alert.setHeaderText("Don't know? Here is the answer...");
+        alert.setAlertType(Alert.AlertType.INFORMATION);
         alert.showAndWait();
+
+        this.game.getCurrentQuestion().setAnswered(true);
+        PlayBoardController controller = new SceneSwitcher().
+                switchScene(event, "PlayQuestionBoard.fxml").getController();
+        controller.initData(this.game);
     }
 
     public void onReplayClueClick() {

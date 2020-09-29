@@ -7,21 +7,20 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quinzical.PlayAnswerController">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <Label layoutX="184.0" layoutY="125.0" text="Enter your answer">
+            <Label layoutX="208.0" layoutY="162.0" text="Enter your answer" textAlignment="CENTER">
                <font>
-                  <Font size="25.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
             <TextField fx:id="answerTextBox" layoutX="249.0" layoutY="200.0" />
             <Button layoutX="239.0" layoutY="316.0" mnemonicParsing="false" onAction="#onReplayClueClick" text="Replay Clue" />
             <Button layoutX="324.0" layoutY="258.0" mnemonicParsing="false" onAction="#onDontKnowClick" prefHeight="26.0" prefWidth="96.0" text="Don't know" />
             <Button layoutX="169.0" layoutY="258.0" mnemonicParsing="false" onAction="#onSubmitClick" prefHeight="26.0" prefWidth="96.0" text="Submit" />
-            <Label fx:id="prefixLabel" layoutX="166.0" layoutY="203.0" prefHeight="20.0" prefWidth="82.0" text="What is">
+            <Label fx:id="prefixLabel" alignment="CENTER_RIGHT" layoutX="155.0" layoutY="203.0" prefHeight="20.0" prefWidth="89.0" text="What are" textAlignment="RIGHT">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -31,9 +30,14 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="tempQuestionLabel" alignment="TOP_CENTER" layoutX="19.0" layoutY="155.0" prefHeight="46.0" prefWidth="560.0" text="This is a question clue" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="tempQuestionLabel" alignment="TOP_CENTER" layoutX="20.0" layoutY="116.0" prefHeight="46.0" prefWidth="560.0" text="This is a question clue" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="271.0" layoutY="91.0" text="Clue:" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
          </children>
