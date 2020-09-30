@@ -6,6 +6,7 @@ public class AlertBuilder {
     public enum AnswerType {
         CORRECT,
         PLAY_INCORRECT,
+        PRAC_CORRECT,
         PRAC_INCORRECT,
         FINAL_ATTEMPT
     }
@@ -15,8 +16,8 @@ public class AlertBuilder {
     private String trueAnswer = "TRUE_ANSWER";
     private String points = "999";
 
-    private String userAttempts = "100";
-    private String totalAttempts = "300";
+    private String userAttempts = "1";
+    private String totalAttempts = "3";
     private String hint = "";
 
     public AlertBuilder answerType(AnswerType answerType) {
@@ -63,11 +64,16 @@ public class AlertBuilder {
                 alert.setHeaderText(userAnswer + " was incorrect");
                 alert.setContentText("The correct answer was: " + trueAnswer);
                 break;
+            case PRAC_CORRECT:
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Correct");
+                alert.setHeaderText(userAnswer + " was correct!");
+                break;
             case PRAC_INCORRECT:
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Incorrect");
                 alert.setHeaderText(userAnswer + " was incorrect");
-                alert.setContentText("You have " + userAttempts + "/" + totalAttempts + " attempts left");
+                alert.setContentText("You have 2 attempts left");
                 break;
             case FINAL_ATTEMPT:
                 alert = new Alert(Alert.AlertType.WARNING);

@@ -4,10 +4,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class GameManager {
-    private List<Category> categories = new ArrayList<Category>();
+    private List<Category> categories = new ArrayList<>();
+    private List<Category> chosenCategories = new ArrayList<>();
     private Integer points = 0;
     private Question currentQuestion;
 
@@ -36,6 +38,21 @@ public class GameManager {
     public List<Category> categories() {
         return this.categories;
     }
+
+    public Category getRandomCategory() {
+        Random rand = new Random();
+        Category randCat = this.categories.get(rand.nextInt(this.categories.size()));
+        while (chosenCategories.contains(randCat)) {
+            randCat = this.categories.get(rand.nextInt(this.categories.size()));
+        }
+        chosenCategories.add(randCat);
+        return randCat;
+    }
+
+    public void clearChosenCategories() {
+        chosenCategories.clear();
+    }
+
     public boolean questionsExist() {
         for (Category category : categories){
             if (category.hasQuestions()) {

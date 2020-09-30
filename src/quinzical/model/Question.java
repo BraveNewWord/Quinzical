@@ -21,9 +21,7 @@ public class Question {
         // Replacing Maori long vowels with double letter equivalents (may change)
         this.answers = macronSubstitute(answer.strip().toLowerCase())
                 .split("/");
-        System.out.println("CLUE: " + this.clue);
-        System.out.println("PREFIX: " + this.getPrefix());
-        System.out.println("ANSWERS: " + this.getAnswers());
+
     }
     public String macronSubstitute(String oString) {
         return oString.replace("ā", "aa")
@@ -52,12 +50,15 @@ public class Question {
         return this.answerPrefix.substring(0,1).toUpperCase() + this.answerPrefix.substring(1);
     }
     public String getAnswers() {
-        return Arrays.toString(answers).replaceAll("\\[|\\]", "");
+        return Arrays.toString(answers).replaceAll("[\\[\\]]", "");
     }
     public boolean isAnswered() {
         return this.answered;
     }
     public void setAnswered(boolean value) {
         this.answered = value;
+    }
+    public void setPoints(Integer points) {
+        this.points = points;
     }
 }

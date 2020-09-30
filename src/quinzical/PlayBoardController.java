@@ -4,6 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import quinzical.model.Category;
+import quinzical.model.GameManager;
+import quinzical.model.Question;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class PlayBoardController {
     @FXML
@@ -12,10 +18,6 @@ public class PlayBoardController {
     @FXML private Label label3;
     @FXML private Label label4;
     @FXML private Label label5;
-    @FXML private Label label6;
-    @FXML private Label questionLabel;
-    @FXML private Label scoreLabel;
-    @FXML private Label errorLabel;
 
     @FXML private Button button01; @FXML private Button button02;
     @FXML private Button button03; @FXML private Button button04; @FXML private Button button05;
@@ -27,11 +29,36 @@ public class PlayBoardController {
     @FXML private Button button33; @FXML private Button button34; @FXML private Button button35;
     @FXML private Button button41; @FXML private Button button42;
     @FXML private Button button43; @FXML private Button button44; @FXML private Button button45;
-    @FXML private Button button51; @FXML private Button button52;
-    @FXML private Button button53; @FXML private Button button54; @FXML private Button button55;
-    @FXML private Button submitButton;
     @FXML private Button resetButton;
-    @FXML private TextField userAnswer;
+
+    private GameManager game;
+
+    public void initData(GameManager game) throws Exception {
+        List<Label> labels = Arrays.asList(label1,label2,label3,label4,label5);
+        List<List<Button>> colButtons = Arrays.asList(Arrays.asList(button01,button02,button03,button04,button05),
+                Arrays.asList(button11,button12,button13,button14,button15),
+                Arrays.asList(button21,button22,button23,button24,button25),
+                Arrays.asList(button31,button32,button33,button34,button35),
+                Arrays.asList(button41,button42,button43,button44,button45)
+        );
+        this.game = game;
+        this.game.getCategories();
+        Category randCat;
+        for (int i = 0; i < 5; i++) {
+            randCat = game.getRandomCategory();
+            labels.get(i).setText(randCat.getName());
+            
+            for (int j = 0; j < 5; j++) {
+                Question randQuestion = randCat.getRandomQuestion();
+                randQuestion.setPoints(j*100+100);
+                System.out.println("CLUE: " + randQuestion.getClue());
+                System.out.println("PREFIX: " + randQuestion.getPrefix());
+                System.out.println("ANSWERS: " + randQuestion.getAnswers());
+                System.out.println("POINTS: " + randQuestion.getPoints());
+            }
+             
+        }
+    }
 
     public void onButtonClick() {
 
