@@ -36,7 +36,7 @@ public class PracticeAnswerController {
 		input=text.getText().trim();
 		if(input.equalsIgnoreCase(correctAnswer)) {
 			Alert alert = new AlertBuilder()
-	                .answerType(AlertBuilder.AnswerType.CORRECT)
+	                .answerType(AlertBuilder.AnswerType.PRAC_CORRECT)
 	                .userAnswer(input).build();
 	        alert.show();
 	        espeak("correct");
