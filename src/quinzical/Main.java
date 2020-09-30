@@ -15,9 +15,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.setResizable(false);
         primaryStage.show();
-        //Below demonstrates the alerts created by AlertBuilder
-        //comment it out/delete it when not needed
-        //new AlertBuilder().testAlerts();
     }
 
 

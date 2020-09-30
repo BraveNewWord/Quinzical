@@ -49,7 +49,10 @@ public class PlayBoardController {
 
         this.game = game;
         if (!this.game.gameStarted()) {
-            this.game.getCategories();
+            //
+            if (this.game.categories().isEmpty()) {
+                this.game.getCategories();
+            }
             Category randCat;
             for (int i = 0; i < 5; i++) {
                 randCat = game.getRandomCategory();

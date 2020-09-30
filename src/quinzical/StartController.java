@@ -2,10 +2,8 @@ package quinzical;
 
 import javafx.event.ActionEvent;
 import quinzical.model.GameManager;
-
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
+
 
 public class StartController {
     public void onPlayClick(ActionEvent event) throws Exception {
@@ -18,6 +16,5 @@ public class StartController {
         new SceneSwitcher().switchScene(event, "PracticeCategory.fxml");
 
     }
-
 
 }

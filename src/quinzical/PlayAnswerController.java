@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class PlayAnswerController {
     private GameManager game;
-    @FXML private Label tempQuestionLabel; //REMOVE THIS WHEN SPOKEN CLUE IS IMPLEMENTED
+    @FXML private Label tempQuestionLabel;
     @FXML private Label prefixLabel;
     @FXML private TextField answerTextBox;
 

@@ -17,7 +17,7 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <Button layoutX="249.0" layoutY="289.0" mnemonicParsing="false" text="Play again" />
+      <Button layoutX="249.0" layoutY="289.0" mnemonicParsing="false" onAction="#onReplayClick" text="Play again" />
       <Label fx:id="scoreLabel" alignment="CENTER" layoutX="195.0" layoutY="201.0" prefHeight="35.0" prefWidth="194.0" text="9999" textAlignment="CENTER">
          <font>
             <Font size="29.0" />

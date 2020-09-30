@@ -109,26 +109,18 @@ public class GameManager implements Serializable {
 
     public void resetGame() {
         this.points = 0;
-        for (Category category : categories) {
+        for (Category category : this.chosenCategories) {
             category.resetCategory();
+            category.clearChosenQuestions();
         }
+        this.clearChosenCategories();
+        this.gameStarted = false;
     }
 
     public boolean gameStarted() {
         return this.gameStarted;
     }
 
-    public String buildSaveString() {
-        StringBuilder saveString = new StringBuilder("" + this.points);
-        for (Category category : categories) {
-            for (Question question : category.getQuestions()) {
-                if (question.isAnswered() == true) {
-                    saveString.append(",").append(category.getName()).append(question.getPoints());
-                }
-            }
-        }
-        return saveString.toString();
-    }
     public void saveGame() throws Exception {
         ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("game-data"));
         os.writeObject(this);

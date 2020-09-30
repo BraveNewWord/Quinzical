@@ -16,7 +16,6 @@ public class Question implements Serializable {
     private boolean answered = false;
 
     public Question(String clue, String answerPrefix, String answer) {
-        //this.points = Integer.parseInt(points);
         this.clue = macronSubstitute(clue);
         this.answerPrefix = answerPrefix;
         // Replacing Maori long vowels with double letter equivalents (may change)
