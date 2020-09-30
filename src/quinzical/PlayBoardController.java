@@ -61,6 +61,7 @@ public class PlayBoardController {
                     randQuestion.setPoints(j * 100 + 100);
                 }
             }
+            this.game.setStarted(true);
         }
 
 

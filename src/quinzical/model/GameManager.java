@@ -46,11 +46,15 @@ public class GameManager implements Serializable {
                 this.categories.add(new Category(file, questions));
                 scanner.close();
             }
-            this.gameStarted = true;
+
 
             return true;
         }
         return false;
+    }
+
+    public void setStarted(boolean value) {
+        this.gameStarted = value;
     }
 
     public List<Category> categories() {
