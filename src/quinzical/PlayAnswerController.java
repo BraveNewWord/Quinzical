@@ -96,7 +96,11 @@ public class PlayAnswerController {
         // Cleaning the string by escaping quotation marks that may interfere when read
         spokenString = spokenString.replaceAll("'", "\\\\'").
                 replaceAll("\"", "\\\\\"");
-        String command = "echo " + spokenString + "| festival --tts";
+        //String command = "echo " + spokenString + "| festival --tts";
+        String scm = "\"(Parameter.set 'Duration_Stretch 2.5)" +
+                "(SayText \\\"" + spokenString + "\\\")\"";
+        System.out.println(scm);
+        String command = "echo " + scm + " | festival -b --pipe";
         ProcessBuilder builder = new ProcessBuilder("/bin/bash", "-c", command);
         builder.start();
     }
