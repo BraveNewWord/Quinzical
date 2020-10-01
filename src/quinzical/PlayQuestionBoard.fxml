@@ -93,7 +93,7 @@
                         <Font size="15.0" />
                     </font>
                 </Label>
-                <Button fx:id="resetButton" layoutX="22.0" layoutY="12.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="82.0" text="RESET" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="496.0" AnchorPane.topAnchor="12.0" />
+                <Button layoutX="22.0" layoutY="12.0" mnemonicParsing="false" onAction="#onReturnClick" prefHeight="18.0" prefWidth="82.0" text="Return" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="496.0" AnchorPane.topAnchor="12.0" />
                 <Button fx:id="exitButton" layoutX="504.0" layoutY="12.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" text="Exit" AnchorPane.topAnchor="12.0" />
             </children>
             <BorderPane.margin>

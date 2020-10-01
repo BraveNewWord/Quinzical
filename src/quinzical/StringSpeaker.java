@@ -7,8 +7,12 @@ public class StringSpeaker {
     public void setSpeed(double voiceSpeed) {
         this.voiceSpeed = 2-voiceSpeed;
         if (this.voiceSpeed == 0.0) {
-            this.voiceSpeed = this.voiceSpeed + 0.2;
+            this.voiceSpeed = this.voiceSpeed + 0.1;
         }
+    }
+
+    public double getVoiceSpeed() {
+        return this.voiceSpeed;
     }
 
     public void speakString(String spokenString) throws Exception{

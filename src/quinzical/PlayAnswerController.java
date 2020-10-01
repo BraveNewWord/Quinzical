@@ -18,10 +18,6 @@ public class PlayAnswerController {
     @FXML private Label prefixLabel;
     @FXML private TextField answerTextBox;
 
-
-
-
-
     public void initData(GameManager game, StringSpeaker stringSpeaker) throws Exception {
         this.game = game;
         this.stringSpeaker = stringSpeaker;

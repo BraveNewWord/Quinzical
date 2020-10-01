@@ -12,6 +12,11 @@ public class StartController {
     @FXML private Slider voiceSpeedSlider;
     private StringSpeaker stringSpeaker = new StringSpeaker();
 
+    public void initData(StringSpeaker stringSpeaker) {
+        this.stringSpeaker = stringSpeaker;
+        this.voiceSpeedSlider.setValue(2-this.stringSpeaker.getVoiceSpeed());
+    }
+
     public void onPlayClick(ActionEvent event) throws Exception {
         PlayBoardController controller = new SceneSwitcher().
                 switchScene(event, "PlayQuestionBoard.fxml").getController();

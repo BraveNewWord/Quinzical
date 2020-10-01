@@ -8,6 +8,7 @@ import quinzical.model.Category;
 import quinzical.model.GameManager;
 import quinzical.model.Question;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -92,5 +93,15 @@ public class PlayBoardController {
                 getController();
         controller.initData(this.game, this.stringSpeaker);
 
+    }
+
+    public void onExitClick() {
+
+    }
+
+    public void onReturnClick(ActionEvent event) throws IOException {
+        StartController controller = new SceneSwitcher().switchScene(event, "Start.fxml").
+                getController();
+        controller.initData(this.stringSpeaker);
     }
 }
