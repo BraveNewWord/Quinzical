@@ -11,19 +11,23 @@ import javafx.scene.input.KeyEvent;
 import quinzical.model.GameManager;
 import quinzical.model.Question;
 
-import java.io.IOException;
-
 public class PlayAnswerController {
     private GameManager game;
+    private StringSpeaker stringSpeaker;
     @FXML private Label tempQuestionLabel;
     @FXML private Label prefixLabel;
     @FXML private TextField answerTextBox;
 
-    public void initData(GameManager game) throws Exception {
+
+
+
+
+    public void initData(GameManager game, StringSpeaker stringSpeaker) throws Exception {
         this.game = game;
+        this.stringSpeaker = stringSpeaker;
         tempQuestionLabel.setText(this.game.getCurrentQuestion().getClue());
         prefixLabel.setText(this.game.getCurrentQuestion().getPrefix());
-        speakString(this.game.getCurrentQuestion().getClue());
+        this.stringSpeaker.speakString(this.game.getCurrentQuestion().getClue());
     }
     public void onSubmitClick(Event event) throws Exception {
         String userAnswer =answerTextBox.getText().trim();
@@ -78,12 +82,12 @@ public class PlayAnswerController {
         } else {
             PlayBoardController controller = new SceneSwitcher().
                     switchScene(event, "PlayQuestionBoard.fxml").getController();
-            controller.initData(this.game);
+            controller.initData(this.game, this.stringSpeaker);
         }
     }
 
     public void onReplayClueClick() throws Exception {
-        speakString(this.game.getCurrentQuestion().getClue());
+        this.stringSpeaker.speakString(this.game.getCurrentQuestion().getClue());
     }
 
     public void checkAnswerOnEnterKey(KeyEvent keyEvent) throws Exception {
@@ -92,18 +96,7 @@ public class PlayAnswerController {
         }
     }
 
-    public void speakString(String spokenString) throws Exception{
-        // Cleaning the string by escaping quotation marks that may interfere when read
-        spokenString = spokenString.replaceAll("'", "\\\\'").
-                replaceAll("\"", "\\\\\"");
-        //String command = "echo " + spokenString + "| festival --tts";
-        String scm = "\"(Parameter.set 'Duration_Stretch 2.5)" +
-                "(SayText \\\"" + spokenString + "\\\")\"";
-        System.out.println(scm);
-        String command = "echo " + scm + " | festival -b --pipe";
-        ProcessBuilder builder = new ProcessBuilder("/bin/bash", "-c", command);
-        builder.start();
-    }
+
 
 
 

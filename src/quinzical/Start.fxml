@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quinzical.StartController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseReleased="#onSliderChanged" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quinzical.StartController">
    <children>
       <Label layoutX="184.0" layoutY="115.0" text="Quinzical">
          <font>
@@ -15,7 +15,11 @@
       </Label>
       <Button layoutX="269.0" layoutY="206.0" mnemonicParsing="false" onAction="#onPlayClick" text="Play" />
       <Button layoutX="256.0" layoutY="251.0" mnemonicParsing="false" onAction="#onPracticeClick" text="Practice" />
-      <Slider layoutX="252.0" layoutY="337.0" prefHeight="15.0" prefWidth="211.0" />
-      <Label layoutX="142.0" layoutY="337.0" text="Voice speed:" />
+      <Slider fx:id="voiceSpeedSlider" layoutX="188.0" layoutY="318.0" majorTickUnit="0.5" max="2.0" minorTickCount="2" onMouseReleased="#onSliderChanged" prefHeight="54.0" prefWidth="248.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+      <Label layoutX="93.0" layoutY="327.0" prefHeight="20.0" prefWidth="91.0" text="Voice speed:">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Button layoutX="436.0" layoutY="327.0" mnemonicParsing="false" onAction="#onTestSpeedClick" text="Test speed" />
    </children>
 </Pane>

@@ -4,12 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import quinzical.model.Category;
 import quinzical.model.GameManager;
 import quinzical.model.Question;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,8 +34,9 @@ public class PlayBoardController {
     private List<Label> labels;
     private List<List<Button>> colButtons;
     private GameManager game;
+    private StringSpeaker stringSpeaker;
 
-    public void initData(GameManager game) throws Exception {
+    public void initData(GameManager game, StringSpeaker stringSpeaker) throws Exception {
 
         this.labels = Arrays.asList(label1,label2,label3,label4,label5);
         this.colButtons = Arrays.asList(Arrays.asList(button01,button02,button03,button04,button05),
@@ -48,6 +47,7 @@ public class PlayBoardController {
         );
 
         this.game = game;
+        this.stringSpeaker = stringSpeaker;
         if (!this.game.gameStarted()) {
             //
             if (this.game.categories().isEmpty()) {
@@ -90,7 +90,7 @@ public class PlayBoardController {
         game.setCurrentQuestion(chosenQuestion);
         PlayAnswerController controller = new SceneSwitcher().switchScene(event, "PlayAnswer.fxml").
                 getController();
-        controller.initData(this.game);
+        controller.initData(this.game, this.stringSpeaker);
 
     }
 }
