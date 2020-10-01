@@ -21,8 +21,6 @@ public class RewardController {
         this.game.resetGame();
         this.game.saveGame();
         new SceneSwitcher().switchScene(event, "Start.fxml");
-
     }
-
 
 }

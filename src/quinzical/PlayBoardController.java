@@ -31,14 +31,12 @@ public class PlayBoardController {
     @FXML private Button button33; @FXML private Button button34; @FXML private Button button35;
     @FXML private Button button41; @FXML private Button button42;
     @FXML private Button button43; @FXML private Button button44; @FXML private Button button45;
-    @FXML private Button resetButton;
     private List<Label> labels;
     private List<List<Button>> colButtons;
     private GameManager game;
     private StringSpeaker stringSpeaker;
 
     public void initData(GameManager game, StringSpeaker stringSpeaker) throws Exception {
-
         this.labels = Arrays.asList(label1,label2,label3,label4,label5);
         this.colButtons = Arrays.asList(Arrays.asList(button01,button02,button03,button04,button05),
                 Arrays.asList(button11,button12,button13,button14,button15),
@@ -50,7 +48,6 @@ public class PlayBoardController {
         this.game = game;
         this.stringSpeaker = stringSpeaker;
         if (!this.game.gameStarted()) {
-            //
             if (this.game.categories().isEmpty()) {
                 this.game.getCategories();
             }
@@ -64,8 +61,6 @@ public class PlayBoardController {
             }
             this.game.setStarted(true);
         }
-
-
         for (int i = 0; i < 5; i++) {
             Category chosenCat = game.getChosenCategories().get(i);
             labels.get(i).setText(chosenCat.getName());
@@ -92,7 +87,6 @@ public class PlayBoardController {
         PlayAnswerController controller = new SceneSwitcher().switchScene(event, "PlayAnswer.fxml").
                 getController();
         controller.initData(this.game, this.stringSpeaker);
-
     }
 
     public void onExitClick() {
