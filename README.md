@@ -48,7 +48,6 @@ Lets click on a button, 100 for Places<br>
   - If you've pondered over the question for a while, but can't come up with answer, click this to skip the question
 - <b>Replay clue</b>
   - If you want to hear tts voiced clue again, click this for it be read to you again
- <br>
  When an answer is submitted, you will get awarded points for getting it correct, but none for getting it incorrect or skipping<br>
  After submitting skipping, we will return the question board and the 200 point question for Places will be unlocked <br>
 ![Question board](https://cdn.discordapp.com/attachments/692707366897975376/761578078560321556/unknown.png)
