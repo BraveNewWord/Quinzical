@@ -2,7 +2,9 @@ package quinzical;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import quinzical.model.Category;
 import quinzical.model.GameManager;
@@ -11,6 +13,7 @@ import java.io.IOException;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class PlayBoardController {
     @FXML
@@ -86,8 +89,17 @@ public class PlayBoardController {
         controller.initData(this.game, this.stringSpeaker);
     }
 
-    public void onExitClick() {
-
+    public void onResetClick(ActionEvent event) throws Exception {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Reset confirmation");
+        alert.setHeaderText("Are you sure you want to reset?");
+        alert.setContentText("All winnings will be removed and questions reset\nThere is no way to reverse this");
+        Optional<ButtonType> buttonType = alert.showAndWait();
+        if (buttonType.isPresent() && buttonType.get() == ButtonType.OK) {
+            this.game.resetGame();
+            this.game.saveGame();
+            new SceneSwitcher().switchScene(event, "Start.fxml");
+        }
     }
 
     public void onReturnClick(ActionEvent event) throws IOException {
