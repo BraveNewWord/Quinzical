@@ -22,16 +22,12 @@ public class PlayBoardController {
     @FXML private Label scoreLabel;
 
 
-    @FXML private Button button01; @FXML private Button button02;
-    @FXML private Button button03; @FXML private Button button04; @FXML private Button button05;
-    @FXML private Button button11; @FXML private Button button12;
-    @FXML private Button button13; @FXML private Button button14; @FXML private Button button15;
-    @FXML private Button button21; @FXML private Button button22;
-    @FXML private Button button23; @FXML private Button button24; @FXML private Button button25;
-    @FXML private Button button31; @FXML private Button button32;
-    @FXML private Button button33; @FXML private Button button34; @FXML private Button button35;
-    @FXML private Button button41; @FXML private Button button42;
-    @FXML private Button button43; @FXML private Button button44; @FXML private Button button45;
+    @FXML
+    private Button button01, button02, button03, button04, button05,
+    button11, button12, button13, button14, button15,
+    button21, button22, button23, button24, button25,
+    button31, button32, button33,button34, button35,
+    button41, button42, button43, button44, button45;
     private List<Label> labels;
     private List<List<Button>> colButtons;
     private GameManager game;
