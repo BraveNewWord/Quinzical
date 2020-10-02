@@ -34,19 +34,22 @@ public class PracticeAnswerController {
 	public void onSubmitClick(ActionEvent event) throws Exception {
 		String correctAnswer=pm.getQuestion().getAnswers();
 		input=text.getText().trim();
-		if(input.equalsIgnoreCase(correctAnswer)) {
+		if(pm.getQuestion().checkAnswer(input)) {
 			Alert alert = new AlertBuilder()
 	                .answerType(AlertBuilder.AnswerType.PRAC_CORRECT)
 	                .userAnswer(input).build();
 	        alert.show();
 			this.stringSpeaker.speakString("correct");
+			PracticeCategoryController controller = new SceneSwitcher().
+	                switchScene(event, "PracticeCategory.fxml").getController();
+	        controller.initialize(new PracticeManager(), this.stringSpeaker);
 		}else {
 			if(numAttempts==1) {
 				Alert alert = new AlertBuilder()
 		                .answerType(AlertBuilder.AnswerType.PRAC_INCORRECT)
 		                .userAnswer(input).build();
 		        alert.show();
-		        attempts.setText("Attempts: 2/3");
+		        attempts.setText("attempts: 2/3");
 				this.stringSpeaker.speakString("incorrect");
 			}else if(numAttempts==2) {
 				String hint=pm.getQuestion().getAnswers().substring(0, 1).toUpperCase();
@@ -54,13 +57,13 @@ public class PracticeAnswerController {
 		                .answerType(AlertBuilder.AnswerType.FINAL_ATTEMPT)
 		                .userAnswer(input).hint(hint).build();
 		        alert.show();
-		        attempts.setText("Attempts: 3/3");
-				answer.setText("You are given the first letter of the answer: "+hint);
+		        attempts.setText("attempts: 3/3");
+				answer.setText("You are given the first latter of the answer: "+hint);
 				this.stringSpeaker.speakString("incorrect");
 			}else if(numAttempts==3) {
 				Alert alert = new AlertBuilder()
 		                .answerType(AlertBuilder.AnswerType.PLAY_INCORRECT)
-		                .userAnswer(input).build();
+		                .userAnswer(input).trueAnswer(correctAnswer).build();
 		        alert.show();
 				answer.setText("The correct answer was: "+correctAnswer);
 				this.stringSpeaker.speakString("The correct answer was: "+correctAnswer);
