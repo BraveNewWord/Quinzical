@@ -46,7 +46,7 @@ public class PracticeAnswerController {
 		                .answerType(AlertBuilder.AnswerType.PRAC_INCORRECT)
 		                .userAnswer(input).build();
 		        alert.show();
-		        attempts.setText("attempts: 2/3");
+		        attempts.setText("Attempts: 2/3");
 				this.stringSpeaker.speakString("incorrect");
 			}else if(numAttempts==2) {
 				String hint=pm.getQuestion().getAnswers().substring(0, 1).toUpperCase();
@@ -54,8 +54,8 @@ public class PracticeAnswerController {
 		                .answerType(AlertBuilder.AnswerType.FINAL_ATTEMPT)
 		                .userAnswer(input).hint(hint).build();
 		        alert.show();
-		        attempts.setText("attempts: 3/3");
-				answer.setText("You are given the first latter of the answer: "+hint);
+		        attempts.setText("Attempts: 3/3");
+				answer.setText("You are given the first letter of the answer: "+hint);
 				this.stringSpeaker.speakString("incorrect");
 			}else if(numAttempts==3) {
 				Alert alert = new AlertBuilder()
