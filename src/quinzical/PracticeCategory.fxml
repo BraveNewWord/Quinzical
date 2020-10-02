@@ -16,5 +16,10 @@
       <ComboBox fx:id="cb" layoutX="198.0" layoutY="127.0" prefHeight="26.0" prefWidth="205.0" />
       <Button fx:id="btn" layoutX="478.0" layoutY="326.0" mnemonicParsing="false" onAction="#onStartClick" text="Start" />
       <Button fx:id="exit" layoutX="52.0" layoutY="326.0" mnemonicParsing="false" onAction="#onExitClick" text="Exit" />
+      <Label fx:id="errorLabel" layoutX="178.0" layoutY="229.0" text="Please select a category">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
