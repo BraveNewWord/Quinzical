@@ -21,15 +21,18 @@ Ensure that run.sh has permissions that allow to be executable.<br>
 Open terminal in the directory with quinzical.jar and run.sh files<br>
 Type in and enter:
 <code>./run.sh</code><br>
+You should be greeted with a welcome page that looks something like this<br>
+![Intro screen](https://cdn.discordapp.com/attachments/692707366897975376/761569551921446932/unknown.png)
 
 ## Features
 <p>
 To make the game accessible, there is a text-to-speech (tts) system that reads clue to the user in addition to a text version of the clue displayed.
   This was done to ensure those that have hearing or sight difficulties are still able to play the game and learn about New Zealand.
-  On the starting page of the app, there is a voice slider that allows the user to increase or decrease the speed of the tts voice to cater to
-  user who prefer a faster voice or those who prefer a slower voice.
+  On the starting page of the app, there is a voice speed slider that allows the user to increase or decrease the speed of the tts voice to cater to
+  user who prefer listen to a faster voice or those who prefer a slower voice.
 </p>
 
 ## Games Module
-The Games Module can be entered by clicking the 
+The Games Module can be entered by clicking the Play button on the starting screen
+
 ## Pracitice Module
