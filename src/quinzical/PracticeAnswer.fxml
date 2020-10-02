@@ -18,13 +18,16 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="attempts" layoutX="45.0" layoutY="341.0" text="Attempts: 1/3" />
+      <Label fx:id="attempts" layoutX="45.0" layoutY="341.0" text="Attempts: 1/3">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
       <Label fx:id="answer" alignment="TOP_CENTER" layoutX="4.0" layoutY="276.0" prefHeight="58.0" prefWidth="592.0" text="The correct answer was: Stewart Island/Rakiura" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="text" layoutX="184.0" layoutY="200.0" prefHeight="26.0" prefWidth="232.0" />
+      <TextField fx:id="text" layoutX="184.0" layoutY="200.0" onKeyPressed="#checkAnswerOnEnterKey" prefHeight="26.0" prefWidth="232.0" />
       <Button fx:id="submit" layoutX="259.0" layoutY="237.0" mnemonicParsing="false" onAction="#onSubmitClick" text="Submit" />
       <Button fx:id="replay" layoutX="245.0" layoutY="344.0" mnemonicParsing="false" onAction="#onReplyClick" text="Replay clue" />
       <Button fx:id="exit" layoutX="517.0" layoutY="344.0" mnemonicParsing="false" onAction="#onExitClick" text="Exit" />

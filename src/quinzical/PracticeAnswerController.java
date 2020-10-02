@@ -3,11 +3,14 @@ package quinzical;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import quinzical.model.PracticeManager;
 
 public class PracticeAnswerController {
@@ -30,8 +33,12 @@ public class PracticeAnswerController {
 		numAttempts=1;
 		this.stringSpeaker.speakString(pm.getQuestion().getClue());
 	}
-	
-	public void onSubmitClick(ActionEvent event) throws Exception {
+	public void checkAnswerOnEnterKey(KeyEvent keyEvent) throws Exception {
+		if (keyEvent.getCode() == KeyCode.ENTER) {
+			onSubmitClick(keyEvent);
+		}
+	}
+	public void onSubmitClick(Event event) throws Exception {
 		String correctAnswer=pm.getQuestion().getAnswers();
 		input=text.getText().trim();
 		if (input.isBlank()) {
@@ -44,26 +51,28 @@ public class PracticeAnswerController {
 			Alert alert = new AlertBuilder()
 	                .answerType(AlertBuilder.AnswerType.PRAC_CORRECT)
 	                .userAnswer(input).build();
-	        alert.showAndWait();
 			this.stringSpeaker.speakString("correct");
+	        alert.showAndWait();
 			this.onExitClick(event);
 		}else {
 			if(numAttempts==1) {
 				Alert alert = new AlertBuilder()
 		                .answerType(AlertBuilder.AnswerType.PRAC_INCORRECT)
 		                .userAnswer(input).build();
+				this.stringSpeaker.speakString("incorrect");
 				alert.showAndWait();
 		        attempts.setText("Attempts: 2/3");
-				this.stringSpeaker.speakString("incorrect");
+
 			}else if(numAttempts==2) {
 				String hint=pm.getQuestion().getAnswers().substring(0, 1).toUpperCase();
 				Alert alert = new AlertBuilder()
 		                .answerType(AlertBuilder.AnswerType.FINAL_ATTEMPT)
 		                .userAnswer(input).hint(hint).build();
+				this.stringSpeaker.speakString("incorrect");
 				alert.showAndWait();
 		        attempts.setText("Attempts: 1/3");
 				answer.setText("You are given the first letter of the answer: "+hint);
-				this.stringSpeaker.speakString("incorrect");
+
 			}else if(numAttempts==3) {
 				Alert alert = new AlertBuilder()
 		                .answerType(AlertBuilder.AnswerType.PLAY_INCORRECT)
@@ -82,7 +91,7 @@ public class PracticeAnswerController {
 		this.stringSpeaker.speakString(pm.getQuestion().getClue());
 	}
 	
-	public void onExitClick(ActionEvent event) throws Exception {
+	public void onExitClick(Event event) throws Exception {
 		PracticeCategoryController controller = new SceneSwitcher().
                 switchScene(event, "PracticeCategory.fxml").getController();
         controller.initialize(new PracticeManager(), this.stringSpeaker);
