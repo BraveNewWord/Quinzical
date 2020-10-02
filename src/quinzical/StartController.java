@@ -7,10 +7,6 @@ import quinzical.model.GameManager;
 import quinzical.model.PracticeManager;
 
 
-import java.io.IOException;
-
-
-
 public class StartController {
     @FXML private Slider voiceSpeedSlider;
     private StringSpeaker stringSpeaker = new StringSpeaker();
@@ -31,7 +27,7 @@ public class StartController {
 //        new SceneSwitcher().switchScene(event, "PracticeCategory.fxml");
     	PracticeCategoryController controller = new SceneSwitcher().
                 switchScene(event, "PracticeCategory.fxml").getController();
-        controller.initialize(new PracticeManager());
+        controller.initialize(new PracticeManager(), this.stringSpeaker);
     }
 
     public void onSliderChanged() {

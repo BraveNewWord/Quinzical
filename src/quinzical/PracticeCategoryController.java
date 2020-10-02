@@ -1,6 +1,5 @@
 package quinzical;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import quinzical.model.Category;
-import quinzical.model.GameManager;
 import quinzical.model.PracticeManager;
 
 public class PracticeCategoryController {
@@ -16,8 +14,10 @@ public class PracticeCategoryController {
 	private PracticeManager pm;
 	private List<Category> categories=new ArrayList<Category>();
 	private List<String> categoriesString=new ArrayList<String>();
+	private StringSpeaker stringSpeaker;
 	
-	public void initialize(PracticeManager pm) throws Exception {
+	public void initialize(PracticeManager pm, StringSpeaker stringSpeaker) throws Exception {
+		this.stringSpeaker = stringSpeaker;
 		this.pm=pm;
 		this.pm.setCategories();
 		categories=pm.getCategories();
@@ -36,11 +36,12 @@ public class PracticeCategoryController {
 		}
         PracticeAnswerController controller = new SceneSwitcher().
                 switchScene(event, "PracticeAnswer.fxml").getController();
-        controller.initialize(this.pm);
+        controller.initialize(this.pm, this.stringSpeaker);
     }
 	
 	public void onExitClick(ActionEvent event) throws Exception {
 		StartController controller = new SceneSwitcher().
                 switchScene(event, "Start.fxml").getController();
+		controller.initData(this.stringSpeaker);
 	}
 }
