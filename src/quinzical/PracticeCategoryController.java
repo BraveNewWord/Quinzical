@@ -17,7 +17,6 @@ public class PracticeCategoryController {
 	private List<Category> categories=new ArrayList<Category>();
 	private List<String> categoriesString=new ArrayList<String>();
 	
-	@FXML
 	public void initialize(PracticeManager pm) throws Exception {
 		this.pm=pm;
 		this.pm.setCategories();
