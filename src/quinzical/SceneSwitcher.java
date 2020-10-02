@@ -11,6 +11,7 @@ import java.io.IOException;
 
 public class SceneSwitcher {
     public FXMLLoader switchScene(Event event, String pageName) throws IOException {
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(pageName));
         Parent root = loader.load();

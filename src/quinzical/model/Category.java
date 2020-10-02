@@ -18,6 +18,10 @@ public class Category implements Serializable {
         return name;
     }
 
+    public List<Question> getQuestions() {
+        return this.questions;
+    }
+
     public Question getRandomQuestion() {
         Random rand = new Random();
         Question randQuestion = this.questions.get(rand.nextInt(this.questions.size()));

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class GameManager implements Serializable {
     private List<Category> categories = new ArrayList<>();
     private List<Category> chosenCategories = new ArrayList<>();
@@ -68,7 +69,6 @@ public class GameManager implements Serializable {
             randCat = this.categories.get(rand.nextInt(this.categories.size()));
         }
         chosenCategories.add(randCat);
-
         return randCat;
     }
 

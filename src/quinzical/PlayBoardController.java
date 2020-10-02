@@ -7,8 +7,8 @@ import javafx.scene.control.Label;
 import quinzical.model.Category;
 import quinzical.model.GameManager;
 import quinzical.model.Question;
-
 import java.io.IOException;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,6 +20,7 @@ public class PlayBoardController {
     @FXML private Label label4;
     @FXML private Label label5;
     @FXML private Label scoreLabel;
+
 
     @FXML private Button button01; @FXML private Button button02;
     @FXML private Button button03; @FXML private Button button04; @FXML private Button button05;
@@ -39,12 +40,12 @@ public class PlayBoardController {
     public void initData(GameManager game, StringSpeaker stringSpeaker) throws Exception {
         this.labels = Arrays.asList(label1,label2,label3,label4,label5);
         this.colButtons = Arrays.asList(Arrays.asList(button01,button02,button03,button04,button05),
+
                 Arrays.asList(button11,button12,button13,button14,button15),
                 Arrays.asList(button21,button22,button23,button24,button25),
                 Arrays.asList(button31,button32,button33,button34,button35),
                 Arrays.asList(button41,button42,button43,button44,button45)
         );
-
         this.game = game;
         this.stringSpeaker = stringSpeaker;
         if (!this.game.gameStarted()) {

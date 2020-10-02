@@ -11,7 +11,7 @@ public class Main {
             System.out.println(randCat.getName());
             for (int j = 0; j < 5; j++) {
                 Question randQuestion = randCat.getRandomQuestion();
-                randQuestion.setPoints(j*100+100);
+                randQuestion.setPoints(j * 100 + 100);
                 System.out.println("CLUE: " + randQuestion.getClue());
                 System.out.println("PREFIX: " + randQuestion.getPrefix());
                 System.out.println("ANSWERS: " + randQuestion.getAnswers());
@@ -19,8 +19,4 @@ public class Main {
             }
         }
     }
-        //System.out.println(randCat.getName());
-        //System.out.println(randCat.getRandomQuestion().getClue());
-        //System.out.println(randCat.getRandomQuestion().getAnswers());
-    }
-
+}

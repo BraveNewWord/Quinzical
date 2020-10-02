@@ -4,6 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Slider;
 import quinzical.model.GameManager;
+import quinzical.model.PracticeManager;
+
+
 import java.io.IOException;
 
 
@@ -23,9 +26,12 @@ public class StartController {
         controller.initData(new GameManager(), this.stringSpeaker);
 
     }
-    public void onPracticeClick(ActionEvent event) throws IOException {
-        new SceneSwitcher().switchScene(event, "PracticeCategory.fxml");
 
+    public void onPracticeClick(ActionEvent event) throws Exception {
+//        new SceneSwitcher().switchScene(event, "PracticeCategory.fxml");
+    	PracticeCategoryController controller = new SceneSwitcher().
+                switchScene(event, "PracticeCategory.fxml").getController();
+        controller.initialize(new PracticeManager());
     }
 
     public void onSliderChanged() {
