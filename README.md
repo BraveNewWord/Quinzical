@@ -3,7 +3,9 @@
 ## Intro
 Quinzical is a quiz game application that allows players to learn more about New Zealand. The Quinzical quiz format is inspired by the Jeopardy! quiz game format.<br>
 There are two modules: The <b>Games module</b> and the <b>Practice module</b> <br>
-In both modules, users will be shown a clue that is the answer to question they must complete as an answer. <br>
+In the Games module, the user is presented with a grid of question which they have to answer correctly to gain points<br>
+In the Practice module, the user selects a category, and a random question from the category is selected for the user to practice answering<br>
+In both modules, users will be shown a clue that is the answer to a question which they must provide as an answer. <br>
 This application is intended to run on a Linux VirtualBox provided in the SOFTENG206 course.
 
 ## Setup
