@@ -16,15 +16,17 @@ public class StringSpeaker {
     }
 
     public void speakString(String spokenString) throws Exception{
-        // Cleaning the string by escaping quotation marks that may interfere when read
-        spokenString = spokenString.replaceAll("'", "\\\\'").
-                replaceAll("\"", "\\\\\"");
+        // Cleaning the string by deleting quotation marks that may interfere when read
+        spokenString = spokenString.replaceAll("'", "").
+                replaceAll("\"", "");
+
         // The scm String would look like this:
         // (Parameter.set 'Duration_Stretch [voiceSpeed])(SayText "[spokenString]")
         // This string will be piped to festival and be read as a scm file
         String scm = "\"(Parameter.set 'Duration_Stretch " + this.voiceSpeed + ")" +
                 "(SayText \\\"" + spokenString + "\\\")\"";
-
+        System.out.println(spokenString);
+        System.out.println(scm);
         String command = "echo " + scm + " | festival -b --pipe";
         ProcessBuilder builder = new ProcessBuilder("/bin/bash", "-c", command);
         builder.start();
