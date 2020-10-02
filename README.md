@@ -33,6 +33,11 @@ To make the game accessible, there is a text-to-speech (tts) system that reads c
 </p>
 
 ## Games Module
-The Games Module can be entered by clicking the Play button on the starting screen
+The Games Module can be entered by clicking the Play button on the starting screen<br>
+You will be greeted with a question board with five random categories, each with five New Zealand related questions.<br>
+You can only select the lowest money value for each category, but higher values are unlocked as you progress through a category.<br>
+For example, answering a 100 point questions in a category will unlock the 200 point question in the same category.
+![Games screen](https://cdn.discordapp.com/attachments/692707366897975376/761572272619126834/unknown.png)
 
-## Pracitice Module
+## Practice Module
+![Practice screen](https://cdn.discordapp.com/attachments/692707366897975376/761572993028980766/unknown.png)
