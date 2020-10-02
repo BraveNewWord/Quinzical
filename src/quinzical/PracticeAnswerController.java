@@ -19,7 +19,6 @@ public class PracticeAnswerController {
 	private int numAttempts;
 	private String input;
 	
-	@FXML
 	public void initialize(PracticeManager pm) throws Exception {
 		this.pm=pm;
 		this.pm.setQuestions();
