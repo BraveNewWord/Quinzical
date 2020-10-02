@@ -26,7 +26,7 @@ public class PracticeAnswerController {
 		this.pm.chooseQuestion();
 		clue.setText(pm.getQuestion().getClue());
 		answer.setText("");
-		attempts.setText("Attempts: 1/3");
+		attempts.setText("Attempts: 3/3");
 		numAttempts=1;
 		this.stringSpeaker.speakString(pm.getQuestion().getClue());
 	}
@@ -34,39 +34,45 @@ public class PracticeAnswerController {
 	public void onSubmitClick(ActionEvent event) throws Exception {
 		String correctAnswer=pm.getQuestion().getAnswers();
 		input=text.getText().trim();
+		if (input.isBlank()) {
+			Alert alert = new AlertBuilder().answerType(AlertBuilder.AnswerType.INVALID_INPUT).build();
+			alert.showAndWait();
+			return;
+		}
+
 		if(pm.getQuestion().checkAnswer(input)) {
 			Alert alert = new AlertBuilder()
 	                .answerType(AlertBuilder.AnswerType.PRAC_CORRECT)
 	                .userAnswer(input).build();
-	        alert.show();
+	        alert.showAndWait();
 			this.stringSpeaker.speakString("correct");
-			PracticeCategoryController controller = new SceneSwitcher().
-	                switchScene(event, "PracticeCategory.fxml").getController();
-	        controller.initialize(new PracticeManager(), this.stringSpeaker);
+			this.onExitClick(event);
 		}else {
 			if(numAttempts==1) {
 				Alert alert = new AlertBuilder()
 		                .answerType(AlertBuilder.AnswerType.PRAC_INCORRECT)
 		                .userAnswer(input).build();
-		        alert.show();
-		        attempts.setText("attempts: 2/3");
+				alert.showAndWait();
+		        attempts.setText("Attempts: 2/3");
 				this.stringSpeaker.speakString("incorrect");
 			}else if(numAttempts==2) {
 				String hint=pm.getQuestion().getAnswers().substring(0, 1).toUpperCase();
 				Alert alert = new AlertBuilder()
 		                .answerType(AlertBuilder.AnswerType.FINAL_ATTEMPT)
 		                .userAnswer(input).hint(hint).build();
-		        alert.show();
-		        attempts.setText("attempts: 3/3");
-				answer.setText("You are given the first latter of the answer: "+hint);
+				alert.showAndWait();
+		        attempts.setText("Attempts: 1/3");
+				answer.setText("You are given the first letter of the answer: "+hint);
 				this.stringSpeaker.speakString("incorrect");
 			}else if(numAttempts==3) {
 				Alert alert = new AlertBuilder()
 		                .answerType(AlertBuilder.AnswerType.PLAY_INCORRECT)
 		                .userAnswer(input).trueAnswer(correctAnswer).build();
-		        alert.show();
 				answer.setText("The correct answer was: "+correctAnswer);
 				this.stringSpeaker.speakString("The correct answer was: "+correctAnswer);
+				alert.showAndWait();
+				this.onExitClick(event);
+
 			}
 			numAttempts++;
 		}
