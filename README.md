@@ -31,6 +31,9 @@ To make the game accessible, there is a text-to-speech (tts) system that reads c
   On the starting page of the app, there is a voice speed slider that allows the user to increase or decrease the speed of the tts voice to cater to
   users who prefer listen to a faster voice or those who prefer a slower voice.
 </p>
+When a voice speed is selected on the slider, clicking Test speed will play a sample sound from the tts systemm so the user can hear the speed of the voice they have selected<br>
+
+![Voice speed slider](https://cdn.discordapp.com/attachments/692707366897975376/761580756027179018/unknown.png)
 
 ## Games Module
 The Games Module can be entered by clicking the Play button on the starting screen<br>
