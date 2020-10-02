@@ -14,7 +14,7 @@ import javafx.scene.input.KeyEvent;
 import quinzical.model.PracticeManager;
 
 public class PracticeAnswerController {
-	@FXML private Label clue, answer, attempts;
+	@FXML private Label clue, answer, attempts, prefixLabel;
 	@FXML private TextField text;
 	@FXML private Button submit, replay, exit;
 	private PracticeManager pm;
@@ -27,6 +27,7 @@ public class PracticeAnswerController {
 		this.pm=pm;
 		this.pm.setQuestions();
 		this.pm.chooseQuestion();
+		this.prefixLabel.setText(pm.getQuestion().getPrefix());
 		clue.setText(pm.getQuestion().getClue());
 		answer.setText("");
 		attempts.setText("Attempts: 3/3");
