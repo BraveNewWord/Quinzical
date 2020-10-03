@@ -67,6 +67,7 @@ Once you click the choice box, you can see a list of categories.<br>
 Then you need to choose a category then click start.<br>
 
 Once you click the start button, you are greeted with an answering page and the clue is spoken to us.<br>
+![Practice answering screen](https://drive.google.com/file/d/1GyEwxTXy68iY0u3iy8tL4jCd5D-hnSui/view?usp=sharing)
 
 On this page there are several options<br>
 - <b>Submit</b>
