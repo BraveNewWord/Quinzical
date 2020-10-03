@@ -31,3 +31,6 @@ out/
 
 game-data
 /bin/
+
+# shell files
+*.sh
