@@ -67,7 +67,7 @@ Once you click the choice box, you can see a list of categories.<br>
 Then you need to choose a category then click start.<br>
 
 Once you click the start button, you are greeted with an answering page and the clue is spoken to us.<br>
-![Practice answering screen](https://wx2.qq.com/cgi-bin/mmwebwx-bin/webwxgetmsgimg?&MsgID=1064191598092637074&skey=%40crypt_2063b5c3_e47f826f75613ed812b498b8ed3465fe)
+![Practice answering screen](D:\Documents\Uni2.2\SOFTENG 206\ass3\drive.google.com_drive_my-drive.png)
 
 On this page there are several options<br>
 - <b>Submit</b>
