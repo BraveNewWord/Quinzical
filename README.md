@@ -59,4 +59,25 @@ Lets click on a button, 100 for Places<br>
 ![Question board](https://cdn.discordapp.com/attachments/692707366897975376/761578078560321556/unknown.png)
 
 ## Practice Module
+The Practice Module can be entered by clicking the Practice button on the starting screen<br>
+You will need to select a category to start practicing a question.<br>
 ![Practice screen](https://cdn.discordapp.com/attachments/692707366897975376/761572993028980766/unknown.png)
+
+Once you click the choice box, you can see a list of categories.<br>
+Then you need to choose a category then click start.<br>
+
+Once you click the start button, you are greeted with an answering page and the clue is spoken to us.<br>
+
+On this page there are several options<br>
+- <b>Submit</b>
+  - Once you type in an answer in the text box, click this to submit your answer
+- <b>Replay clue</b>
+  - If you want to hear the tts voiced clue again, click this for it be read to you again
+- <b>Exit clue</b>
+  - If you want to return to the selecting category screen, click this to return
+  <br>
+  When an answer is submitted, you will be told whether your answer is correct<br>
+  You will have 3 chances to submit your answer until you answer correctly<br>
+  In your last chance, you will be given the first latter of answer as a hint<br>
+  Once you answer correctly, you will automatically return to the selecting category screen<br>
+  
