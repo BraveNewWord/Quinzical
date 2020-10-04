@@ -79,6 +79,6 @@ On this page there are several options<br>
   <br>
 When an answer is submitted, you will be told whether your answer is correct<br>
 You will have 3 chances to submit your answer until you answer correctly<br>
-In your last chance, you will be given the first latter of answer as a hint<br>
+In your last chance, you will be given the first letter of answer as a hint<br>
 Once you answer correctly, you will automatically return to the selecting category screen<br>
   
