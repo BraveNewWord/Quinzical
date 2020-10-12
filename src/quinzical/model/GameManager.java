@@ -14,6 +14,9 @@ public class GameManager implements Serializable {
     private Question currentQuestion;
     private boolean gameStarted = false;
 
+    private boolean twoCategoriesComplete;
+    //private int categoriesComplete;
+
     public GameManager() throws Exception {
 
         try {
@@ -78,6 +81,21 @@ public class GameManager implements Serializable {
 
     public List<Category> getChosenCategories() {
         return this.chosenCategories;
+    }
+
+    public void countCategoriesComplete() {
+        int nCategoriesComplete = 0;
+        for (Category category : this.chosenCategories){
+            if (!category.hasQuestions()) {
+                nCategoriesComplete++;
+            }
+        }
+        if (nCategoriesComplete >= 2 || this.twoCategoriesComplete) {
+            this.twoCategoriesComplete = true;
+        } else {
+            this.twoCategoriesComplete = false;
+        }
+
     }
 
     public boolean questionsExist() {

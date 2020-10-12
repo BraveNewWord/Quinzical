@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quinzical.NZInternationalPageController">
    <children>
-      <Button layoutX="66.0" layoutY="125.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" text="New Zealand" />
+      <Button layoutX="66.0" layoutY="125.0" mnemonicParsing="false" onAction="#onNZClick" prefHeight="150.0" prefWidth="200.0" text="New Zealand" />
       <Button layoutX="321.0" layoutY="125.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" text="International" />
       <Label layoutX="207.0" layoutY="78.0" text="Choose Section">
          <font>
