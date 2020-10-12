@@ -20,8 +20,8 @@ public class StartController {
     }
 
     public void onPlayClick(ActionEvent event) throws Exception {
-        PlayBoardController controller = new SceneSwitcher().
-                switchScene(event, "PlayQuestionBoard.fxml").getController();
+        NZInternationalPageController controller = new SceneSwitcher().
+                switchScene(event, "NZInternationalPage.fxml").getController();
         controller.initData(new GameManager(), this.stringSpeaker);
 
     }
