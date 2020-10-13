@@ -14,7 +14,7 @@ public class GameManager implements Serializable {
     private Question currentQuestion;
     private boolean gameStarted = false;
 
-    private boolean twoCategoriesComplete;
+    private boolean twoCategoriesComplete = false;
     //private int categoriesComplete;
 
     public GameManager() throws Exception {
@@ -26,6 +26,7 @@ public class GameManager implements Serializable {
             this.chosenCategories = game.chosenCategories;
             this.points = game.points;
             this.gameStarted = game.gameStarted;
+            this.twoCategoriesComplete = game.twoCategoriesComplete;
             is.close();
         } catch (IOException | ClassNotFoundException e) {
             //e.printStackTrace();
