@@ -84,18 +84,19 @@ public class GameManager implements Serializable {
     }
 
     public void countCategoriesComplete() {
-        int nCategoriesComplete = 0;
-        for (Category category : this.chosenCategories){
-            if (!category.hasQuestions()) {
-                nCategoriesComplete++;
+        if (!this.twoCategoriesComplete) {
+            int nCategoriesComplete = 0;
+            for (Category category : this.chosenCategories){
+                if (!category.hasQuestions()) {
+                    nCategoriesComplete++;
+                }
             }
+            this.twoCategoriesComplete = nCategoriesComplete >= 2;
         }
-        if (nCategoriesComplete >= 2 || this.twoCategoriesComplete) {
-            this.twoCategoriesComplete = true;
-        } else {
-            this.twoCategoriesComplete = false;
-        }
+    }
 
+    public boolean getTwoCategoriesComplete() {
+        return this.twoCategoriesComplete;
     }
 
     public boolean questionsExist() {
