@@ -69,8 +69,11 @@ public class PlayBoardController {
                 colButtons.get(i).get(j).setText(Integer.toString(chosenQuestion.getPoints()));
                 if ((j == 0 || chosenCat.getChosenQuestions().get(j - 1).isAnswered())
                     && (!chosenQuestion.isAnswered())) {
-
                         colButtons.get(i).get(j).setDisable(false);
+                }
+
+                if (chosenQuestion.isAnswered()) {
+                    colButtons.get(i).get(j).setVisible(false);
                 }
             }
         }
