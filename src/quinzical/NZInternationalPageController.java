@@ -25,9 +25,17 @@ public class NZInternationalPageController {
     }
 
     public void onNZClick(ActionEvent event) throws Exception {
-        PlayBoardController controller = new SceneSwitcher().
-                switchScene(event, "PlayQuestionBoard.fxml").getController();
-        controller.initData(this.game, this.stringSpeaker);
+        if (this.game.gameStarted()) {
+            PlayBoardController controller = new SceneSwitcher().
+                    switchScene(event, "PlayQuestionBoard.fxml").getController();
+            controller.initData(this.game, this.stringSpeaker);
+        } else {
+            PlayCategorySelectionController controller = new SceneSwitcher().
+                    switchScene(event, "PlayCategorySelection.fxml").getController();
+            controller.initData(this.game, this.stringSpeaker);
+        }
+
+
     }
 }
 
