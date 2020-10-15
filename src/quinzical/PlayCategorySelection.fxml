@@ -10,17 +10,16 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quinzical.PlayCategorySelectionController">
    <children>
-        <Button fx:id="exit" layoutX="37.0" layoutY="354.0" mnemonicParsing="false" text="Exit" />
-        <Button fx:id="btn" layoutX="506.0" layoutY="354.0" mnemonicParsing="false" text="Start" />
+        <Button fx:id="exit" layoutX="33.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Exit" />
+        <Button fx:id="startButton" layoutX="478.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Start" />
         <Label layoutX="163.0" layoutY="26.0" text="Choose 5 categories">
             <font>
                 <Font size="25.0" />
             </font>
         </Label>
-      <TableView fx:id="categoryTable" layoutX="172.0" layoutY="140.0" prefHeight="200.0" prefWidth="256.0">
+      <TableView fx:id="categoryTable" layoutX="172.0" layoutY="128.0" prefHeight="148.0" prefWidth="256.0">
         <columns>
-          <TableColumn fx:id="categoryCol" prefWidth="160.0" sortable="false" text="Chosen category" />
-            <TableColumn fx:id="actionCol" prefWidth="95.0" sortable="false" text="Action" />
+          <TableColumn fx:id="categoryCol" prefWidth="160.0" sortable="false" text="Chosen categories" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -28,5 +27,6 @@
       </TableView>
         <ComboBox fx:id="categoriesBox" layoutX="189.0" layoutY="86.0" prefHeight="26.0" prefWidth="205.0" />
       <Button layoutX="408.0" layoutY="86.0" mnemonicParsing="false" onAction="#onAddClick" text="Add" />
+      <Button layoutX="255.0" layoutY="296.0" mnemonicParsing="false" onAction="#onRemoveClick" text="Remove" />
    </children>
 </AnchorPane>
