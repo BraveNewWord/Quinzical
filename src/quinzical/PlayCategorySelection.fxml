@@ -17,10 +17,10 @@
                 <Font size="25.0" />
             </font>
         </Label>
-      <TableView layoutX="172.0" layoutY="140.0" prefHeight="200.0" prefWidth="256.0">
+      <TableView fx:id="categoryTable" layoutX="172.0" layoutY="140.0" prefHeight="200.0" prefWidth="256.0">
         <columns>
-          <TableColumn prefWidth="160.0" sortable="false" text="Chosen category" />
-            <TableColumn prefWidth="95.0" sortable="false" text="Action" />
+          <TableColumn fx:id="categoryCol" prefWidth="160.0" sortable="false" text="Chosen category" />
+            <TableColumn fx:id="actionCol" prefWidth="95.0" sortable="false" text="Action" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

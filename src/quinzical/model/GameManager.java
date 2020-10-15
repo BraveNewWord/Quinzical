@@ -84,6 +84,10 @@ public class GameManager implements Serializable {
         return this.chosenCategories;
     }
 
+    public void addChosenCategory(Category category) {
+        this.chosenCategories.add(category);
+    }
+
     public void countCategoriesComplete() {
         if (!this.twoCategoriesComplete) {
             int nCategoriesComplete = 0;

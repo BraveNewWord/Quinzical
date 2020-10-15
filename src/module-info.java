@@ -5,4 +5,5 @@ module SE206Project {
 	requires javafx.graphics;
 
     opens quinzical;
+    opens quinzical.model to javafx.base;
 }
