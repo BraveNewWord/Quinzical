@@ -14,6 +14,7 @@ public class GameManager implements Serializable {
     private Question currentQuestion;
     private boolean gameStarted = false;
 
+    private boolean internationalUnlocked = false;
     private boolean twoCategoriesComplete = false;
     //private int categoriesComplete;
 
@@ -34,7 +35,12 @@ public class GameManager implements Serializable {
 
     }
 
-    public boolean getCategories() throws Exception{
+    /**
+     * This method detects for a categories folder and reads the category text files within them
+     * These categories and questions are transcribed to Category and Question objects
+     * @throws Exception
+     */
+    public void getCategories() throws Exception{
         File categoryFolder = new File("categories");
         if (categoryFolder.exists() && categoryFolder.list().length > 0) {
             // thru all files in categories
@@ -45,17 +51,11 @@ public class GameManager implements Serializable {
                 while (scanner.hasNextLine()) {
                     String[] data = scanner.nextLine().split("\\|");
                     questions.add(new Question(data[0], data[1], data[2]));
-
-
                 }
                 this.categories.add(new Category(file, questions));
                 scanner.close();
             }
-
-
-            return true;
         }
-        return false;
     }
 
     public void setStarted(boolean value) {
@@ -105,6 +105,14 @@ public class GameManager implements Serializable {
 
     public boolean getTwoCategoriesComplete() {
         return this.twoCategoriesComplete;
+    }
+
+    public boolean getInternationalUnlocked() {
+        return this.internationalUnlocked;
+    }
+
+    public void setInternationalUnlocked(boolean value) {
+        this.internationalUnlocked = value;
     }
 
     public boolean questionsExist() {

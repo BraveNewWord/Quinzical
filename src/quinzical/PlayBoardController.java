@@ -79,6 +79,19 @@ public class PlayBoardController {
         }
         scoreLabel.setText(game.dispPoints());
         this.game.saveGame();
+
+        this.game.countCategoriesComplete();
+        if (this.game.getTwoCategoriesComplete() && !this.game.getInternationalUnlocked()) {
+            this.game.setInternationalUnlocked(true);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("International section unlocked");
+            alert.setHeaderText("You have unlocked the International section!");
+            alert.setContentText("Two categories have been fully answered\n" +
+                    "You can return to start the International section now\n" +
+                    "or continue with the NZ section");
+            alert.showAndWait();
+
+        }
     }
 
     public void onButtonClick(ActionEvent event) throws Exception {
