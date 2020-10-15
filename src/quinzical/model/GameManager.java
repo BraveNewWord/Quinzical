@@ -6,7 +6,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-
+/**
+ * GameManager is class that acts to manage parts of the Games Module
+ * Responsibilities include: keeping score, keeping track of questions answered
+ * GameManager objects are used to pass game data between scenes when switching scenes
+ */
 public class GameManager implements Serializable {
     private List<Category> categories = new ArrayList<>();
     private List<Category> chosenCategories = new ArrayList<>();
@@ -16,10 +20,8 @@ public class GameManager implements Serializable {
 
     private boolean internationalUnlocked = false;
     private boolean twoCategoriesComplete = false;
-    //private int categoriesComplete;
 
     public GameManager() throws Exception {
-
         try {
             ObjectInputStream is  = new ObjectInputStream(new FileInputStream("game-data"));
             GameManager game = (GameManager) is.readObject();
@@ -33,6 +35,13 @@ public class GameManager implements Serializable {
             //e.printStackTrace();
         }
 
+    }
+
+    public boolean gameStarted() {
+        return this.gameStarted;
+    }
+    public void setStarted(boolean value) {
+        this.gameStarted = value;
     }
 
     /**
@@ -57,15 +66,9 @@ public class GameManager implements Serializable {
             }
         }
     }
-
-    public void setStarted(boolean value) {
-        this.gameStarted = value;
-    }
-
     public List<Category> categories() {
         return this.categories;
     }
-
     public Category getRandomCategory() throws Exception {
         Random rand = new Random();
         Category randCat = this.categories.get(rand.nextInt(this.categories.size()));
@@ -79,7 +82,6 @@ public class GameManager implements Serializable {
     public void clearChosenCategories() {
         chosenCategories.clear();
     }
-
     public List<Category> getChosenCategories() {
         return this.chosenCategories;
     }
@@ -102,7 +104,6 @@ public class GameManager implements Serializable {
             this.twoCategoriesComplete = nCategoriesComplete >= 2;
         }
     }
-
     public boolean getTwoCategoriesComplete() {
         return this.twoCategoriesComplete;
     }
@@ -110,7 +111,6 @@ public class GameManager implements Serializable {
     public boolean getInternationalUnlocked() {
         return this.internationalUnlocked;
     }
-
     public void setInternationalUnlocked(boolean value) {
         this.internationalUnlocked = value;
     }
@@ -155,17 +155,10 @@ public class GameManager implements Serializable {
         this.clearChosenCategories();
         this.gameStarted = false;
     }
-
-    public boolean gameStarted() {
-        return this.gameStarted;
-    }
-
     public void saveGame() throws Exception {
         ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("game-data"));
         os.writeObject(this);
         os.close();
     }
-
-
 
 }
