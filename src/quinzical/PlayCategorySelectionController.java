@@ -20,8 +20,7 @@ public class PlayCategorySelectionController {
     @FXML private ComboBox<String> categoriesBox;
     @FXML private TableView<Category> categoryTable;
     @FXML private TableColumn<Category, String> categoryCol;
-    @FXML private TableColumn<Category, Category> removeCol;
-
+    @FXML private Label errorLabel;
 
     public void initData(GameManager game, StringSpeaker stringSpeaker) throws Exception {
         this.game = game;
@@ -33,14 +32,20 @@ public class PlayCategorySelectionController {
         }
 
         this.categoryCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        this.categoryTable.setPlaceholder(new Label("Add some categories!"));
     }
 
     public void onAddClick() {
+        if (this.chosenCategories.size() == 5) {
+            this.errorLabel.setText("You have added 5 categories already\n" +
+                    "Make room for more by removing some chosen categories");
+            return;
+        }
 
         String categoryString = categoriesBox.getValue();
-
         for(Category category : this.game.getChosenCategories()) {
             if(categoryString.equals(category.getName())) {
+                this.errorLabel.setText("You have already added " + category.getName());
                 return;
             }
         }
@@ -48,13 +53,12 @@ public class PlayCategorySelectionController {
         for(Category category : this.game.categories()) {
             if(categoryString.equals(category.getName())) {
                 this.game.addChosenCategory(category);
+                this.errorLabel.setText("");
             }
         }
 
         this.chosenCategories.setAll(this.game.getChosenCategories());
         this.categoryTable.setItems(chosenCategories);
-
-        //getTableView().getItems().remove(category)
     }
 
     public void onRemoveClick() {

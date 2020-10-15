@@ -17,7 +17,7 @@
                 <Font size="25.0" />
             </font>
         </Label>
-      <TableView fx:id="categoryTable" layoutX="172.0" layoutY="128.0" prefHeight="148.0" prefWidth="256.0">
+      <TableView fx:id="categoryTable" layoutX="172.0" layoutY="148.0" prefHeight="148.0" prefWidth="256.0">
         <columns>
           <TableColumn fx:id="categoryCol" prefWidth="160.0" sortable="false" text="Chosen categories" />
         </columns>
@@ -25,8 +25,13 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-        <ComboBox fx:id="categoriesBox" layoutX="189.0" layoutY="86.0" prefHeight="26.0" prefWidth="205.0" />
-      <Button layoutX="408.0" layoutY="86.0" mnemonicParsing="false" onAction="#onAddClick" text="Add" />
-      <Button layoutX="255.0" layoutY="296.0" mnemonicParsing="false" onAction="#onRemoveClick" text="Remove" />
+        <ComboBox fx:id="categoriesBox" layoutX="190.0" layoutY="106.0" prefHeight="26.0" prefWidth="205.0" />
+      <Button layoutX="406.0" layoutY="106.0" mnemonicParsing="false" onAction="#onAddClick" text="Add" />
+      <Button layoutX="256.0" layoutY="314.0" mnemonicParsing="false" onAction="#onRemoveClick" text="Remove" />
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="90.0" layoutY="56.0" prefHeight="46.0" prefWidth="420.0" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
