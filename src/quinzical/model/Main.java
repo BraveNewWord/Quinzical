@@ -3,6 +3,7 @@ package quinzical.model;
 public class Main {
     public static void main(String[] args) throws Exception {
         //System.out.println("MIGHT");
+        /*
         GameManager gm = new GameManager();
         gm.getCategories();
         Category randCat;
@@ -18,5 +19,7 @@ public class Main {
                 System.out.println("POINTS: " + randQuestion.getPoints());
             }
         }
+
+         */
     }
 }

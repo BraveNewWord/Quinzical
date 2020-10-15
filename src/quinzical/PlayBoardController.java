@@ -48,19 +48,20 @@ public class PlayBoardController {
         this.game = game;
         this.stringSpeaker = stringSpeaker;
         if (!this.game.gameStarted()) {
+            /*
             if (this.game.categories().isEmpty()) {
                 this.game.getCategories();
             }
-            Category randCat;
-            for (int i = 0; i < 5; i++) {
-                randCat = game.getRandomCategory();
-                for (int j = 0; j < 5; j++) {
-                    Question randQuestion = randCat.getRandomQuestion();
-                    randQuestion.setPoints(j * 100 + 100);
+             */
+            for (Category category : this.game.getChosenCategories()) {
+                for (int i = 0; i < 5; i++) {
+                    Question randQuestion = category.getRandomQuestion();
+                    randQuestion.setPoints(i * 100 + 100);
                 }
             }
             this.game.setStarted(true);
         }
+
         for (int i = 0; i < 5; i++) {
             Category chosenCat = game.getChosenCategories().get(i);
             labels.get(i).setText(chosenCat.getName());
@@ -71,7 +72,6 @@ public class PlayBoardController {
                     && (!chosenQuestion.isAnswered())) {
                         colButtons.get(i).get(j).setDisable(false);
                 }
-
                 if (chosenQuestion.isAnswered()) {
                     colButtons.get(i).get(j).setVisible(false);
                 }
@@ -105,9 +105,9 @@ public class PlayBoardController {
         }
     }
 
-    public void onReturnClick(ActionEvent event) throws IOException {
-        StartController controller = new SceneSwitcher().switchScene(event, "Start.fxml").
+    public void onReturnClick(ActionEvent event) throws Exception {
+        NZInternationalPageController controller = new SceneSwitcher().switchScene(event, "NZInternationalPage.fxml").
                 getController();
-        controller.initData(this.stringSpeaker);
+        controller.initData(this.game, this.stringSpeaker);
     }
 }

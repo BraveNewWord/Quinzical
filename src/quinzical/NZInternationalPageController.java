@@ -34,8 +34,12 @@ public class NZInternationalPageController {
                     switchScene(event, "PlayCategorySelection.fxml").getController();
             controller.initData(this.game, this.stringSpeaker);
         }
+    }
 
-
+    public void onReturnClick(ActionEvent event) throws IOException {
+        StartController controller = new SceneSwitcher().switchScene(event, "Start.fxml").
+                getController();
+        controller.initData(this.stringSpeaker);
     }
 }
 

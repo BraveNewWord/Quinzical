@@ -14,5 +14,6 @@
             <Font size="24.0" />
          </font>
       </Label>
+      <Button layoutX="26.0" layoutY="337.0" mnemonicParsing="false" onAction="#onReturnClick" prefHeight="40.0" prefWidth="80.0" text="Return" />
    </children>
 </AnchorPane>

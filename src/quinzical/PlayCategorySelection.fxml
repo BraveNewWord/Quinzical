@@ -10,8 +10,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quinzical.PlayCategorySelectionController">
    <children>
-        <Button fx:id="exit" layoutX="33.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Exit" />
-        <Button fx:id="startButton" layoutX="478.0" layoutY="340.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Start" />
+        <Button fx:id="exit" layoutX="33.0" layoutY="340.0" mnemonicParsing="false" onAction="#onExitClick" prefHeight="40.0" prefWidth="80.0" text="Exit" />
+        <Button fx:id="startButton" layoutX="478.0" layoutY="340.0" mnemonicParsing="false" onAction="#onStartClick" prefHeight="40.0" prefWidth="80.0" text="Start" />
         <Label layoutX="163.0" layoutY="26.0" text="Choose 5 categories">
             <font>
                 <Font size="25.0" />
@@ -25,7 +25,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-        <ComboBox fx:id="categoriesBox" layoutX="190.0" layoutY="106.0" prefHeight="26.0" prefWidth="205.0" />
+        <ComboBox fx:id="categoriesBox" layoutX="190.0" layoutY="106.0" prefHeight="26.0" prefWidth="205.0" promptText="Select a category" />
       <Button layoutX="406.0" layoutY="106.0" mnemonicParsing="false" onAction="#onAddClick" text="Add" />
       <Button layoutX="256.0" layoutY="314.0" mnemonicParsing="false" onAction="#onRemoveClick" text="Remove" />
       <Label fx:id="errorLabel" alignment="CENTER" layoutX="90.0" layoutY="56.0" prefHeight="46.0" prefWidth="420.0" textAlignment="CENTER" wrapText="true">
