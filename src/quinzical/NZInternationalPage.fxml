@@ -5,15 +5,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quinzical.NZInternationalPageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4fc396;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quinzical.NZInternationalPageController">
    <children>
-      <Button layoutX="66.0" layoutY="125.0" mnemonicParsing="false" onAction="#onNZClick" prefHeight="150.0" prefWidth="200.0" text="New Zealand" />
-      <Button fx:id="internationalButton" disable="true" layoutX="321.0" layoutY="125.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" text="International" />
+      <Button layoutX="66.0" layoutY="125.0" mnemonicParsing="false" onAction="#onNZClick" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: black;" text="New Zealand" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <Button fx:id="internationalButton" disable="true" layoutX="321.0" layoutY="125.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: black;" text="International" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
       <Label layoutX="207.0" layoutY="78.0" text="Choose Section">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="26.0" layoutY="337.0" mnemonicParsing="false" onAction="#onReturnClick" prefHeight="40.0" prefWidth="80.0" text="Return" />
+      <Button layoutX="26.0" layoutY="337.0" mnemonicParsing="false" onAction="#onReturnClick" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: black;" text="Return" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>
