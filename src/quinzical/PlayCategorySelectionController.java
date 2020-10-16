@@ -1,6 +1,5 @@
 package quinzical;
 
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,9 +8,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import quinzical.model.Category;
 import quinzical.model.GameManager;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class PlayCategorySelectionController {
     private GameManager game;
@@ -26,10 +22,10 @@ public class PlayCategorySelectionController {
     public void initData(GameManager game, StringSpeaker stringSpeaker) throws Exception {
         this.game = game;
         this.stringSpeaker = stringSpeaker;
-        if (this.game.categories().isEmpty()) {
-            this.game.getCategories();
+        if (this.game.getCategories().isEmpty()) {
+            this.game.readCategories("categories");
         }
-        for(Category category : this.game.categories()) {
+        for(Category category : this.game.getCategories()) {
             categoriesBox.getItems().add(category.getName());
         }
 
@@ -56,7 +52,7 @@ public class PlayCategorySelectionController {
                 }
             }
             // Try add category to chosenCategories, update table
-            for(Category category : this.game.categories()) {
+            for(Category category : this.game.getCategories()) {
                 if(categoryString.equals(category.getName())) {
                     this.game.addChosenCategory(category);
                     this.errorLabel.setText(category.getName() + " was added!");
@@ -90,6 +86,7 @@ public class PlayCategorySelectionController {
 
     public void onStartClick(ActionEvent event) throws Exception{
         if (this.chosenCategories.size() == 5) {
+            this.game.setGameMode(GameManager.GameMode.NEW_ZEALAND);
             PlayBoardController controller = new SceneSwitcher().
                     switchScene(event, "PlayQuestionBoard.fxml").getController();
             controller.initData(this.game, this.stringSpeaker);

@@ -81,7 +81,9 @@ public class PlayBoardController {
         this.game.saveGame();
 
         this.game.countCategoriesComplete();
-        if (this.game.getTwoCategoriesComplete() && !this.game.getInternationalUnlocked()) {
+        if (this.game.getTwoCategoriesComplete() &&
+                !this.game.getInternationalUnlocked() &&
+        this.game.getGameMode() != GameManager.GameMode.INTERNATIONAL) {
             this.game.setInternationalUnlocked(true);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("International section unlocked");
