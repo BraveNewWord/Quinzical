@@ -9,14 +9,9 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4fc396;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quinzical.PracticeAnswerController">
    <children>
-      <Label fx:id="prefixLabel" alignment="CENTER_RIGHT" layoutX="81.0" layoutY="196.0" prefHeight="36.0" prefWidth="110.0" text="Who are">
+      <Label fx:id="prefixLabel" alignment="CENTER_RIGHT" layoutX="82.0" layoutY="167.0" prefHeight="36.0" prefWidth="110.0" text="Who are">
          <font>
             <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="178.0" layoutY="162.0" text="Enter your answer">
-         <font>
-            <Font size="23.0" />
          </font>
       </Label>
       <Label fx:id="clue" alignment="TOP_CENTER" layoutX="13.0" layoutY="88.0" prefHeight="74.0" prefWidth="575.0" text="This common forest bird is known for its beautiful song, and distinctive white tuft under their throat" textAlignment="CENTER" wrapText="true">
@@ -27,7 +22,7 @@
             <Insets left="20.0" right="20.0" />
          </padding>
       </Label>
-      <Label fx:id="attempts" layoutX="57.0" layoutY="314.0" text="Attempts: 1/3">
+      <Label fx:id="attempts" layoutX="233.0" layoutY="314.0" text="Attempts: 1/3">
          <font>
             <Font size="16.0" />
          </font>
@@ -37,11 +32,11 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="text" layoutX="198.0" layoutY="201.0" onKeyPressed="#checkAnswerOnEnterKey" prefHeight="26.0" prefWidth="232.0" />
-      <Button fx:id="submit" layoutX="256.0" layoutY="237.0" mnemonicParsing="false" onAction="#onSubmitClick" style="-fx-background-color: black;" text="Submit" textFill="WHITE" />
-      <Button fx:id="replay" layoutX="241.0" layoutY="351.0" mnemonicParsing="false" onAction="#onReplyClick" style="-fx-background-color: black;" text="Replay clue" textFill="WHITE" />
-      <Button fx:id="exit" layoutX="509.0" layoutY="351.0" mnemonicParsing="false" onAction="#onExitClick" style="-fx-background-color: black;" text="Exit" textFill="WHITE" />
-      <Label alignment="CENTER_RIGHT" layoutX="430.0" layoutY="203.0" prefHeight="21.0" prefWidth="11.0" text="?">
+      <TextField fx:id="text" layoutX="199.0" layoutY="172.0" onKeyPressed="#checkAnswerOnEnterKey" prefHeight="26.0" prefWidth="232.0" />
+      <Button fx:id="submit" layoutX="257.0" layoutY="208.0" mnemonicParsing="false" onAction="#onSubmitClick" style="-fx-background-color: black;" text="Submit" textFill="WHITE" />
+      <Button fx:id="replay" layoutX="208.0" layoutY="345.0" mnemonicParsing="false" onAction="#onReplyClick" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: black;" text="Replay clue" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="208.0" />
+      <Button fx:id="exit" layoutY="366.0" mnemonicParsing="false" onAction="#onExitClick" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: black;" text="Exit" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="431.0" layoutY="174.0" prefHeight="21.0" prefWidth="11.0" text="?">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

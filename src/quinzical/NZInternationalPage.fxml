@@ -20,7 +20,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="26.0" layoutY="337.0" mnemonicParsing="false" onAction="#onReturnClick" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: black;" text="Return" textFill="WHITE">
+      <Button layoutY="360.0" mnemonicParsing="false" onAction="#onReturnClick" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: black;" text="Return" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
