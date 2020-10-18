@@ -12,9 +12,9 @@
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4fc396;">
          <children>
             <TextField fx:id="answerTextBox" layoutX="253.0" layoutY="169.0" onKeyPressed="#checkAnswerOnEnterKey" />
-            <Button layoutX="252.0" layoutY="273.0" mnemonicParsing="false" onAction="#onReplayClueClick" prefWidth="96.0" style="-fx-background-color: black;" text="Replay Clue" textFill="WHITE" />
-            <Button layoutX="328.0" layoutY="227.0" mnemonicParsing="false" onAction="#onDontKnowClick" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: black;" text="Don't know" textFill="WHITE" />
-            <Button layoutX="173.0" layoutY="227.0" mnemonicParsing="false" onAction="#onSubmitClick" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: black;" text="Submit" textFill="WHITE" />
+            <Button layoutX="252.0" layoutY="273.0" mnemonicParsing="false" onAction="#onReplayClueClick" prefWidth="96.0"  text="Replay Clue"  />
+            <Button layoutX="328.0" layoutY="227.0" mnemonicParsing="false" onAction="#onDontKnowClick" prefHeight="26.0" prefWidth="96.0"  text="Don't know"  />
+            <Button layoutX="173.0" layoutY="227.0" mnemonicParsing="false" onAction="#onSubmitClick" prefHeight="26.0" prefWidth="96.0"  text="Submit"  />
             <Label fx:id="prefixLabel" alignment="CENTER_RIGHT" layoutX="159.0" layoutY="172.0" prefHeight="20.0" prefWidth="89.0" text="Who is" textAlignment="RIGHT">
                <font>
                   <Font name="System Bold" size="16.0" />

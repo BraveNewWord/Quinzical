@@ -93,8 +93,8 @@
                         <Font size="15.0" />
                     </font>
                 </Label>
-                <Button layoutX="15.0" layoutY="-5.0" maxHeight="45.0" maxWidth="80.0" mnemonicParsing="false" onAction="#onReturnClick" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: black;" text="Return" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="505.0" AnchorPane.topAnchor="0.0" />
-                <Button fx:id="resetButton" layoutX="504.0" minHeight="40.0" mnemonicParsing="false" onAction="#onResetClick" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: black;" text="Reset" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="0.0" />
+                <Button layoutX="15.0" layoutY="-5.0" maxHeight="45.0" maxWidth="80.0" mnemonicParsing="false" onAction="#onReturnClick" prefHeight="45.0" prefWidth="80.0"  text="Return"  AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="505.0" AnchorPane.topAnchor="0.0" />
+                <Button fx:id="resetButton" layoutX="504.0" minHeight="40.0" mnemonicParsing="false" onAction="#onResetClick" prefHeight="40.0" prefWidth="80.0"  text="Reset"  AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="0.0" />
             </children>
             <BorderPane.margin>
                 <Insets top="20.0" />

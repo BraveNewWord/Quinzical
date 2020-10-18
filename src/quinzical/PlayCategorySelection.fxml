@@ -10,11 +10,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4fc396;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="quinzical.PlayCategorySelectionController">
    <children>
-        <Button fx:id="exit" layoutY="360.0" mnemonicParsing="false" onAction="#onExitClick" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: black;" text="Exit" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0">
+        <Button fx:id="exit" layoutY="360.0" mnemonicParsing="false" onAction="#onExitClick" prefHeight="40.0" prefWidth="80.0"  text="Exit"  AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-        <Button fx:id="startButton" layoutX="520.0" layoutY="360.0" mnemonicParsing="false" onAction="#onStartClick" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: black;" text="Start" textFill="WHITE" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+        <Button fx:id="startButton" layoutX="520.0" layoutY="360.0" mnemonicParsing="false" onAction="#onStartClick" prefHeight="40.0" prefWidth="80.0"  text="Start"  AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
@@ -32,8 +32,8 @@
          </columnResizePolicy>
       </TableView>
         <ComboBox fx:id="categoriesBox" layoutX="190.0" layoutY="106.0" prefHeight="26.0" prefWidth="205.0" promptText="Select a category" />
-      <Button layoutX="406.0" layoutY="106.0" mnemonicParsing="false" onAction="#onAddClick" style="-fx-background-color: black;" text="Add" textFill="WHITE" />
-      <Button layoutX="256.0" layoutY="314.0" mnemonicParsing="false" onAction="#onRemoveClick" style="-fx-background-color: black;" text="Remove" textFill="WHITE" />
+      <Button layoutX="406.0" layoutY="106.0" mnemonicParsing="false" onAction="#onAddClick"  text="Add"  />
+      <Button layoutX="256.0" layoutY="314.0" mnemonicParsing="false" onAction="#onRemoveClick"  text="Remove"  />
       <Label fx:id="errorLabel" alignment="CENTER" layoutX="90.0" layoutY="56.0" prefHeight="46.0" prefWidth="420.0" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="14.0" />
