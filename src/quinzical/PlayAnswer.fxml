@@ -11,33 +11,33 @@
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4fc396;">
          <children>
-            <Label layoutX="208.0" layoutY="162.0" text="Enter your answer" textAlignment="CENTER">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <TextField fx:id="answerTextBox" layoutX="249.0" layoutY="200.0" onKeyPressed="#checkAnswerOnEnterKey" />
-            <Button layoutX="239.0" layoutY="316.0" mnemonicParsing="false" onAction="#onReplayClueClick" style="-fx-background-color: black;" text="Replay Clue" textFill="WHITE" />
-            <Button layoutX="324.0" layoutY="258.0" mnemonicParsing="false" onAction="#onDontKnowClick" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: black;" text="Don't know" textFill="WHITE" />
-            <Button layoutX="169.0" layoutY="258.0" mnemonicParsing="false" onAction="#onSubmitClick" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: black;" text="Submit" textFill="WHITE" />
-            <Label fx:id="prefixLabel" alignment="CENTER_RIGHT" layoutX="155.0" layoutY="203.0" prefHeight="20.0" prefWidth="89.0" text="Who is" textAlignment="RIGHT">
+            <TextField fx:id="answerTextBox" layoutX="253.0" layoutY="169.0" onKeyPressed="#checkAnswerOnEnterKey" />
+            <Button layoutX="252.0" layoutY="273.0" mnemonicParsing="false" onAction="#onReplayClueClick" prefWidth="96.0" style="-fx-background-color: black;" text="Replay Clue" textFill="WHITE" />
+            <Button layoutX="328.0" layoutY="227.0" mnemonicParsing="false" onAction="#onDontKnowClick" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: black;" text="Don't know" textFill="WHITE" />
+            <Button layoutX="173.0" layoutY="227.0" mnemonicParsing="false" onAction="#onSubmitClick" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: black;" text="Submit" textFill="WHITE" />
+            <Label fx:id="prefixLabel" alignment="CENTER_RIGHT" layoutX="159.0" layoutY="172.0" prefHeight="20.0" prefWidth="89.0" text="Who is" textAlignment="RIGHT">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="426.0" layoutY="203.0" text="?">
+            <Label layoutX="430.0" layoutY="172.0" text="?">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="tempQuestionLabel" alignment="TOP_CENTER" layoutX="20.0" layoutY="116.0" prefHeight="46.0" prefWidth="560.0" text="This is a question clue" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="tempQuestionLabel" alignment="TOP_CENTER" layoutX="20.0" layoutY="115.0" prefHeight="46.0" prefWidth="560.0" text="This is a question clue" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="271.0" layoutY="91.0" text="Clue:" textAlignment="CENTER">
+            <Label layoutX="271.0" layoutY="90.0" text="Clue:" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="timeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="271.0" layoutY="334.0" prefHeight="25.0" prefWidth="57.0" text="60" textAlignment="CENTER">
+               <font>
+                  <Font size="20.0" />
                </font>
             </Label>
          </children>

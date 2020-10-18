@@ -1,5 +1,7 @@
 package quinzical;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -8,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.util.Duration;
 import quinzical.model.GameManager;
 import quinzical.model.Question;
 
@@ -17,6 +20,24 @@ public class PlayAnswerController {
     @FXML private Label tempQuestionLabel;
     @FXML private Label prefixLabel;
     @FXML private TextField answerTextBox;
+    @FXML private Label timeLabel;
+
+    private int initTime = 20;
+    private int timeRemaning = initTime;
+    private Timeline timeline = new Timeline(
+            new KeyFrame(Duration.seconds(1), e -> {
+                timeRemaning--;
+                timeLabel.setText(String.valueOf(timeRemaning));
+                if (timeRemaning == 0) {
+                    try {
+
+                        this.returnOrFinish();
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                }
+            })
+    );
 
     public void initData(GameManager game, StringSpeaker stringSpeaker) throws Exception {
         this.game = game;
@@ -24,8 +45,18 @@ public class PlayAnswerController {
         tempQuestionLabel.setText(this.game.getCurrentQuestion().getClue());
         prefixLabel.setText(this.game.getCurrentQuestion().getPrefix());
         this.stringSpeaker.speakString(this.game.getCurrentQuestion().getClue());
+
+        this.timeLabel.setText(String.valueOf(timeRemaning));
+        this.timeline.setCycleCount(initTime);
+        this.timeline.play();
+
+
+        //this.game.getCurrentQuestion().setAnswered(true);
     }
-    public void onSubmitClick(Event event) throws Exception {
+
+
+
+    public void onSubmitClick(Event event) throws Exception { ;
         String userAnswer =answerTextBox.getText().trim();
         Question currentQuestion = this.game.getCurrentQuestion();
         Alert alert;
@@ -47,14 +78,15 @@ public class PlayAnswerController {
                     .userAnswer(userAnswer)
                     .trueAnswer(currentQuestion.getAnswers()).build();
         }
-        this.game.getCurrentQuestion().setAnswered(true);
         this.game.saveGame();
+        this.timeline.stop();
         alert.showAndWait();
-        this.returnOrFinish(event);
+        this.returnOrFinish();
 
     }
 
     public void onDontKnowClick(ActionEvent event) throws Exception {
+
         Question currentQuestion = this.game.getCurrentQuestion();
         Alert alert = new AlertBuilder()
                 .answerType(AlertBuilder.AnswerType.PLAY_INCORRECT)
@@ -62,24 +94,25 @@ public class PlayAnswerController {
         alert.setTitle("Don't know");
         alert.setHeaderText("Don't know? Here is the answer...");
         alert.setAlertType(Alert.AlertType.INFORMATION);
+        this.timeline.stop();
         alert.showAndWait();
-
-        this.game.getCurrentQuestion().setAnswered(true);
-
-        this.returnOrFinish(event);
+        this.returnOrFinish();
     }
 
-    public void returnOrFinish(Event event) throws Exception {
+    public void returnOrFinish() throws Exception {
+        this.timeline.stop();
+        this.game.getCurrentQuestion().setAnswered(true);
         if (!this.game.questionsExist()) {
-            RewardController controller = new SceneSwitcher().switchScene(event, "Reward.fxml").
+            RewardController controller = new SceneSwitcher().switchScene(this.timeLabel, "Reward.fxml").
                     getController();
             controller.initData(this.game);
 
         } else {
             PlayBoardController controller = new SceneSwitcher().
-                    switchScene(event, "PlayQuestionBoard.fxml").getController();
+                    switchScene(this.timeLabel, "PlayQuestionBoard.fxml").getController();
             controller.initData(this.game, this.stringSpeaker);
         }
+
     }
 
     public void onReplayClueClick() throws Exception {
