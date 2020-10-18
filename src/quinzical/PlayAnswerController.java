@@ -2,6 +2,7 @@ package quinzical;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -22,20 +23,12 @@ public class PlayAnswerController {
     @FXML private TextField answerTextBox;
     @FXML private Label timeLabel;
 
-    private int initTime = 20;
-    private int timeRemaning = initTime;
+    private final int initTime = 10;
+    private int timeRemaining = initTime;
     private Timeline timeline = new Timeline(
             new KeyFrame(Duration.seconds(1), e -> {
-                timeRemaning--;
-                timeLabel.setText(String.valueOf(timeRemaning));
-                if (timeRemaning == 0) {
-                    try {
-
-                        this.returnOrFinish();
-                    } catch (Exception exception) {
-                        exception.printStackTrace();
-                    }
-                }
+                timeRemaining--;
+                timeLabel.setText(String.valueOf(timeRemaining));
             })
     );
 
@@ -46,12 +39,17 @@ public class PlayAnswerController {
         prefixLabel.setText(this.game.getCurrentQuestion().getPrefix());
         this.stringSpeaker.speakString(this.game.getCurrentQuestion().getClue());
 
-        this.timeLabel.setText(String.valueOf(timeRemaning));
+        this.timeLabel.setText(String.valueOf(timeRemaining));
         this.timeline.setCycleCount(initTime);
         this.timeline.play();
+        this.timeline.setOnFinished(e -> {
+            try {
+                this.returnOrFinish();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        });
 
-
-        //this.game.getCurrentQuestion().setAnswered(true);
     }
 
 
@@ -102,6 +100,13 @@ public class PlayAnswerController {
     public void returnOrFinish() throws Exception {
         this.timeline.stop();
         this.game.getCurrentQuestion().setAnswered(true);
+        if (this.timeRemaining == 0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Out of Time!");
+            alert.setHeaderText("You ran out of time!");
+            alert.setContentText("You will be taken back to the question board");
+            alert.show();
+        }
         if (!this.game.questionsExist()) {
             RewardController controller = new SceneSwitcher().switchScene(this.timeLabel, "Reward.fxml").
                     getController();
