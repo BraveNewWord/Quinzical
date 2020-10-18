@@ -1,9 +1,40 @@
+* {
+	background-color: #4fc396;
+	dark-background-color: #439c7a;
+	light-background-color: #5ddead;
+	dark-primary-color: #262a30
+}
+
 .root {
-	-fx-background-color: #4fc396;
+	-fx-background-color: background-color;
 }
 
 .button {
-	-fx-text-fill:  White;
-	-fx-background-color: #262a30;
+	-fx-text-fill: white;
+	-fx-background-color: dark-primary-color;
 	-fx-background-radius: 0;
+}
+
+.table-view {
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+}
+
+.table-view .column-header{
+	-fx-background-color: dark-primary-color;
+}
+
+.table-view .column-header-background .label{
+	-fx-text-fill: white;
+}
+
+.table-view .filler {
+	-fx-background-color: dark-background-color;
+}
+
+.table-row-cell {
+	-fx-background-color: dark-background-color;
+}
+.table-row-cell:odd {
+	-fx-background-color: light-background-color;
 }

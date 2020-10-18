@@ -2,7 +2,6 @@ package quinzical;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -23,7 +22,7 @@ public class PlayAnswerController {
     @FXML private TextField answerTextBox;
     @FXML private Label timeLabel;
 
-    private final int initTime = 10;
+    private final int initTime = 30;
     private int timeRemaining = initTime;
     private Timeline timeline = new Timeline(
             new KeyFrame(Duration.seconds(1), e -> {
