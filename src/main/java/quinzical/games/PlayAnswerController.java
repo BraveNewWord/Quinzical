@@ -1,4 +1,4 @@
-package quinzical;
+package main.java.quinzical.games;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -11,12 +11,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
-import quinzical.model.GameManager;
-import quinzical.model.Question;
+import main.java.quinzical.model.GameManager;
+import main.java.quinzical.model.Question;
+import main.java.quinzical.utility.AlertBuilder;
+import main.java.quinzical.utility.SceneSwitcher;
+import main.java.quinzical.utility.StringSpeaker;
 
 public class PlayAnswerController {
     private GameManager game;
     private StringSpeaker stringSpeaker;
+    private SceneSwitcher sceneSwitcher = new SceneSwitcher();
     @FXML private Label tempQuestionLabel;
     @FXML private Label prefixLabel;
     @FXML private TextField answerTextBox;
@@ -107,13 +111,13 @@ public class PlayAnswerController {
             alert.show();
         }
         if (!this.game.questionsExist()) {
-            RewardController controller = new SceneSwitcher().switchScene(this.timeLabel, "Reward.fxml").
+            RewardController controller = sceneSwitcher.switchScene(this.timeLabel, "/main/java/quinzical/games/resources/Reward.fxml").
                     getController();
             controller.initData(this.game);
 
         } else {
-            PlayBoardController controller = new SceneSwitcher().
-                    switchScene(this.timeLabel, "PlayQuestionBoard.fxml").getController();
+            PlayBoardController controller = sceneSwitcher.
+                    switchScene(this.timeLabel, "/main/java/quinzical/games/resources/PlayBoard.fxml").getController();
             controller.initData(this.game, this.stringSpeaker);
         }
 

@@ -1,4 +1,4 @@
-package quinzical;
+package main.java.quinzical.games;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,10 +6,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import quinzical.model.Category;
-import quinzical.model.GameManager;
-import quinzical.model.Question;
-import java.io.IOException;
+import main.java.quinzical.utility.SceneSwitcher;
+import main.java.quinzical.utility.StringSpeaker;
+import main.java.quinzical.model.Category;
+import main.java.quinzical.model.GameManager;
+import main.java.quinzical.model.Question;
 
 import java.util.Arrays;
 import java.util.List;
@@ -35,6 +36,7 @@ public class PlayBoardController {
     private List<List<Button>> colButtons;
     private GameManager game;
     private StringSpeaker stringSpeaker;
+    private SceneSwitcher sceneSwitcher = new SceneSwitcher();
 
     public void initData(GameManager game, StringSpeaker stringSpeaker) throws Exception {
         this.labels = Arrays.asList(label1,label2,label3,label4,label5);
@@ -102,7 +104,7 @@ public class PlayBoardController {
         int questionInd = Character.getNumericValue(chosenButton.getId().charAt(7))-1;
         Question chosenQuestion = game.getChosenCategories().get(catInd).getChosenQuestions().get(questionInd);
         game.setCurrentQuestion(chosenQuestion);
-        PlayAnswerController controller = new SceneSwitcher().switchScene(event, "PlayAnswer.fxml").
+        PlayAnswerController controller = sceneSwitcher.switchScene(event, "/main/java/quinzical/games/resources/PlayAnswer.fxml").
                 getController();
         controller.initData(this.game, this.stringSpeaker);
     }
@@ -116,12 +118,12 @@ public class PlayBoardController {
         if (buttonType.isPresent() && buttonType.get() == ButtonType.OK) {
             this.game.resetGame();
             this.game.saveGame();
-            new SceneSwitcher().switchScene(event, "Start.fxml");
+            sceneSwitcher.switchScene(event, "/main/java/quinzical/start/resources/Start.fxml");
         }
     }
 
     public void onReturnClick(ActionEvent event) throws Exception {
-        NZInternationalPageController controller = new SceneSwitcher().switchScene(event, "NZInternationalPage.fxml").
+        NZInternationalPageController controller = sceneSwitcher.switchScene(event, "/main/java/quinzical/games/resources/NZInternationalPage.fxml").
                 getController();
         controller.initData(this.game, this.stringSpeaker);
     }

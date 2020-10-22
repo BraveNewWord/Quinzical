@@ -1,4 +1,4 @@
-package quinzical;
+package main.java.quinzical.utility;
 
 public class StringSpeaker {
 

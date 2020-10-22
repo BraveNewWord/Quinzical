@@ -1,4 +1,4 @@
-package quinzical;
+package main.java.quinzical.games;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -6,12 +6,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import quinzical.model.Category;
-import quinzical.model.GameManager;
+import main.java.quinzical.utility.SceneSwitcher;
+import main.java.quinzical.utility.StringSpeaker;
+import main.java.quinzical.model.Category;
+import main.java.quinzical.model.GameManager;
 
 public class PlayCategorySelectionController {
     private GameManager game;
     private StringSpeaker stringSpeaker;
+    private SceneSwitcher sceneSwitcher = new SceneSwitcher();
     private ObservableList<Category> chosenCategories = FXCollections.observableArrayList();
 
     @FXML private ComboBox<String> categoriesBox;
@@ -79,16 +82,16 @@ public class PlayCategorySelectionController {
     }
 
     public void onExitClick(ActionEvent event) throws Exception{
-        NZInternationalPageController controller = new SceneSwitcher().
-                switchScene(event, "NZInternationalPage.fxml").getController();
+        NZInternationalPageController controller = sceneSwitcher.
+                switchScene(event, "/main/java/quinzical/games/resources/NZInternationalPage.fxml").getController();
         controller.initData(this.game, this.stringSpeaker);
     }
 
     public void onStartClick(ActionEvent event) throws Exception{
         if (this.chosenCategories.size() == 5) {
             this.game.setGameMode(GameManager.GameMode.NEW_ZEALAND);
-            PlayBoardController controller = new SceneSwitcher().
-                    switchScene(event, "PlayQuestionBoard.fxml").getController();
+            PlayBoardController controller = sceneSwitcher.
+                    switchScene(event, "/main/java/quinzical/games/resources/PlayBoard.fxml").getController();
             controller.initData(this.game, this.stringSpeaker);
         } else if (this.chosenCategories.size() == 4){
             this.errorLabel.setText("You need to add " + (5-chosenCategories.size()) + " more category");

@@ -9,7 +9,7 @@ In both modules, users will be shown a clue that is the answer to a question whi
 This application is intended to run on a Linux VirtualBox provided in the SOFTENG206 course.
 
 ## Setup
-Ensure that in the folder which you would like to start application has two files: quinzical.jar, run.sh and in addition, one categories folder. Inside the categories folder, there should be text files with New Zealand questions and a sub-folder named international containing all the international questions. These files at minimum should appear like the hierarchy shown below:
+Ensure that in the folder which you would like to start application has two files: main.java.quinzical.jar, run.sh and in addition, one categories folder. Inside the categories folder, there should be text files with New Zealand questions and a sub-folder named international containing all the international questions. These files at minimum should appear like the hierarchy shown below:
 ```
 .
 +-- categories
@@ -20,11 +20,11 @@ Ensure that in the folder which you would like to start application has two file
 |       +-- France
 |       +-- Geography
 |       +-- and more...
-+-- quinzical.jar
++-- main.java.quinzical.jar
 +-- run.sh
 ```
 Ensure that run.sh has permissions that allow it to be executable.<br>
-Open terminal in the directory with quinzical.jar and run.sh files<br>
+Open terminal in the directory with main.java.quinzical.jar and run.sh files<br>
 Type in and enter:
 <code>./run.sh</code><br>
 You should be greeted with a starting page that looks something like this<br>

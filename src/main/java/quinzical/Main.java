@@ -1,4 +1,4 @@
-package quinzical;
+package main.java.quinzical;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Start.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("start/resources/Start.fxml"));
         primaryStage.setTitle("Quinzical");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.setResizable(false);

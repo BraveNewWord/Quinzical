@@ -1,4 +1,4 @@
-package quinzical;
+package main.java.quinzical.utility;
 
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;

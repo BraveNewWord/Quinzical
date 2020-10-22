@@ -1,4 +1,4 @@
-package quinzical.model;
+package main.java.quinzical.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;

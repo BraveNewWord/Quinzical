@@ -1,4 +1,4 @@
-package quinzical;
+package main.java.quinzical.practice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import quinzical.model.Category;
-import quinzical.model.PracticeManager;
+import main.java.quinzical.utility.SceneSwitcher;
+import main.java.quinzical.utility.StringSpeaker;
+import main.java.quinzical.model.Category;
+import main.java.quinzical.model.PracticeManager;
+import main.java.quinzical.start.StartController;
 
 public class PracticeCategoryController {
 	@FXML private ComboBox<String> cb;
@@ -17,6 +20,7 @@ public class PracticeCategoryController {
 	private List<Category> categories=new ArrayList<Category>();
 	private List<String> categoriesString=new ArrayList<String>();
 	private StringSpeaker stringSpeaker;
+	private SceneSwitcher sceneSwitcher = new SceneSwitcher();
 	
 	public void initialize(PracticeManager pm, StringSpeaker stringSpeaker) throws Exception {
 		errorLabel.setText("");
@@ -38,8 +42,8 @@ public class PracticeCategoryController {
 					this.pm.chooseCategory(c);
 				}
 			}
-	        PracticeAnswerController controller = new SceneSwitcher().
-	                switchScene(event, "PracticeAnswer.fxml").getController();
+	        PracticeAnswerController controller = sceneSwitcher.
+	                switchScene(event, "/main/java/quinzical/practice/resources/PracticeAnswer.fxml").getController();
 	        controller.initialize(this.pm, this.stringSpeaker);
 		}catch (Exception e){
 			errorLabel.setText("Please select a category");
@@ -47,8 +51,8 @@ public class PracticeCategoryController {
     }
 	
 	public void onExitClick(ActionEvent event) throws Exception {
-		StartController controller = new SceneSwitcher().
-                switchScene(event, "Start.fxml").getController();
+		StartController controller = sceneSwitcher.
+                switchScene(event, "/main/java/quinzical/start/resources/Start.fxml").getController();
 		controller.initData(this.stringSpeaker);
 	}
 }

@@ -1,4 +1,4 @@
-package quinzical.model;
+package main.java.quinzical.model;
 
 import java.io.Serializable;
 import java.util.Arrays;

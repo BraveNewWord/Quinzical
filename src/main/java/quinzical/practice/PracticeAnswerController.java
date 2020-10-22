@@ -1,6 +1,4 @@
-package quinzical;
-
-import java.io.IOException;
+package main.java.quinzical.practice;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -11,7 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import quinzical.model.PracticeManager;
+import main.java.quinzical.utility.AlertBuilder;
+import main.java.quinzical.utility.SceneSwitcher;
+import main.java.quinzical.utility.StringSpeaker;
+import main.java.quinzical.model.PracticeManager;
 
 public class PracticeAnswerController {
 	@FXML private Label clue, answer, attempts, prefixLabel;
@@ -21,6 +22,7 @@ public class PracticeAnswerController {
 	private int numAttempts;
 	private String input;
 	private StringSpeaker stringSpeaker;
+	private SceneSwitcher sceneSwitcher = new SceneSwitcher();
 	
 	public void initialize(PracticeManager pm, StringSpeaker stringSpeaker) throws Exception {
 		this.stringSpeaker = stringSpeaker;
@@ -93,8 +95,8 @@ public class PracticeAnswerController {
 	}
 	
 	public void onExitClick(Event event) throws Exception {
-		PracticeCategoryController controller = new SceneSwitcher().
-                switchScene(event, "PracticeCategory.fxml").getController();
+		PracticeCategoryController controller = sceneSwitcher.
+                switchScene(event, "/main/java/quinzical/practice/resources/PracticeCategory.fxml").getController();
         controller.initialize(new PracticeManager(), this.stringSpeaker);
 	}
 }
