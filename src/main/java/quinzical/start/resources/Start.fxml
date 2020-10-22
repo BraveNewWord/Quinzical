@@ -13,21 +13,21 @@
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <Button layoutX="250.0" layoutY="167.0" mnemonicParsing="false" onAction="#onPlayClick" prefHeight="30.0" prefWidth="100.0"  text="Play" >
+      <Button layoutX="250.0" layoutY="167.0" mnemonicParsing="false" onAction="#onPlayClick" prefHeight="30.0" prefWidth="100.0" text="Play">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button layoutX="250.0" layoutY="224.0" mnemonicParsing="false" onAction="#onPracticeClick" prefHeight="30.0" prefWidth="100.0"  text="Practice" >
+      <Button layoutX="250.0" layoutY="224.0" mnemonicParsing="false" onAction="#onPracticeClick" prefHeight="30.0" prefWidth="100.0" text="Practice">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Slider fx:id="voiceSpeedSlider" layoutX="169.0" layoutY="280.0" majorTickUnit="0.5" max="2.0" minorTickCount="2" onMouseReleased="#onSliderChanged" prefHeight="54.0" prefWidth="248.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
-      <Label layoutX="74.0" layoutY="289.0" prefHeight="20.0" prefWidth="91.0" text="Voice speed:">
+      <Slider fx:id="voiceSpeedSlider" layoutX="176.0" layoutY="275.0" majorTickUnit="0.5" max="2.0" minorTickCount="2" onMouseReleased="#onSliderChanged" prefHeight="54.0" prefWidth="248.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+      <Label layoutX="85.0" layoutY="279.0" prefHeight="20.0" prefWidth="91.0" text="Voice speed:">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Button layoutX="417.0" layoutY="289.0" mnemonicParsing="false" onAction="#onTestSpeedClick"  text="Test speed"  />
-      <Button fx:id="quitButton" layoutX="249.0" layoutY="334.0" mnemonicParsing="false" onAction="#onQuitClick" prefHeight="33.0" prefWidth="100.0"  text="Quit" >
+      <Button layoutX="424.0" layoutY="276.0" mnemonicParsing="false" onAction="#onTestSpeedClick" text="Test speed" />
+      <Button fx:id="quitButton" layoutX="249.0" layoutY="334.0" mnemonicParsing="false" onAction="#onQuitClick" prefHeight="33.0" prefWidth="100.0" text="Quit">
          <font>
             <Font size="18.0" />
          </font></Button>

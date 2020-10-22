@@ -29,12 +29,38 @@
 }
 
 .table-view .filler {
-	-fx-background-color: dark-background-color;
+	-fx-background-color: background-color;
 }
 
 .table-row-cell {
-	-fx-background-color: dark-background-color;
+	-fx-background-color: background-color;
+
 }
 .table-row-cell:odd {
 	-fx-background-color: light-background-color;
+}
+
+
+.slider {
+	-fx-font-size: 16;
+}
+
+.slider .track{
+	-fx-background-color: light-background-color;
+}
+
+.slider .thumb{
+	-fx-background-color: dark-background-color;
+
+}
+
+.slider .axis .axis-tick-mark, .slider .axis .axis-minor-tick-mark {
+	-fx-fill: null;
+	-fx-stroke: black;
+}
+
+.slider .axis {
+	-fx-tick-label-fill: black;
+	-fx-tick-length: 8;
+	-fx-minor-tick-length: 8;
 }
