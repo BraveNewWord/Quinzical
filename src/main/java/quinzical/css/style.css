@@ -56,6 +56,7 @@
 
 .slider .thumb{
 	-fx-background-color: dark-background-color;
+	-fx-opacity: 0.8;
 
 }
 
@@ -73,4 +74,21 @@
 .grid-pane {
 	-fx-hgap: 5;
 	-fx-vgap: 5;
+}
+
+.alert {
+	-fx-background-color: light-background-color;
+}
+
+.alert > *.label.content{
+	-fx-font-size: 14px;
+}
+
+.alert:header *.header-panel{
+	-fx-background-color: background-color;
+}
+
+.alert:header *.header-panel *.label {
+	-fx-font-size: 16px;
+	-fx-font-weight: bold;
 }

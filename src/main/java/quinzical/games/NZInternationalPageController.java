@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import main.java.quinzical.utility.SceneSwitcher;
 import main.java.quinzical.utility.StringSpeaker;
 import main.java.quinzical.model.GameManager;
@@ -44,6 +45,10 @@ public class NZInternationalPageController {
                 alert.setContentText("Would you like to start the NZ section?" +
                         "\nAll winnings will be removed and questions reset\n" +
                         "in the International section");
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(
+                        getClass().getResource("/main/java/quinzical/css/style.css").toExternalForm());
+                dialogPane.getStyleClass().add("alert");
                 Optional<ButtonType> buttonType = alert.showAndWait();
 
                 if (buttonType.isPresent() && buttonType.get() == ButtonType.OK) {
@@ -75,6 +80,10 @@ public class NZInternationalPageController {
                 alert.setContentText("Would you like to start the International section?" +
                         "\nAll winnings will be removed and questions\n" +
                         "reset in the NZ section");
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(
+                        getClass().getResource("/main/java/quinzical/css/style.css").toExternalForm());
+                dialogPane.getStyleClass().add("alert");
                 Optional<ButtonType> buttonType = alert.showAndWait();
                 if (!(buttonType.isPresent() && buttonType.get() == ButtonType.OK)) {
                     return;

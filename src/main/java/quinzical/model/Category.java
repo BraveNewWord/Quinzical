@@ -53,7 +53,7 @@ public class Category implements Serializable {
     /**
      * Checks if this Category has questions
      * A Category has questions if it still has questions remaning in chosenQuestions that are unanswered
-     * @return
+     * @return boolean
      */
     public boolean hasQuestions() {
         for (Question question : this.chosenQuestions) {

@@ -1,6 +1,7 @@
 package main.java.quinzical.utility;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 
 public class AlertBuilder {
     public enum AnswerType {
@@ -90,6 +91,10 @@ public class AlertBuilder {
                 alert.setContentText("Please enter an answer in the text field");
                 break;
         }
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("/main/java/quinzical/css/style.css").toExternalForm());
+        dialogPane.getStyleClass().add("alert");
         return alert;
     }
 

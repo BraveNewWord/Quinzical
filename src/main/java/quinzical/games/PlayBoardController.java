@@ -51,11 +51,6 @@ public class PlayBoardController {
         this.game = game;
         this.stringSpeaker = stringSpeaker;
         if (!this.game.gameStarted()) {
-            /*
-            if (this.game.categories().isEmpty()) {
-                this.game.getCategories();
-            }
-             */
             for (Category category : this.game.getChosenCategories()) {
                 for (int i = 0; i < 5; i++) {
                     Question randQuestion = category.getRandomQuestion();
