@@ -9,7 +9,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * SceneSwitcher is a helper class that aids in switching between different fxml scenes
+ */
 public class SceneSwitcher {
+
     public FXMLLoader switchScene(Event event, String pageName) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(pageName));
