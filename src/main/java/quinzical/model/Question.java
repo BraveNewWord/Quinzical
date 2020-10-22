@@ -15,6 +15,12 @@ public class Question implements Serializable {
     private String[] answers;
     private boolean answered = false;
 
+    /**
+     * Question
+     * @param clue
+     * @param answerPrefix
+     * @param answer
+     */
     public Question(String clue, String answerPrefix, String answer) {
         this.clue = clue;
         this.answerPrefix = answerPrefix;

@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Main model class used to manage the Practice Module
+ * PracticeManager is similar to the GameManger, but with reduced functionality for the Practice Module
+ */
 public class PracticeManager {
 	private List<Category> categories = new ArrayList<Category>();
 	private List<Question> questions = new ArrayList<Question>();

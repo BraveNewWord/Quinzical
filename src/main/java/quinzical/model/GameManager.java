@@ -6,11 +6,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- * GameManager is class that acts to manage parts of the Games Module
- * Responsibilities include: keeping score, keeping track of questions answered
- * GameManager objects are used to pass game data between scenes when switching scenes
- */
 public class GameManager implements Serializable {
     public enum GameMode {
         NONE,
@@ -27,7 +22,12 @@ public class GameManager implements Serializable {
     private boolean internationalUnlocked = false;
     private boolean twoCategoriesComplete = false;
 
-    public GameManager() throws Exception {
+    /**
+     * GameManager is a class that acts to manage parts of the Games Module
+     * Responsibilities include: keeping score, keeping track of questions answered
+     * GameManager objects are used to pass game data between scenes when switching scenes
+     */
+    public GameManager() {
         try {
             ObjectInputStream is  = new ObjectInputStream(new FileInputStream("game-data"));
             GameManager game = (GameManager) is.readObject();
@@ -104,20 +104,23 @@ public class GameManager implements Serializable {
         return randCat;
     }
 
-    public void clearChosenCategories() {
-        chosenCategories.clear();
-    }
-    public List<Category> getChosenCategories() {
-        return this.chosenCategories;
-    }
-
+    /**
+     * Adds a category to chosenCategory list
+     * Chosen categories are those categories used in the current session of Quinzical
+     * @param category
+     */
     public void addChosenCategory(Category category) {
         this.chosenCategories.add(category);
     }
     public void removeChosenCategory(Category category) {
         this.chosenCategories.remove(category);
     }
-
+    public void clearChosenCategories() {
+        chosenCategories.clear();
+    }
+    public List<Category> getChosenCategories() {
+        return this.chosenCategories;
+    }
     public void countCategoriesComplete() {
         if (!this.twoCategoriesComplete) {
             int nCategoriesComplete = 0;
@@ -129,10 +132,10 @@ public class GameManager implements Serializable {
             this.twoCategoriesComplete = nCategoriesComplete >= 2;
         }
     }
+
     public boolean getTwoCategoriesComplete() {
         return this.twoCategoriesComplete;
     }
-
     public boolean getInternationalUnlocked() {
         return this.internationalUnlocked;
     }
@@ -140,6 +143,11 @@ public class GameManager implements Serializable {
         this.internationalUnlocked = value;
     }
 
+    /**
+     * Checks if questions still exist in chosenCategories
+     * Questions exists if a category still has questions
+     * @return boolean
+     */
     public boolean questionsExist() {
         for (Category category : this.chosenCategories){
             if (category.hasQuestions()) {
