@@ -157,7 +157,7 @@ public class GameManager implements Serializable {
     }
 
     public void changePoints(Integer points, boolean result) {
-        if (result == true) {
+        if (result) {
             this.points = this.points + points;
         } else {
             this.points = this.points - points;

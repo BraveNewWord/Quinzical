@@ -2,7 +2,8 @@
 	background-color: #4fc396;
 	dark-background-color: #439c7a;
 	light-background-color: #5ddead;
-	dark-primary-color: #262a30
+	dark-primary-color: #262a30;
+	dark-secondary-color: #121417;
 }
 
 .root {
@@ -13,6 +14,10 @@
 	-fx-text-fill: white;
 	-fx-background-color: dark-primary-color;
 	-fx-background-radius: 0;
+}
+
+.button:hover {
+	-fx-background-color: dark-secondary-color;
 }
 
 .table-view {

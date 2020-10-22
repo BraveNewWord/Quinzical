@@ -16,10 +16,10 @@ public class Question implements Serializable {
     private boolean answered = false;
 
     public Question(String clue, String answerPrefix, String answer) {
-        this.clue = macronSubstitute(clue);
+        this.clue = clue;
         this.answerPrefix = answerPrefix;
         // Replacing Maori long vowels with double letter equivalents (may change)
-        this.answers = macronSubstitute(answer.strip().toLowerCase())
+        this.answers = answer.strip().toLowerCase()
                 .split("/");
 
     }
