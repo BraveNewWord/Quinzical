@@ -5,18 +5,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4fc396;" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.quinzical.practice.PracticeAnswerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4fc396;" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.quinzical.practice.PracticeAnswerController">
    <children>
-      <Label fx:id="prefixLabel" alignment="CENTER_RIGHT" layoutX="82.0" layoutY="167.0" prefHeight="36.0" prefWidth="110.0" text="Who are">
+      <Label fx:id="prefixLabel" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="132.0" prefHeight="36.0" prefWidth="110.0" text="Who are">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="clue" alignment="TOP_CENTER" layoutX="13.0" layoutY="88.0" prefHeight="74.0" prefWidth="575.0" text="This common forest bird is known for its beautiful song, and distinctive white tuft under their throat" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="clue" alignment="TOP_CENTER" layoutX="31.0" layoutY="58.0" prefHeight="74.0" prefWidth="538.0" text="This common forest bird is known for its beautiful song, and distinctive white tuft under their throat" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font size="18.0" />
+            <Font size="17.0" />
          </font>
          <padding>
             <Insets left="20.0" right="20.0" />
@@ -27,24 +28,53 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="answer" alignment="TOP_CENTER" layoutX="9.0" layoutY="263.0" prefHeight="51.0" prefWidth="592.0" text="The correct answer was: Stewart Island/Rakiura" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="answer" alignment="TOP_CENTER" layoutX="22.0" layoutY="263.0" prefHeight="51.0" prefWidth="557.0" text="The correct answer was: Stewart Island/Rakiura" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="text" layoutX="199.0" layoutY="172.0" onKeyPressed="#checkAnswerOnEnterKey" prefHeight="26.0" prefWidth="232.0" />
-      <Button fx:id="submit" layoutX="257.0" layoutY="208.0" mnemonicParsing="false" onAction="#onSubmitClick"  text="Submit"  />
-      <Button fx:id="replay" layoutX="208.0" layoutY="345.0" mnemonicParsing="false" onAction="#onReplyClick" prefHeight="40.0" prefWidth="160.0"  text="Replay clue"  AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="208.0" />
-      <Button fx:id="exit" layoutY="366.0" mnemonicParsing="false" onAction="#onExitClick" prefHeight="40.0" prefWidth="80.0"  text="Exit"  AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="431.0" layoutY="174.0" prefHeight="21.0" prefWidth="11.0" text="?">
+      <TextField fx:id="text" layoutX="237.0" layoutY="137.0" onKeyPressed="#checkAnswerOnEnterKey" onMousePressed="#onTextBoxClick" prefHeight="26.0" prefWidth="180.0" />
+      <Button fx:id="submit" layoutX="256.0" layoutY="223.0" mnemonicParsing="false" onAction="#onSubmitClick" text="Submit" />
+      <Button fx:id="replay" layoutX="208.0" layoutY="345.0" mnemonicParsing="false" onAction="#onReplyClick" prefHeight="40.0" prefWidth="160.0" text="Replay clue" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="208.0" />
+      <Button fx:id="exit" layoutY="366.0" mnemonicParsing="false" onAction="#onExitClick" prefHeight="40.0" prefWidth="80.0" text="Exit" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="423.0" layoutY="140.0" prefHeight="21.0" prefWidth="11.0" text="?">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="262.0" layoutY="67.0" text="Clue:">
+      <Label alignment="CENTER_RIGHT" layoutX="262.0" layoutY="37.0" text="Clue:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <HBox layoutX="203.0" layoutY="168.0" prefHeight="46.0" prefWidth="170.0">
+         <children>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ā">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ē">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ī">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ō">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ū">
+               <HBox.margin>
+                  <Insets left="5.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

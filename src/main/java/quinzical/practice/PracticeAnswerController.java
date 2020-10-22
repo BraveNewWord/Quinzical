@@ -19,6 +19,7 @@ public class PracticeAnswerController {
 	@FXML private TextField text;
 	@FXML private Button submit, replay, exit;
 	private PracticeManager pm;
+	private int caretPostion = 0;
 	private int numAttempts;
 	private String input;
 	private StringSpeaker stringSpeaker;
@@ -37,6 +38,7 @@ public class PracticeAnswerController {
 		this.stringSpeaker.speakString(pm.getQuestion().getClue());
 	}
 	public void checkAnswerOnEnterKey(KeyEvent keyEvent) throws Exception {
+		this.caretPostion = text.getCaretPosition()+1;
 		if (keyEvent.getCode() == KeyCode.ENTER) {
 			onSubmitClick(keyEvent);
 		}
@@ -98,5 +100,23 @@ public class PracticeAnswerController {
 		PracticeCategoryController controller = sceneSwitcher.
                 switchScene(event, "/main/java/quinzical/practice/resources/PracticeCategory.fxml").getController();
         controller.initialize(new PracticeManager(), this.stringSpeaker);
+	}
+
+	public void onTextBoxClick() {
+		this.caretPostion = text.getCaretPosition();
+	}
+
+	public void onVowelClick(Event event) {
+		String vowel = ((Button) event.getSource()).getText();
+		try {
+			this.text.insertText(this.caretPostion, vowel);
+			this.text.requestFocus();
+			this.text.positionCaret(this.caretPostion+1);
+		} catch (IndexOutOfBoundsException ex) {
+			this.text.insertText(0, vowel);
+			this.text.requestFocus();
+			this.text.positionCaret(1);
+		}
+		this.caretPostion = text.getCaretPosition();
 	}
 }

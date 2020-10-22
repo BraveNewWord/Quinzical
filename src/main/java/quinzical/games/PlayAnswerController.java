@@ -27,6 +27,7 @@ public class PlayAnswerController {
     @FXML private TextField answerTextBox;
     @FXML private Label timeLabel;
 
+    private int caretPostion = 0;
     private final int initTime = 30;
     private int timeRemaining = initTime;
     private Timeline timeline = new Timeline(
@@ -129,14 +130,30 @@ public class PlayAnswerController {
     }
 
     public void checkAnswerOnEnterKey(KeyEvent keyEvent) throws Exception {
+        this.caretPostion = answerTextBox.getCaretPosition()+1;
         if (keyEvent.getCode() == KeyCode.ENTER) {
             onSubmitClick(keyEvent);
         }
     }
 
+    public void onTextBoxClick() {
+        this.caretPostion = answerTextBox.getCaretPosition();
+    }
+
     public void onVowelClick(Event event) {
         String vowel = ((Button) event.getSource()).getText();
-        answerTextBox.appendText(vowel);
+        try {
+            this.answerTextBox.insertText(this.caretPostion, vowel);
+            this.answerTextBox.requestFocus();
+            this.answerTextBox.positionCaret(this.caretPostion+1);
+        } catch (IndexOutOfBoundsException ex) {
+            this.answerTextBox.insertText(0, vowel);
+            this.answerTextBox.requestFocus();
+            this.answerTextBox.positionCaret(1);
+        }
+        this.answerTextBox.requestFocus();
+        this.answerTextBox.positionCaret(this.caretPostion+1);
+        this.caretPostion = answerTextBox.getCaretPosition();
     }
 
 

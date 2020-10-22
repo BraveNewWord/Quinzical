@@ -13,7 +13,7 @@
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4fc396;">
          <children>
-            <TextField fx:id="answerTextBox" layoutX="253.0" layoutY="169.0" onKeyPressed="#checkAnswerOnEnterKey" />
+            <TextField fx:id="answerTextBox" layoutX="253.0" layoutY="169.0" onKeyPressed="#checkAnswerOnEnterKey" onMousePressed="#onTextBoxClick" />
             <Button layoutX="254.0" layoutY="300.0" mnemonicParsing="false" onAction="#onReplayClueClick" prefWidth="96.0" text="Replay Clue" />
             <Button layoutX="330.0" layoutY="254.0" mnemonicParsing="false" onAction="#onDontKnowClick" prefHeight="26.0" prefWidth="96.0" text="Don't know" />
             <Button layoutX="175.0" layoutY="254.0" mnemonicParsing="false" onAction="#onSubmitClick" prefHeight="26.0" prefWidth="96.0" text="Submit" />
@@ -27,12 +27,12 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="tempQuestionLabel" alignment="TOP_CENTER" layoutX="20.0" layoutY="115.0" prefHeight="46.0" prefWidth="560.0" text="This is a question clue" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="tempQuestionLabel" alignment="TOP_CENTER" layoutX="59.0" layoutY="90.0" prefHeight="76.0" prefWidth="486.0" text="This is a question clue" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="271.0" layoutY="90.0" text="Clue:" textAlignment="CENTER">
+            <Label layoutX="271.0" layoutY="65.0" text="Clue:" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
