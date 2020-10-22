@@ -33,13 +33,13 @@
 }
 
 .table-row-cell {
-	-fx-background-color: background-color;
+	-fx-background-color: light-background-color;
 
 }
 .table-row-cell:odd {
-	-fx-background-color: light-background-color;
-}
+	-fx-background-color: background-color;
 
+}
 
 .slider {
 	-fx-font-size: 16;
@@ -63,4 +63,9 @@
 	-fx-tick-label-fill: black;
 	-fx-tick-length: 8;
 	-fx-minor-tick-length: 8;
+}
+
+.grid-pane {
+	-fx-hgap: 5;
+	-fx-vgap: 5;
 }

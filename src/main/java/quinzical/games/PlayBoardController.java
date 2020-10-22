@@ -2,10 +2,12 @@ package main.java.quinzical.games;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import main.java.quinzical.utility.SceneSwitcher;
 import main.java.quinzical.utility.StringSpeaker;
 import main.java.quinzical.model.Category;
@@ -18,13 +20,7 @@ import java.util.Optional;
 
 public class PlayBoardController {
     @FXML
-    private Label label1;
-    @FXML private Label label2;
-    @FXML private Label label3;
-    @FXML private Label label4;
-    @FXML private Label label5;
-    @FXML private Label scoreLabel;
-
+    private Label label1, label2, label3, label4, label5, scoreLabel;
 
     @FXML
     private Button button01, button02, button03, button04, button05,
@@ -32,6 +28,10 @@ public class PlayBoardController {
     button21, button22, button23, button24, button25,
     button31, button32, button33,button34, button35,
     button41, button42, button43, button44, button45;
+
+    @FXML
+    private GridPane questionGrid;
+
     private List<Label> labels;
     private List<List<Button>> colButtons;
     private GameManager game;
@@ -47,6 +47,7 @@ public class PlayBoardController {
                 Arrays.asList(button31,button32,button33,button34,button35),
                 Arrays.asList(button41,button42,button43,button44,button45)
         );
+        questionGrid.getStyleClass().add("grid-pane");
         this.game = game;
         this.stringSpeaker = stringSpeaker;
         if (!this.game.gameStarted()) {
