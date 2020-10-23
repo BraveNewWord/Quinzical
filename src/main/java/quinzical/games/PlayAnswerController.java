@@ -129,6 +129,10 @@ public class PlayAnswerController {
         this.stringSpeaker.speakString(this.game.getCurrentQuestion().getClue());
     }
 
+    /**
+     * Check if keys entered on keyboard are Enter key which will prompt to submit
+     * Also tracks the textbox caret location
+     */
     public void checkAnswerOnEnterKey(KeyEvent keyEvent) throws Exception {
         this.caretPostion = answerTextBox.getCaretPosition()+1;
         if (keyEvent.getCode() == KeyCode.ENTER) {
@@ -136,10 +140,19 @@ public class PlayAnswerController {
         }
     }
 
+    /**
+     * Tracks the caret location when the textbox is clicked on
+     */
     public void onTextBoxClick() {
         this.caretPostion = answerTextBox.getCaretPosition();
     }
 
+    /**
+     * Method is called when one of the on-scren keyboard buttons are clicked
+     * Inserts the clicked character into the position of the answer textfield that
+     * the user had last had their caret on
+     * @param event
+     */
     public void onVowelClick(Event event) {
         String vowel = ((Button) event.getSource()).getText();
         try {
