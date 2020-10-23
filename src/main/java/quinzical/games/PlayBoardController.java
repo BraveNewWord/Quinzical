@@ -86,6 +86,10 @@ public class PlayBoardController {
             alert.setContentText("Two categories have been fully answered\n" +
                     "You can return to start the International section now\n" +
                     "or continue with the NZ section");
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(
+                    getClass().getResource("/main/java/quinzical/css/style.css").toExternalForm());
+            dialogPane.getStyleClass().add("alert");
             alert.showAndWait();
 
         }
