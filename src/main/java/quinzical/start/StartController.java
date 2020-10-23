@@ -28,6 +28,11 @@ public class StartController {
     }
 
     public void onPlayClick(ActionEvent event) throws Exception {
+        try {
+            this.stringSpeaker.stopSpeak();
+        } catch (NullPointerException npe) {
+            //
+        }
         NZInternationalPageController controller = sceneSwitcher.
                 switchScene(event, "/main/java/quinzical/games/resources/NZInternationalPage.fxml").getController();
         controller.initData(new GameManager(), this.stringSpeaker);
@@ -35,6 +40,11 @@ public class StartController {
     }
 
     public void onLeaderboardClick(ActionEvent event) throws IOException {
+        try {
+            this.stringSpeaker.stopSpeak();
+        } catch (NullPointerException npe) {
+            //
+        }
         LeaderboardController controller = sceneSwitcher.
                 switchScene(event, "/main/java/quinzical/leaderboard/resources/Leaderboard.fxml").getController();
         controller.initData(this.stringSpeaker);
@@ -42,6 +52,11 @@ public class StartController {
 
 
     public void onPracticeClick(ActionEvent event) throws Exception {
+        try {
+            this.stringSpeaker.stopSpeak();
+        } catch (NullPointerException npe) {
+            //
+        }
     	PracticeCategoryController controller = sceneSwitcher.
                 switchScene(event, "/main/java/quinzical/practice/resources/PracticeCategory.fxml").getController();
         controller.initialize(new PracticeManager(), this.stringSpeaker);
@@ -54,11 +69,21 @@ public class StartController {
     }
 
     public void onTestSpeedClick() throws Exception {
+        try {
+            this.stringSpeaker.stopSpeak();
+        } catch (NullPointerException npe) {
+            //
+        }
         this.stringSpeaker.speakString("So, what do you think of this speed?" +
                 " Is it too fast or too slow?");
     }
 
     public void onQuitClick() {
+        try {
+            this.stringSpeaker.stopSpeak();
+        } catch (NullPointerException npe) {
+            //
+        }
         Stage stage = (Stage) quitButton.getScene().getWindow();
         stage.close();
     }
