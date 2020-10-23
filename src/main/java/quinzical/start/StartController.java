@@ -37,7 +37,9 @@ public class StartController {
     public void onLeaderboardClick(ActionEvent event) throws IOException {
         LeaderboardController controller = sceneSwitcher.
                 switchScene(event, "/main/java/quinzical/leaderboard/resources/Leaderboard.fxml").getController();
+        controller.initData(this.stringSpeaker);
     }
+
 
     public void onPracticeClick(ActionEvent event) throws Exception {
     	PracticeCategoryController controller = sceneSwitcher.
