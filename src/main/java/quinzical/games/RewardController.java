@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import main.java.quinzical.model.Score;
 import main.java.quinzical.utility.SceneSwitcher;
 import main.java.quinzical.model.GameManager;
 
@@ -29,6 +30,7 @@ public class RewardController {
         this.game.saveGame();
         sceneSwitcher.switchScene(event, "/main/java/quinzical/start/resources/Start.fxml");
     }
+
     /*
      * Creates a TextInputDialog that user can enter their name into
      * to submit for the leaderboard
@@ -51,8 +53,10 @@ public class RewardController {
             Optional<String> result = submitScoreDialog.showAndWait();
             if (result.isPresent()) {
                 TextField textField = submitScoreDialog.getEditor();
-                if (textField.getText() != null && !textField.getText().strip().isEmpty()) {
+                String userName = textField.getText();
+                if (userName != null && !userName.strip().isEmpty()) {
                     System.out.println(textField.getText());
+                    Score newScore = new Score(userName, this.game);
                     done = true;
                 } else {
                     dialogPane.setHeaderText("Try again");

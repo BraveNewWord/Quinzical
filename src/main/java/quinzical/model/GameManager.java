@@ -178,6 +178,9 @@ public class GameManager implements Serializable {
             return "-$"+-this.points;
         }
     }
+    public int getPoints() {
+        return this.points;
+    }
 
     public void resetGame() {
         this.gameMode = GameMode.NONE;
