@@ -5,10 +5,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
@@ -109,7 +106,10 @@ public class PlayAnswerController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Out of Time!");
             alert.setHeaderText("You ran out of time!");
-            alert.setContentText("You will be taken back to the question board");
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.getStylesheets().add(
+                    getClass().getResource("/main/java/quinzical/css/style.css").toExternalForm());
+            dialogPane.getStyleClass().add("alert");
             alert.show();
         }
         if (!this.game.questionsExist()) {
