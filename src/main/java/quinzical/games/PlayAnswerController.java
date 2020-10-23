@@ -56,7 +56,7 @@ public class PlayAnswerController {
 
 
 
-    public void onSubmitClick(Event event) throws Exception { ;
+    public void onSubmitClick(Event event) throws Exception {
         String userAnswer =answerTextBox.getText().trim();
         Question currentQuestion = this.game.getCurrentQuestion();
         Alert alert;
@@ -86,7 +86,6 @@ public class PlayAnswerController {
     }
 
     public void onDontKnowClick(ActionEvent event) throws Exception {
-
         Question currentQuestion = this.game.getCurrentQuestion();
         Alert alert = new AlertBuilder()
                 .answerType(AlertBuilder.AnswerType.PLAY_INCORRECT)

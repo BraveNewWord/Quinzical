@@ -9,5 +9,6 @@ module SE206Project {
     opens main.java.quinzical.start to javafx.fxml;
     opens main.java.quinzical.games to javafx.fxml;
     opens main.java.quinzical.practice to javafx.fxml;
+    opens main.java.quinzical.leaderboard to javafx.fxml;
     opens main.java.quinzical.utility to javafx.fxml;
 }

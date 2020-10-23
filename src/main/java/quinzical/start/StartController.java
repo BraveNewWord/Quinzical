@@ -6,11 +6,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.stage.Stage;
 import main.java.quinzical.games.NZInternationalPageController;
+import main.java.quinzical.leaderboard.LeaderboardController;
 import main.java.quinzical.practice.PracticeCategoryController;
 import main.java.quinzical.utility.SceneSwitcher;
 import main.java.quinzical.utility.StringSpeaker;
 import main.java.quinzical.model.GameManager;
 import main.java.quinzical.model.PracticeManager;
+
+import java.io.IOException;
 
 
 public class StartController {
@@ -29,6 +32,11 @@ public class StartController {
                 switchScene(event, "/main/java/quinzical/games/resources/NZInternationalPage.fxml").getController();
         controller.initData(new GameManager(), this.stringSpeaker);
 
+    }
+
+    public void onLeaderboardClick(ActionEvent event) throws IOException {
+        LeaderboardController controller = sceneSwitcher.
+                switchScene(event, "/main/java/quinzical/leaderboard/resources/Leaderboard.fxml").getController();
     }
 
     public void onPracticeClick(ActionEvent event) throws Exception {
