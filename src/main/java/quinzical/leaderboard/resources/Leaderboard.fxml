@@ -9,8 +9,8 @@
    <children>
       <TableView layoutX="99.0" layoutY="81.0" prefHeight="238.0" prefWidth="403.0">
         <columns>
-          <TableColumn editable="false" prefWidth="53.0" sortable="false" text="Rank" />
-          <TableColumn editable="false" prefWidth="111.0" sortable="false" text="Name" />
+          <TableColumn editable="false" prefWidth="50.0" sortable="false" text="Rank" />
+          <TableColumn editable="false" prefWidth="114.0" sortable="false" text="Name" />
             <TableColumn editable="false" prefWidth="123.0" sortable="false" text="Section" />
             <TableColumn editable="false" prefWidth="114.0" sortable="false" text="Score" />
         </columns>

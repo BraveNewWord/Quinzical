@@ -17,7 +17,7 @@
 }
 
 .button:hover {
-	-fx-background-color: dark-secondary-color;
+	-fx-background-color: black;
 }
 
 .table-view {

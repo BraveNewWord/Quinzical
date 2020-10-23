@@ -17,14 +17,19 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <Button layoutX="242.0" layoutY="289.0" mnemonicParsing="false" onAction="#onReplayClick" prefHeight="50.0" prefWidth="100.0"  text="Play again" >
+      <Button layoutX="207.0" layoutY="331.0" mnemonicParsing="false" onAction="#onReplayClick" prefHeight="35.0" prefWidth="170.0" text="Play again">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font name="System Bold" size="14.0" />
          </font></Button>
       <Label fx:id="scoreLabel" alignment="CENTER" layoutX="195.0" layoutY="201.0" prefHeight="35.0" prefWidth="194.0" text="9999" textAlignment="CENTER">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
+      <Button layoutX="207.0" layoutY="269.0" mnemonicParsing="false" onAction="#onSubmitScore" prefHeight="35.0" prefWidth="170.0" text="Submit Score">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
