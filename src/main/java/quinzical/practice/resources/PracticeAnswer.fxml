@@ -35,7 +35,7 @@
       </Label>
       <TextField fx:id="text" layoutX="237.0" layoutY="137.0" onKeyPressed="#checkAnswerOnEnterKey" onMousePressed="#onTextBoxClick" prefHeight="26.0" prefWidth="180.0" />
       <Button fx:id="submit" layoutX="256.0" layoutY="223.0" mnemonicParsing="false" onAction="#onSubmitClick" text="Submit" />
-      <Button fx:id="replay" layoutX="208.0" layoutY="345.0" mnemonicParsing="false" onAction="#onReplyClick" prefHeight="40.0" prefWidth="160.0" text="Replay clue" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="208.0" />
+      <Button fx:id="replay" layoutX="208.0" layoutY="345.0" mnemonicParsing="false" onAction="#onReplayClick" prefHeight="40.0" prefWidth="160.0" text="Replay clue" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="208.0" />
       <Button fx:id="exit" layoutY="366.0" mnemonicParsing="false" onAction="#onExitClick" prefHeight="40.0" prefWidth="80.0" text="Exit" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
       <Label alignment="CENTER_RIGHT" layoutX="423.0" layoutY="140.0" prefHeight="21.0" prefWidth="11.0" text="?">
          <font>

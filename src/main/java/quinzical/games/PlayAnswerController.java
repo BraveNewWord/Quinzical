@@ -99,6 +99,7 @@ public class PlayAnswerController {
     }
 
     public void returnOrFinish() throws Exception {
+        this.stringSpeaker.stopSpeak();
         this.timeline.stop();
         this.game.getCurrentQuestion().setAnswered(true);
         if (this.timeRemaining == 0) {
@@ -125,6 +126,7 @@ public class PlayAnswerController {
     }
 
     public void onReplayClueClick() throws Exception {
+        this.stringSpeaker.stopSpeak();
         this.stringSpeaker.speakString(this.game.getCurrentQuestion().getClue());
     }
 

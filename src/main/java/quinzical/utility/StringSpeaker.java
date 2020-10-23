@@ -1,11 +1,14 @@
 package main.java.quinzical.utility;
 
+import java.util.stream.Stream;
+
 /**
  * StringSpeaker is a utility helper class that uses the festival
  * text to speech service to produce audible dialogue
  */
 public class StringSpeaker {
     private double voiceSpeed = 1;
+    private Process speakProcess;
 
     public void setSpeed(double voiceSpeed) {
         this.voiceSpeed = 2-voiceSpeed;
@@ -36,7 +39,18 @@ public class StringSpeaker {
                 "(SayText \\\"" + spokenString + "\\\")\"";
         String command = "echo " + scm + " | festival -b --pipe";
         ProcessBuilder builder = new ProcessBuilder("/bin/bash", "-c", command);
-        builder.start();
+        this.speakProcess = builder.start();
+    }
 
+    /*
+     * Kills the processes used by the festival tts system to stop
+     * a currently speaking tts voice
+     * Solution from discussions on Piazza: https://piazza.com/class/kcvizo3rhen6xs?cid=174
+     */
+    public void stopSpeak() {
+        Stream<ProcessHandle> descendents = this.speakProcess.descendants();
+        descendents.filter(ProcessHandle::isAlive).forEach(ph -> {
+            ph.destroy();
+        });
     }
 }
