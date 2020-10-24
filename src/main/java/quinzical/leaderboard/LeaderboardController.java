@@ -18,6 +18,7 @@ import java.io.IOException;
 
 public class LeaderboardController {
     @FXML private TableView<Score> leaderBoard;
+    @FXML private TableColumn rankColumn;
     @FXML private TableColumn<Score, String> nameColumn;
     @FXML private TableColumn<Score, String> sectionColumn;
     @FXML private TableColumn<Score, Integer> scoreColumn;
@@ -28,6 +29,11 @@ public class LeaderboardController {
 
     public void initData(StringSpeaker stringSpeaker) {
         this.stringSpeaker = stringSpeaker;
+
+        this.rankColumn.setReorderable(false);
+        this.nameColumn.setReorderable(false);
+        this.sectionColumn.setReorderable(false);
+        this.scoreColumn.setReorderable(false);
 
         this.nameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
         this.sectionColumn.setCellValueFactory(new PropertyValueFactory<>("section"));
