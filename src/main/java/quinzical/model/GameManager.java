@@ -193,8 +193,7 @@ public class GameManager implements Serializable {
 
     public void resetGame() {
         this.gameMode = GameMode.NONE;
-        this.internationalUnlocked = false;
-        this.twoCategoriesComplete = false;
+
         this.points = 0;
         for (Category category : this.chosenCategories) {
             category.resetCategory();
@@ -203,6 +202,13 @@ public class GameManager implements Serializable {
         this.clearChosenCategories();
         this.gameStarted = false;
     }
+
+    public void resetAndLock() {
+        this.internationalUnlocked = false;
+        this.twoCategoriesComplete = false;
+        this.resetGame();
+    }
+
     public void saveGame() throws Exception {
         ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("game-data"));
         os.writeObject(this);

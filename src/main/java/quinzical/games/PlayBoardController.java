@@ -117,7 +117,7 @@ public class PlayBoardController {
         dialogPane.getStyleClass().add("alert");
         Optional<ButtonType> buttonType = alert.showAndWait();
         if (buttonType.isPresent() && buttonType.get() == ButtonType.OK) {
-            this.game.resetGame();
+            this.game.resetAndLock();
             this.game.saveGame();
             NZInternationalPageController controller = sceneSwitcher.switchScene(event,
                     "/main/java/quinzical/games/resources/NZInternationalPage.fxml").
