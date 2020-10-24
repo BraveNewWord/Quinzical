@@ -7,12 +7,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.quinzical.leaderboard.LeaderboardController">
    <children>
-      <TableView layoutX="99.0" layoutY="81.0" prefHeight="238.0" prefWidth="403.0">
+      <TableView fx:id="leaderBoard" layoutX="99.0" layoutY="81.0" prefHeight="242.0" prefWidth="403.0">
         <columns>
-          <TableColumn editable="false" prefWidth="50.0" sortable="false" text="Rank" />
-          <TableColumn editable="false" prefWidth="114.0" sortable="false" text="Name" />
-            <TableColumn editable="false" prefWidth="123.0" sortable="false" text="Section" />
-            <TableColumn editable="false" prefWidth="114.0" sortable="false" text="Score" />
+          <TableColumn editable="false" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" sortable="false" text="Rank" />
+          <TableColumn fx:id="nameColumn" editable="false" maxWidth="145.0" minWidth="120.0" prefWidth="150.0" resizable="false" sortable="false" text="Name" />
+            <TableColumn fx:id="sectionColumn" editable="false" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" resizable="false" sortable="false" text="Section" />
+            <TableColumn fx:id="scoreColumn" editable="false" maxWidth="200.0" minWidth="20.0" prefWidth="85.0" resizable="false" sortable="false" text="Score" />
         </columns>
       </TableView>
       <Button layoutX="14.0" layoutY="346.0" mnemonicParsing="false" onAction="#onReturnClick" prefHeight="40.0" prefWidth="80.0" text="Return" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />

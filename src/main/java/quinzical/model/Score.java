@@ -22,6 +22,18 @@ public class Score implements Serializable {
         }
     }
 
+    public String getUserName() {
+        return this.userName;
+    }
+
+    public String getSection() {
+        return section;
+    }
+
+    public int getScoreValue() {
+        return scoreValue;
+    }
+
     public void printScore() {
         System.out.println("----------------\n" +
                 "Name: " + this.userName + "\n" +
