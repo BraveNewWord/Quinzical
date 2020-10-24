@@ -25,19 +25,31 @@ public class NZInternationalPageController {
     public void initData(GameManager game, StringSpeaker stringSpeaker) throws Exception {
         this.game = game;
         this.stringSpeaker = stringSpeaker;
+        // Enable the international button if two categories in the NZ section
+        // are complete
         this.game.countCategoriesComplete();
         if (this.game.getTwoCategoriesComplete()) {
             this.internationalButton.setDisable(false);
         }
     }
-
+    /**
+     * When user click NZ section button,
+     * checks the user current game mode and
+     * acts according to it e.g. International game mode currently on
+     * Then will need to ask the user to confirm they would like to forfeit the NZ game
+     * to start the International section
+     * @param event
+     * @throws Exception
+     */
     public void onNZClick(ActionEvent event) throws Exception {
         switch (this.game.getGameMode()) {
+            // let user continue NZ game
             case NEW_ZEALAND:
                 PlayBoardController pbc = sceneSwitcher.
                         switchScene(event, "/main/java/quinzical/games/resources/PlayBoard.fxml").getController();
                 pbc.initData(this.game, this.stringSpeaker);
                 break;
+            // ask to user to confirm quitting NZ section
             case INTERNATIONAL:
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Start NZ section");
@@ -62,6 +74,7 @@ public class NZInternationalPageController {
                     controller.initData(this.game, this.stringSpeaker);
                 }
                 break;
+            // take user to category selector page
             case NONE:
                 this.game.clearCategories();
                 PlayCategorySelectionController controller = sceneSwitcher.
@@ -71,8 +84,18 @@ public class NZInternationalPageController {
         }
     }
 
+    /**
+     * When user click International section button,
+     * checks the user current game mode and
+     * acts according to it e.g. NZ game mode currently on
+     * Then will need to ask the user to confirm they would like to forfeit the NZ game
+     * to start the International section
+     * @param event
+     * @throws Exception
+     */
     public void onInternationalClick(ActionEvent event) throws Exception{
         switch (this.game.getGameMode()) {
+            // ask user to confirm they would like to quit the International section
             case NEW_ZEALAND:
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Start International section");
@@ -88,6 +111,7 @@ public class NZInternationalPageController {
                 if (!(buttonType.isPresent() && buttonType.get() == ButtonType.OK)) {
                     return;
                 }
+            // take user to category selector page
             case NONE:
                 this.game.resetGame();
                 this.game.clearCategories();
@@ -96,6 +120,7 @@ public class NZInternationalPageController {
                 for (int i = 0; i < 5; i++) {
                     this.game.getRandomCategory();
                 }
+            // let user continue playing in the international section
             case INTERNATIONAL:
                 PlayBoardController controller = sceneSwitcher.
                         switchScene(event, "/main/java/quinzical/games/resources/PlayBoard.fxml").getController();
@@ -110,23 +135,31 @@ public class NZInternationalPageController {
         controller.initData(this.stringSpeaker);
     }
 
+    /**
+     * Displays an alert to user to when they click reset button
+     * Alert asks them to confirm resetting the game
+     * @param event
+     * @throws Exception
+     */
     public void onResetClick(ActionEvent event) throws Exception {
+        // alert creation
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Reset confirmation");
         alert.setHeaderText("Are you sure you want to reset?");
         alert.setContentText("All winnings will be removed and questions reset\nThere is no way to reverse this");
+        // alert styling
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(
                 getClass().getResource("/main/java/quinzical/css/style.css").toExternalForm());
         dialogPane.getStyleClass().add("alert");
+
         Optional<ButtonType> buttonType = alert.showAndWait();
         if (buttonType.isPresent() && buttonType.get() == ButtonType.OK) {
             this.game.resetAndLock();
             this.game.saveGame();
+            this.initData(this.game, this.stringSpeaker);
         }
-        NZInternationalPageController controller = sceneSwitcher.switchScene(event, "/main/java/quinzical/games/resources/NZInternationalPage.fxml").
-                getController();
-        controller.initData(this.game, this.stringSpeaker);
+
     }
 }
 
