@@ -3,6 +3,10 @@ package main.java.quinzical.utility;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
 
+/**
+ * AlertBuilder builds alerts that are commonly used
+ * with different display data to reduce duplicate code
+ */
 public class AlertBuilder {
     public enum AnswerType {
         CORRECT,

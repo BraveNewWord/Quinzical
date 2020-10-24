@@ -121,7 +121,7 @@ public class PracticeAnswerController {
 	}
 
 	/**
-	 * Method is called when one of the on-scren keyboard buttons are clicked
+	 * Method is called when one of the on-screen keyboard buttons are clicked
 	 * Inserts the clicked character into the position of the answer textfield that
 	 * the user had last had their caret on
 	 * @param event
