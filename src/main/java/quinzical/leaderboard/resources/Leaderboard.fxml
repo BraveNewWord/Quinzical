@@ -9,10 +9,10 @@
    <children>
       <TableView fx:id="leaderBoard" layoutX="99.0" layoutY="81.0" prefHeight="240.0" prefWidth="403.0">
         <columns>
-          <TableColumn fx:id="rankColumn" editable="false" maxWidth="62.0" minWidth="50.0" prefWidth="59.0" resizable="false" text="Rank" />
-          <TableColumn fx:id="nameColumn" editable="false" maxWidth="145.0" minWidth="120.0" prefWidth="136.0" resizable="false" sortable="false" text="Name" />
+          <TableColumn fx:id="rankColumn" editable="false" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" text="Rank" />
+          <TableColumn fx:id="nameColumn" editable="false" maxWidth="160.0" minWidth="150.0" prefWidth="160.0" resizable="false" sortable="false" text="Name" />
             <TableColumn fx:id="sectionColumn" editable="false" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" resizable="false" text="Section" />
-            <TableColumn fx:id="scoreColumn" editable="false" maxWidth="200.0" minWidth="20.0" prefWidth="85.0" resizable="false" text="Score" />
+            <TableColumn fx:id="scoreColumn" editable="false" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" resizable="false" text="Score" />
         </columns>
       </TableView>
       <Button layoutX="14.0" layoutY="346.0" mnemonicParsing="false" onAction="#onReturnClick" prefHeight="40.0" prefWidth="80.0" text="Return" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />

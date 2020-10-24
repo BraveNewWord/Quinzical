@@ -115,7 +115,7 @@ public class PlayAnswerController {
         if (!this.game.questionsExist()) {
             RewardController controller = sceneSwitcher.switchScene(this.timeLabel, "/main/java/quinzical/games/resources/Reward.fxml").
                     getController();
-            controller.initData(this.game);
+            controller.initData(this.game, this.stringSpeaker);
 
         } else {
             PlayBoardController controller = sceneSwitcher.
