@@ -9,14 +9,47 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.quinzical.games.PlayAnswerController">
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.quinzical.games.PlayAnswerController">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4fc396;">
          <children>
-            <TextField fx:id="answerTextBox" layoutX="253.0" layoutY="169.0" onKeyPressed="#checkAnswerOnEnterKey" onMousePressed="#onTextBoxClick" />
-            <Button fx:id="replayClueButton" layoutX="254.0" layoutY="300.0" mnemonicParsing="false" onAction="#onReplayClueClick" prefWidth="96.0" text="Replay Clue" />
-            <Button layoutX="330.0" layoutY="254.0" mnemonicParsing="false" onAction="#onDontKnowClick" prefHeight="26.0" prefWidth="96.0" text="Don't know" />
-            <Button layoutX="175.0" layoutY="254.0" mnemonicParsing="false" onAction="#onSubmitClick" prefHeight="26.0" prefWidth="96.0" text="Submit" />
+            <Pane fx:id="interactablesPane" disable="true" layoutX="175.0" layoutY="169.0">
+               <children>
+                  <TextField fx:id="answerTextBox" layoutX="78.0" onKeyPressed="#checkAnswerOnEnterKey" onMousePressed="#onTextBoxClick" />
+                  <Button fx:id="replayClueButton" layoutX="79.0" layoutY="131.0" mnemonicParsing="false" onAction="#onReplayClueClick" prefWidth="96.0" text="Replay Clue" />
+                  <Button layoutX="155.0" layoutY="85.0" mnemonicParsing="false" onAction="#onDontKnowClick" prefHeight="26.0" prefWidth="96.0" text="Don't know" />
+                  <Button layoutY="85.0" mnemonicParsing="false" onAction="#onSubmitClick" prefHeight="26.0" prefWidth="96.0" text="Submit" />
+                  <HBox layoutX="42.0" layoutY="31.0" prefHeight="46.0" prefWidth="170.0">
+                     <children>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ā">
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ē">
+                           <HBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ī">
+                           <HBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ō">
+                           <HBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ū">
+                           <HBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
             <Label fx:id="prefixLabel" alignment="CENTER_RIGHT" layoutX="159.0" layoutY="172.0" prefHeight="20.0" prefWidth="89.0" text="Who is" textAlignment="RIGHT">
                <font>
                   <Font name="System Bold" size="16.0" />
@@ -37,40 +70,11 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="timeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="272.0" layoutY="341.0" prefHeight="25.0" prefWidth="57.0" text="60" textAlignment="CENTER">
+            <Label fx:id="timeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="271.0" layoutY="335.0" prefHeight="25.0" prefWidth="57.0" text="60" textAlignment="CENTER">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="35.0" />
                </font>
             </Label>
-            <HBox layoutX="217.0" layoutY="200.0" prefHeight="46.0" prefWidth="170.0">
-               <children>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ā">
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ē">
-                     <HBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ī">
-                     <HBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ō">
-                     <HBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onVowelClick" prefHeight="30.0" prefWidth="30.0" text="ū">
-                     <HBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
          </children>
       </Pane>
    </children>

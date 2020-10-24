@@ -27,7 +27,7 @@ public class StringSpeaker {
      * @param spokenString
      * @throws Exception
      */
-    public void speakString(String spokenString) throws Exception{
+    public Process speakString(String spokenString) throws Exception{
         // Cleaning the string by deleting quotation marks that may interfere when read
         spokenString = spokenString.replaceAll("'", "").
                 replaceAll("\"", "");
@@ -40,6 +40,7 @@ public class StringSpeaker {
         String command = "echo " + scm + " | festival -b --pipe";
         ProcessBuilder builder = new ProcessBuilder("/bin/bash", "-c", command);
         this.speakProcess = builder.start();
+        return this.speakProcess;
     }
 
     /*

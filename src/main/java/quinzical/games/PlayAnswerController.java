@@ -8,10 +8,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import main.java.quinzical.model.GameManager;
 import main.java.quinzical.model.Question;
 import main.java.quinzical.utility.AlertBuilder;
+import main.java.quinzical.utility.HelperThread;
 import main.java.quinzical.utility.SceneSwitcher;
 import main.java.quinzical.utility.StringSpeaker;
 
@@ -23,6 +26,7 @@ public class PlayAnswerController {
     @FXML private Label prefixLabel;
     @FXML private TextField answerTextBox;
     @FXML private Label timeLabel;
+    @FXML private Pane interactablesPane;
 
     private int caretPostion = 0;
     private final int initTime = 30;
@@ -39,11 +43,16 @@ public class PlayAnswerController {
         this.stringSpeaker = stringSpeaker;
         tempQuestionLabel.setText(this.game.getCurrentQuestion().getClue());
         prefixLabel.setText(this.game.getCurrentQuestion().getPrefix());
-        this.stringSpeaker.speakString(this.game.getCurrentQuestion().getClue());
 
+        // Waits for clue to be spoken by StringSpeaker, then
+        // enables initially disabled GUI components and starts Timer
+        HelperThread helperThread = new HelperThread(this.stringSpeaker,
+                this.game.getCurrentQuestion().getClue(), this.interactablesPane, this.timeline);
+        helperThread.start();
+
+        // Timer setup
         this.timeLabel.setText(String.valueOf(timeRemaining));
         this.timeline.setCycleCount(initTime);
-        this.timeline.play();
         this.timeline.setOnFinished(e -> {
             try {
                 this.returnOrFinish();
@@ -51,15 +60,22 @@ public class PlayAnswerController {
                 exception.printStackTrace();
             }
         });
-
     }
 
-
-
+    /**
+     * Creates a alert for the player when the click the submit button
+     * Message depends on if they got the question correct, incorrect, or
+     * left the textfield empty
+     * If correct/incorrect, takes them back to question board
+     * and counts the question as answered
+     * @param event
+     * @throws Exception
+     */
     public void onSubmitClick(Event event) throws Exception {
-        String userAnswer =answerTextBox.getText().trim();
+        String userAnswer = answerTextBox.getText().trim();
         Question currentQuestion = this.game.getCurrentQuestion();
         Alert alert;
+
         if (userAnswer.isBlank()) {
             alert = new AlertBuilder().answerType(AlertBuilder.AnswerType.INVALID_INPUT).build();
             alert.showAndWait();
@@ -78,6 +94,7 @@ public class PlayAnswerController {
                     .userAnswer(userAnswer)
                     .trueAnswer(currentQuestion.getAnswers()).build();
         }
+
         this.game.saveGame();
         this.timeline.stop();
         alert.showAndWait();
@@ -85,6 +102,13 @@ public class PlayAnswerController {
 
     }
 
+    /**
+     * When the user clicks the Don't know button, displays to them
+     * an alert that shows the answer to them - counts question as answered
+     * and user is taken back to question board
+     * @param event
+     * @throws Exception
+     */
     public void onDontKnowClick(ActionEvent event) throws Exception {
         Question currentQuestion = this.game.getCurrentQuestion();
         Alert alert = new AlertBuilder()
@@ -98,6 +122,12 @@ public class PlayAnswerController {
         this.returnOrFinish();
     }
 
+    /**
+     * This method checks if the are still questions remaning to
+     * be answered in the game. If there are, user is taken to question board
+     * If no more questions remain, user is taken to the Reward page
+     * @throws Exception
+     */
     public void returnOrFinish() throws Exception {
         this.stringSpeaker.stopSpeak();
         this.timeline.stop();
