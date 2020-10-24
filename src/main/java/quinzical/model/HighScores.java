@@ -2,6 +2,7 @@ package main.java.quinzical.model;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class HighScores implements Serializable {
@@ -21,6 +22,7 @@ public class HighScores implements Serializable {
     }
 
     public List<Score> getScores() {
+        this.sortHighScores();
         return this.highScores;
     }
 
@@ -40,6 +42,14 @@ public class HighScores implements Serializable {
         ObjectInputStream is = new ObjectInputStream(new FileInputStream("high-scores"));
         HighScores highScores = (HighScores) is.readObject();
         this.highScores = highScores.getScores();
+    }
+
+    public void sortHighScores() {
+        Collections.sort(this.highScores);
+        int i = 1;
+        for (Score score : highScores) {
+            score.setRank(i++);
+        }
     }
 
 

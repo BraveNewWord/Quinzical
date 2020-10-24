@@ -2,7 +2,8 @@ package main.java.quinzical.model;
 
 import java.io.Serializable;
 
-public class Score implements Serializable {
+public class Score implements Serializable, Comparable<Score>{
+    private int rank;
     private String userName;
     private int scoreValue;
     private String section;
@@ -22,16 +23,24 @@ public class Score implements Serializable {
         }
     }
 
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
+    public int getRank() {
+        return this.rank;
+    }
+
     public String getUserName() {
         return this.userName;
     }
 
     public String getSection() {
-        return section;
+        return this.section;
     }
 
     public int getScoreValue() {
-        return scoreValue;
+        return this.scoreValue;
     }
 
     public void printScore() {
@@ -39,5 +48,15 @@ public class Score implements Serializable {
                 "Name: " + this.userName + "\n" +
                 "Score: " + scoreValue + "\n" +
                 "Section: " + section);
+    }
+
+    @Override
+    public int compareTo(Score score) {
+        if(this.scoreValue > score.scoreValue) {
+            return -1;
+        } else if (this.scoreValue < score.scoreValue) {
+            return 1;
+        }
+        return 0;
     }
 }

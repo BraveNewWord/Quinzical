@@ -48,24 +48,28 @@ public class RewardController {
         dialogPane.getStyleClass().add("alert");
 
         // Display dialog and check user inputs (button clicked and text typed)
-        // Keep prompting user if they clicked OK, but did not enter anything
+
         boolean done = false;
         while (!done) {
             Optional<String> result = submitScoreDialog.showAndWait();
+            // user clicked OK butotn
             if (result.isPresent()) {
                 TextField textField = submitScoreDialog.getEditor();
                 String userName = textField.getText();
 
+                // check user's textfield input
                 if (userName != null && !userName.strip().isEmpty()) {
                     Score newScore = new Score(userName, this.game.getPoints(),
                             this.game.getGameMode());
                     HighScores highScores = new HighScores();
                     highScores.addScore(newScore);
-                    highScores.printScores();
+
                     done = true;
+                // Keep prompting user if they clicked OK, but did not enter anything
                 } else {
                     dialogPane.setHeaderText("Please try again");
                 }
+            // user clicked cancel - exit from prompt
             } else {
                 done = true;
             }

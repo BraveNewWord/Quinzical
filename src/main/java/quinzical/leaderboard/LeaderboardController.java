@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,7 +19,7 @@ import java.io.IOException;
 
 public class LeaderboardController {
     @FXML private TableView<Score> leaderBoard;
-    @FXML private TableColumn rankColumn;
+    @FXML private TableColumn<Score, Integer>  rankColumn;
     @FXML private TableColumn<Score, String> nameColumn;
     @FXML private TableColumn<Score, String> sectionColumn;
     @FXML private TableColumn<Score, Integer> scoreColumn;
@@ -30,11 +31,13 @@ public class LeaderboardController {
     public void initData(StringSpeaker stringSpeaker) {
         this.stringSpeaker = stringSpeaker;
 
+        this.leaderBoard.setPlaceholder(new Label("No high scores yet!"));
         this.rankColumn.setReorderable(false);
         this.nameColumn.setReorderable(false);
         this.sectionColumn.setReorderable(false);
         this.scoreColumn.setReorderable(false);
 
+        this.rankColumn.setCellValueFactory(new PropertyValueFactory<>("rank"));
         this.nameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
         this.sectionColumn.setCellValueFactory(new PropertyValueFactory<>("section"));
         this.scoreColumn.setCellValueFactory(new PropertyValueFactory<>("scoreValue"));
