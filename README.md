@@ -20,7 +20,7 @@ Ensure that in the folder which you would like to start application has two file
 |       +-- France
 |       +-- Geography
 |       +-- and more...
-+-- main.java.quinzical.jar
++-- quinzical.jar
 +-- run.sh
 ```
 Ensure that run.sh has permissions that allow it to be executable.<br>
