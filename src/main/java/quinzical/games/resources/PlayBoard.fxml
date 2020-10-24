@@ -83,14 +83,14 @@
     <bottom>
         <AnchorPane prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="232.0" layoutY="-9.0" prefHeight="19.0" prefWidth="68.0" text="SCORE: " AnchorPane.leftAnchor="232.0" AnchorPane.topAnchor="-9.0">
+                <Label alignment="CENTER_RIGHT" layoutX="252.0" layoutY="-12.0" prefHeight="25.0" prefWidth="97.0" text="SCORE: " AnchorPane.leftAnchor="252.0" AnchorPane.topAnchor="-12.0">
                     <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="System Bold" size="20.0" />
                     </font>
                 </Label>
-                <Label fx:id="scoreLabel" layoutX="300.0" layoutY="-9.0" prefHeight="19.0" prefWidth="109.0" text="-$Dollarydoos" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="-9.0">
+                <Label fx:id="scoreLabel" alignment="CENTER" layoutX="226.0" layoutY="15.0" prefHeight="25.0" prefWidth="149.0" text="-$Dollarydoos" AnchorPane.leftAnchor="226.0" AnchorPane.topAnchor="15.0">
                     <font>
-                        <Font size="15.0" />
+                        <Font size="18.0" />
                     </font>
                 </Label>
                 <Button layoutX="15.0" layoutY="-5.0" maxHeight="45.0" maxWidth="80.0" mnemonicParsing="false" onAction="#onReturnClick" prefHeight="45.0" prefWidth="80.0" text="Return" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="505.0" AnchorPane.topAnchor="0.0" />
