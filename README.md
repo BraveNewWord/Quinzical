@@ -20,7 +20,7 @@ Ensure that in the folder which you would like to start application has two file
 |       +-- France
 |       +-- Geography
 |       +-- and more...
-+-- main.java.quinzical.jar
++-- quinzical.jar
 +-- run.sh
 ```
 Ensure that run.sh has permissions that allow it to be executable.<br>
@@ -28,7 +28,7 @@ Open terminal in the directory with main.java.quinzical.jar and run.sh files<br>
 Type in and enter:
 <code>./run.sh</code><br>
 You should be greeted with a starting page that looks something like this<br>
-![Intro screen](https://cdn.discordapp.com/attachments/692707366897975376/767348366739898388/unknown.png)
+![Intro screen](https://cdn.discordapp.com/attachments/692707366897975376/769509639703625758/unknown.png)
 
 ## Adding your own categories and questions
 Inside a category text file we can see this:
@@ -40,7 +40,7 @@ For example on line 2, the clue that would be displayed to users would be" "This
 The prefix to the question answer would be: <code>What is</code><br>
 The correct answers would be <code>4</code> or <code>four</code><br>
 So the question page would look something like this: <br>
-![Question example](https://cdn.discordapp.com/attachments/692707366897975376/767347790798913576/unknown.png)
+![Question example](https://cdn.discordapp.com/attachments/692707366897975376/769510468867457044/unknown.png)
 <p> You can make your own category by creating a text file named with the name of the category e.g. Geography<br>
 Each category text file should have at least 5 lines of questions
 
