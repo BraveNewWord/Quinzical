@@ -28,16 +28,26 @@ public class PlayCategorySelectionController {
         if (this.game.getCategories().isEmpty()) {
             this.game.readCategories("categories");
         }
+
+        // adds available categories to dropdown combobox
         for(Category category : this.game.getCategories()) {
             categoriesBox.getItems().add(category.getName());
         }
 
+        // Set up TableView of chosen categories
         this.categoryCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         this.categoryTable.setPlaceholder(new Label("Add some categories!"));
         this.chosenCategories.setAll(this.game.getChosenCategories());
         this.categoryTable.setItems(chosenCategories);
     }
 
+    /**
+     * Method attempts to add a user's selected category from the dropdown menu
+     * to chosen categories
+     * Displays message to user depending on the result of the attempt
+     * Whether category is successfully added,
+     * category is already selected or no category selected
+     */
     public void onAddClick() {
         if (this.chosenCategories.size() == 5) {
             this.errorLabel.setText("You have added 5 categories already\n" +
@@ -70,6 +80,11 @@ public class PlayCategorySelectionController {
         }
     }
 
+    /**
+     * Method attempts to remove a selected category from the
+     * chosen categories table
+     * Displays message to user if it was successful or not
+     */
     public void onRemoveClick() {
         try {
             Category selectedCategory = this.categoryTable.getSelectionModel().getSelectedItem();
@@ -87,6 +102,12 @@ public class PlayCategorySelectionController {
         controller.initData(this.game, this.stringSpeaker);
     }
 
+    /**
+     * Checks user has 5 categories selected and takes them to question board
+     * if done so. If not display to user to add more categories
+     * @param event
+     * @throws Exception
+     */
     public void onStartClick(ActionEvent event) throws Exception{
         if (this.chosenCategories.size() == 5) {
             this.game.setGameMode(GameManager.GameMode.NEW_ZEALAND);
