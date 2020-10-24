@@ -193,6 +193,8 @@ public class GameManager implements Serializable {
 
     public void resetGame() {
         this.gameMode = GameMode.NONE;
+        this.internationalUnlocked = false;
+        this.twoCategoriesComplete = false;
         this.points = 0;
         for (Category category : this.chosenCategories) {
             category.resetCategory();

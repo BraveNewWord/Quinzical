@@ -119,7 +119,11 @@ public class PlayBoardController {
         if (buttonType.isPresent() && buttonType.get() == ButtonType.OK) {
             this.game.resetGame();
             this.game.saveGame();
-            sceneSwitcher.switchScene(event, "/main/java/quinzical/start/resources/Start.fxml");
+            NZInternationalPageController controller = sceneSwitcher.switchScene(event,
+                    "/main/java/quinzical/games/resources/NZInternationalPage.fxml").
+                    getController();
+            controller.initData(this.game, this.stringSpeaker);
+
         }
     }
 

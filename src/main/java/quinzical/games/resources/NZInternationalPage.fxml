@@ -21,5 +21,6 @@
          </font>
       </Label>
       <Button layoutY="360.0" mnemonicParsing="false" onAction="#onReturnClick" prefHeight="40.0" prefWidth="80.0" text="Return" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
+      <Button fx:id="resetButton" layoutX="506.0" layoutY="345.0" minHeight="40.0" mnemonicParsing="false" onAction="#onResetClick" prefHeight="40.0" prefWidth="80.0" text="Reset" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
    </children>
 </AnchorPane>

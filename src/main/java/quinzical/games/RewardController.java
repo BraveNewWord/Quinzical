@@ -72,6 +72,8 @@ public class RewardController {
                             this.game.getGameMode());
                     HighScores highScores = new HighScores();
                     highScores.addScore(newScore);
+                    this.game.resetGame();
+                    this.game.saveGame();
                     LeaderboardController controller = sceneSwitcher.
                             switchScene(event, "/main/java/quinzical/leaderboard/resources/Leaderboard.fxml").getController();
                     controller.initData(this.stringSpeaker);

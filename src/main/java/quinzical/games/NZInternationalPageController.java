@@ -109,5 +109,24 @@ public class NZInternationalPageController {
                 getController();
         controller.initData(this.stringSpeaker);
     }
+
+    public void onResetClick(ActionEvent event) throws Exception {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Reset confirmation");
+        alert.setHeaderText("Are you sure you want to reset?");
+        alert.setContentText("All winnings will be removed and questions reset\nThere is no way to reverse this");
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("/main/java/quinzical/css/style.css").toExternalForm());
+        dialogPane.getStyleClass().add("alert");
+        Optional<ButtonType> buttonType = alert.showAndWait();
+        if (buttonType.isPresent() && buttonType.get() == ButtonType.OK) {
+            this.game.resetGame();
+            this.game.saveGame();
+        }
+        NZInternationalPageController controller = sceneSwitcher.switchScene(event, "/main/java/quinzical/games/resources/NZInternationalPage.fxml").
+                getController();
+        controller.initData(this.game, this.stringSpeaker);
+    }
 }
 
