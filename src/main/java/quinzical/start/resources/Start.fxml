@@ -8,35 +8,30 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseReleased="#onSliderChanged" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.quinzical.start.StartController">
    <children>
-      <Label layoutX="172.0" layoutY="48.0" text="Quinzical">
+      <Label layoutX="172.0" layoutY="59.0" text="Quinzical">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Label>
-      <Button layoutX="225.0" layoutY="124.0" mnemonicParsing="false" onAction="#onPlayClick" prefHeight="30.0" prefWidth="150.0" text="Play">
+      <Button layoutX="225.0" layoutY="135.0" mnemonicParsing="false" onAction="#onPlayClick" prefHeight="30.0" prefWidth="150.0" text="Play">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button layoutX="225.0" layoutY="167.0" mnemonicParsing="false" onAction="#onPracticeClick" prefHeight="30.0" prefWidth="150.0" text="Practice">
+      <Button layoutX="225.0" layoutY="178.0" mnemonicParsing="false" onAction="#onPracticeClick" prefHeight="30.0" prefWidth="150.0" text="Practice">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Slider fx:id="voiceSpeedSlider" layoutX="177.0" layoutY="294.0" majorTickUnit="0.5" max="2.0" minorTickCount="2" onMouseReleased="#onSliderChanged" prefHeight="54.0" prefWidth="248.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
-      <Label layoutX="86.0" layoutY="298.0" prefHeight="20.0" prefWidth="91.0" text="Voice speed:">
+      <Slider fx:id="voiceSpeedSlider" layoutX="178.0" layoutY="270.0" majorTickUnit="0.5" max="2.0" minorTickCount="2" onMouseReleased="#onSliderChanged" prefHeight="54.0" prefWidth="248.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+      <Label layoutX="87.0" layoutY="274.0" prefHeight="20.0" prefWidth="91.0" text="Voice speed:">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Button layoutX="425.0" layoutY="295.0" mnemonicParsing="false" onAction="#onTestSpeedClick" prefHeight="30.0" text="Test speed" />
-      <Button fx:id="quitButton" layoutX="226.0" layoutY="353.0" mnemonicParsing="false" onAction="#onQuitClick" prefHeight="33.0" prefWidth="150.0" text="Quit">
+      <Button layoutX="426.0" layoutY="271.0" mnemonicParsing="false" onAction="#onTestSpeedClick" prefHeight="30.0" text="Test speed" />
+      <Button fx:id="quitButton" layoutX="227.0" layoutY="329.0" mnemonicParsing="false" onAction="#onQuitClick" prefHeight="33.0" prefWidth="150.0" text="Quit">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button layoutX="226.0" layoutY="209.0" mnemonicParsing="false" onAction="#onLeaderboardClick" prefHeight="30.0" prefWidth="150.0" text="Leaderboard">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="226.0" layoutY="252.0" mnemonicParsing="false" onAction="#onLeaderboardClick" prefHeight="30.0" prefWidth="150.0" text="Reset">
+      <Button layoutX="226.0" layoutY="220.0" mnemonicParsing="false" onAction="#onLeaderboardClick" prefHeight="30.0" prefWidth="150.0" text="Leaderboard">
          <font>
             <Font size="18.0" />
          </font>
