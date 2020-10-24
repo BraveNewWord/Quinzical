@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import main.java.quinzical.model.HighScores;
 import main.java.quinzical.model.Score;
 import main.java.quinzical.utility.SceneSwitcher;
 import main.java.quinzical.model.GameManager;
@@ -35,7 +36,7 @@ public class RewardController {
      * Creates a TextInputDialog that user can enter their name into
      * to submit for the leaderboard
      */
-    public void onSubmitScore() throws IOException {
+    public void onSubmitScore() throws Exception {
         // Dialog creation
         TextInputDialog submitScoreDialog = new TextInputDialog();
         submitScoreDialog.setTitle("Submit score");
@@ -54,15 +55,18 @@ public class RewardController {
             if (result.isPresent()) {
                 TextField textField = submitScoreDialog.getEditor();
                 String userName = textField.getText();
+
                 if (userName != null && !userName.strip().isEmpty()) {
-                    System.out.println(textField.getText());
-                    Score newScore = new Score(userName, this.game);
+                    Score newScore = new Score(userName, this.game.getPoints(),
+                            this.game.getGameMode());
+                    HighScores highScores = new HighScores();
+                    highScores.addScore(newScore);
+                    highScores.printScores();
                     done = true;
                 } else {
-                    dialogPane.setHeaderText("Try again");
+                    dialogPane.setHeaderText("Please try again");
                 }
             } else {
-                System.out.println("cancelled");
                 done = true;
             }
         }

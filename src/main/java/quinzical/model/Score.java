@@ -7,16 +7,25 @@ public class Score implements Serializable {
     private int scoreValue;
     private String section;
 
-    public Score(String userName, GameManager game) {
+    public Score(String userName, int scoreValue, GameManager.GameMode gameMode) {
         this.userName = userName;
-        this.scoreValue = game.getPoints();
-        switch (game.getGameMode()) {
+        this.scoreValue = scoreValue;
+        switch (gameMode) {
             case NEW_ZEALAND:
                 this.section = "New Zealand";
+                break;
             case INTERNATIONAL:
                 this.section = "International";
+                break;
             case NONE:
                 this.section = "None";
         }
+    }
+
+    public void printScore() {
+        System.out.println("----------------\n" +
+                "Name: " + this.userName + "\n" +
+                "Score: " + scoreValue + "\n" +
+                "Section: " + section);
     }
 }
