@@ -93,14 +93,37 @@
 	-fx-font-weight: bold;
 }
 
-.table-view .scroll-bar * {
+.table-view .scroll-bar:horizontal {
 	-fx-min-width: 0;
 	-fx-pref-width: 0;
 	-fx-max-width: 0;
-
 	-fx-min-height: 0;
 	-fx-pref-height: 0;
 	-fx-max-height: 0;
+}
+
+.table-view .scroll-bar .increment-button ,
+.table-view .scroll-bar .decrement-button {
+	-fx-background-color :transparent;
+	-fx-background-radius : 0.0em;
+	-fx-padding :0.0 10.0 0.0 0.0;
+
+}
+.table-view .scroll-bar .increment-arrow,
+.table-view .scroll-bar .decrement-arrow{
+	-fx-shape : " ";
+	-fx-padding :0.15em 0.0;
+}
+
+.table-view .scroll-bar:vertical .thumb {
+	-fx-background-color: dark-background-color;
+}
+
+.table-view .scroll-bar {
+	-fx-background-color: light-background-color;
+}
+.table-row-cell{
+	-fx-table-cell-border-color:dark-background-color;
 }
 
 .table-view .column-header .label{
