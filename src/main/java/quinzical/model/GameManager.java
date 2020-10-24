@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-
+/**
+ * GameManager is a class that acts to manage parts of the Games Module
+ * Responsibilities include: keeping score, keeping track of questions answered
+ * GameManager objects are used to pass game data between scenes when switching scenes
+ */
 public class GameManager implements Serializable {
     public enum GameMode {
         NONE,
@@ -22,10 +26,10 @@ public class GameManager implements Serializable {
     private boolean internationalUnlocked = false;
     private boolean twoCategoriesComplete = false;
 
-    /**
-     * GameManager is a class that acts to manage parts of the Games Module
-     * Responsibilities include: keeping score, keeping track of questions answered
-     * GameManager objects are used to pass game data between scenes when switching scenes
+    /*
+     * GameManger constructor attempts to open a game-data file which can be loaded
+     * into a new GameManager object
+     * If no file is found, the new GameManger uses default values above
      */
     public GameManager() {
         try {
@@ -62,7 +66,6 @@ public class GameManager implements Serializable {
     /**
      * This method detects for a categories folder and reads the category text files within them
      * These categories and questions are transcribed to Category and Question objects
-     * @throws Exception
      * @param dirName
      */
     public void readCategories(String dirName) {
@@ -121,6 +124,12 @@ public class GameManager implements Serializable {
     public List<Category> getChosenCategories() {
         return this.chosenCategories;
     }
+
+    /**
+     * Counts the number of categories which have no questions remaining (they are complete)
+     * If two categories are complete, GameManger remembers this as this
+     * is when the International section is unlocked for the first time
+     */
     public void countCategoriesComplete() {
         if (!this.twoCategoriesComplete) {
             int nCategoriesComplete = 0;
