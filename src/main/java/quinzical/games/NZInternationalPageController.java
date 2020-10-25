@@ -30,6 +30,8 @@ public class NZInternationalPageController {
         this.game.countCategoriesComplete();
         if (this.game.getTwoCategoriesComplete()) {
             this.internationalButton.setDisable(false);
+        } else {
+            this.internationalButton.setDisable(true);
         }
     }
     /**
