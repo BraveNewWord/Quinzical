@@ -19,7 +19,7 @@ public class PracticeAnswerController {
 	@FXML private TextField text;
 	@FXML private Button submit, replay, exit;
 	private PracticeManager pm;
-	private int caretPostion = 0;
+	private int caretPosition = 0;
 	private int numAttempts;
 	private String input;
 	private StringSpeaker stringSpeaker;
@@ -39,7 +39,7 @@ public class PracticeAnswerController {
 	}
 
 	public void checkAnswerOnEnterKey(KeyEvent keyEvent) throws Exception {
-		this.caretPostion = text.getCaretPosition()+1;
+		this.caretPosition = text.getCaretPosition()+1;
 		if (keyEvent.getCode() == KeyCode.ENTER) {
 			onSubmitClick(keyEvent);
 		}
@@ -117,7 +117,7 @@ public class PracticeAnswerController {
 	}
 
 	public void onTextBoxClick() {
-		this.caretPostion = text.getCaretPosition();
+		this.caretPosition = text.getCaretPosition();
 	}
 
 	/**
@@ -129,14 +129,14 @@ public class PracticeAnswerController {
 	public void onVowelClick(Event event) {
 		String vowel = ((Button) event.getSource()).getText();
 		try {
-			this.text.insertText(this.caretPostion, vowel);
+			this.text.insertText(this.caretPosition, vowel);
 			this.text.requestFocus();
-			this.text.positionCaret(this.caretPostion+1);
+			this.text.positionCaret(this.caretPosition +1);
 		} catch (IndexOutOfBoundsException ex) {
 			this.text.insertText(0, vowel);
 			this.text.requestFocus();
 			this.text.positionCaret(1);
 		}
-		this.caretPostion = text.getCaretPosition();
+		this.caretPosition = text.getCaretPosition();
 	}
 }

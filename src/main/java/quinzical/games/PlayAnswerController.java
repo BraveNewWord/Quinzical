@@ -2,13 +2,13 @@ package main.java.quinzical.games;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 import main.java.quinzical.model.GameManager;
@@ -28,7 +28,7 @@ public class PlayAnswerController {
     @FXML private Label timeLabel;
     @FXML private Pane interactablesPane;
 
-    private int caretPostion = 0;
+    private int caretPosition = 0;
     private final int initTime = 30;
     private int timeRemaining = initTime;
     private Timeline timeline = new Timeline(
@@ -53,13 +53,13 @@ public class PlayAnswerController {
         // Timer setup
         this.timeLabel.setText(String.valueOf(timeRemaining));
         this.timeline.setCycleCount(initTime);
-        this.timeline.setOnFinished(e -> {
+        this.timeline.setOnFinished(e -> Platform.runLater(() -> {
             try {
-                this.returnOrFinish();
+                returnOrFinish();
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
-        });
+        }));
     }
 
     /**
@@ -132,16 +132,19 @@ public class PlayAnswerController {
         this.stringSpeaker.stopSpeak();
         this.timeline.stop();
         this.game.getCurrentQuestion().setAnswered(true);
+
+        // display an Out of time alert to user if they ran out of time
         if (this.timeRemaining == 0) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Out of Time!");
+            Question currentQuestion = this.game.getCurrentQuestion();
+            Alert alert = new AlertBuilder()
+                    .answerType(AlertBuilder.AnswerType.PLAY_INCORRECT)
+                    .trueAnswer(currentQuestion.getAnswers()).build();
+            alert.setTitle("Out of time!");
             alert.setHeaderText("You ran out of time!");
-            DialogPane dialogPane = alert.getDialogPane();
-            dialogPane.getStylesheets().add(
-                    getClass().getResource("/main/java/quinzical/css/style.css").toExternalForm());
-            dialogPane.getStyleClass().add("alert");
-            alert.show();
+            alert.setAlertType(Alert.AlertType.INFORMATION);
+            alert.showAndWait();
         }
+
         if (!this.game.questionsExist()) {
             RewardController controller = sceneSwitcher.switchScene(this.timeLabel, "/main/java/quinzical/games/resources/Reward.fxml").
                     getController();
@@ -165,7 +168,7 @@ public class PlayAnswerController {
      * Also tracks the textbox caret location
      */
     public void checkAnswerOnEnterKey(KeyEvent keyEvent) throws Exception {
-        this.caretPostion = answerTextBox.getCaretPosition()+1;
+        this.caretPosition = answerTextBox.getCaretPosition()+1;
         if (keyEvent.getCode() == KeyCode.ENTER) {
             onSubmitClick(keyEvent);
         }
@@ -175,7 +178,7 @@ public class PlayAnswerController {
      * Tracks the caret location when the textbox is clicked on
      */
     public void onTextBoxClick() {
-        this.caretPostion = answerTextBox.getCaretPosition();
+        this.caretPosition = answerTextBox.getCaretPosition();
     }
 
     /**
@@ -187,17 +190,17 @@ public class PlayAnswerController {
     public void onVowelClick(Event event) {
         String vowel = ((Button) event.getSource()).getText();
         try {
-            this.answerTextBox.insertText(this.caretPostion, vowel);
+            this.answerTextBox.insertText(this.caretPosition, vowel);
             this.answerTextBox.requestFocus();
-            this.answerTextBox.positionCaret(this.caretPostion+1);
+            this.answerTextBox.positionCaret(this.caretPosition +1);
         } catch (IndexOutOfBoundsException ex) {
             this.answerTextBox.insertText(0, vowel);
             this.answerTextBox.requestFocus();
             this.answerTextBox.positionCaret(1);
         }
         this.answerTextBox.requestFocus();
-        this.answerTextBox.positionCaret(this.caretPostion+1);
-        this.caretPostion = answerTextBox.getCaretPosition();
+        this.answerTextBox.positionCaret(this.caretPosition +1);
+        this.caretPosition = answerTextBox.getCaretPosition();
     }
 
 
