@@ -1,5 +1,5 @@
 # Quinzical
-
+A quiz game application that allows players to learn more about New Zealand
 ## Intro
 Quinzical is a quiz game application that allows players to learn more about New Zealand. The Quinzical quiz format is inspired by the Jeopardy! quiz game format.<br>
 There are two modules: The <b>Games module</b> and the <b>Practice module</b> <br>
